@@ -1,0 +1,184 @@
+.choose__place__modal__box {
+    width: 100vw;
+    height: 100vh;
+ 
+
+    & .header {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+    
+        & .arrow_box {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.17);
+            text-align: center;
+            margin-left: 10px;
+    
+            .arrow_example_1 {
+                width: 10px;
+                height: 10px;
+                border-top: 2px solid white !important;
+                border-right: 2px solid white !important;
+                transform: rotate(-135deg);
+                display: inline-block;
+                margin-top: 18px;
+                margin-left: 3px;
+                transition: 0.15s;
+            
+                &:hover {
+                    cursor: pointer;
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+                    border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+                }
+            }
+        }
+    }
+    .order__land__footer {
+        height: 244px;
+        margin-top: calc(100vh - 315px);
+        background: rgba(86, 86, 86, 0.4);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & .price {
+            border-radius: 2px;
+            padding: 5px;
+            background: rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(60px);
+            border-radius: 2px;
+            margin-right: 10px;
+        }
+        & .price__box {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            width: 356px;
+            height: 182px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-family: 'Inter';
+            font-style: normal;
+        }
+
+        & .cont__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 484px;
+            height: 192px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(60px);
+            border-radius: 2px;
+
+            & button {
+                border: 0px;
+                width: 468px;
+                height: 176px;
+                background: rgba(28, 241, 255, 0.1);
+                border-radius: 2px;
+                font-size: 14px;
+
+                &:hover {
+                    cursor: pointer;
+                    background: #1CF1FF;
+                }
+            }
+        }
+        & .place__status {
+            width: 427px;
+            height: 192px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(60px);
+            border-radius: 2px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 29px;
+            text-transform: uppercase;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+        }
+        & .info__about__owner__of__place {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 538px;
+            height: 192px;
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(60px);
+            border-radius: 2px;
+            color: #FFFFFF;
+            font-family: 'Inter';
+            font-style: normal;
+            font-size: 24px;
+            margin-right: 10px;
+
+            & .text {
+                margin-left: 80px;
+            }
+            & img {
+                width: 168px;
+                height: 168px;
+                border: 2px;
+                margin-left: 100px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1865px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .cont__button {
+                width: 330px;
+                
+                & button {
+                    width: 320px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1713px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .place__status {
+                width: 330px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1613px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .info__about__owner__of__place {
+                width: 340px;
+                & img {
+                    width: 98px;
+                    height: 98px;
+                    margin-left: 40px;
+                }
+                & .text {
+                    margin-left: 00px;
+                }
+            }
+        }
+    }
+}

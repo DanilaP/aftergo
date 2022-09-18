@@ -1,0 +1,104 @@
+@import "@fontsource/jura";
+
+.modal.active {
+    opacity: 1;
+    display: block;
+}
+.modal {
+    opacity: 0;
+    display: none;
+}
+@keyframes rotateBlock {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}
+
+.krug {
+    width: 75px;
+    height: 75px;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+    border-radius: 50%;
+    animation: rotateBlock 3s infinite;
+}
+.krug2 {
+    width: 65px;
+    height: 65px;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-radius: 50%;
+    margin: 3px;
+    animation: rotateBlock 1.5s infinite;
+}
+.modal__box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(25px);
+    height: 100vh;
+    margin: 0 auto;
+
+    & .header {
+        display: flex;
+        
+        & img {
+            margin-top: 270px;
+        }
+    }
+
+    & .logo__text {
+        text-align: center;
+        font-family: 'Jura', sans-serif;
+        font-weight: 300;
+        color: #FFFFFF;
+        font-size: 100px;
+        letter-spacing: 0.135em;
+        margin-top: 300px;
+        font-style: medium;
+    }
+
+    & button {
+        width: 90px;
+        height: 90px;
+        border: 0px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        margin-top: 60px;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    & .footer {
+        color: white;
+        font-size: 24px;
+        font-family: 'Jura';
+        font-style: normal;
+        font-weight: 100;
+        line-height: 22px;
+        letter-spacing: 13.5%;
+        bottom: 0;
+        margin-top: -100px;
+        position: fixed;
+        height: 100px;
+    }
+}
+@media screen and (max-width: 460px) {
+    .modal__box {
+        & .logo__text {
+            font-size: 40px;
+        }
+        & img {
+            width: 74px;
+            height: 121px;
+        }
+    }
+}
+

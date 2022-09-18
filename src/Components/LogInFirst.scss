@@ -1,0 +1,290 @@
+@import "@fontsource/jura";
+
+.questionText {
+    width: 203px;
+    height: 178px;
+    position: absolute;
+    margin-left: calc(100vw - 258px);
+    margin-top: 280px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(20px);
+    color: #FFFFFF;
+    padding: 10px;
+
+    & .head__text {
+        font-size: 14px;
+        text-transform: uppercase;
+        font-family: 'Inter';
+        font-style: normal;
+    }
+    & .main__text__question {
+        font-size: 13px;
+    }
+}
+.questionText__not__active {
+    display: none;
+}
+
+
+
+.third__modal__box {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px); 
+    
+    .header {
+        padding-top: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+
+        & .arrow_box {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.17);
+            text-align: center;
+            margin-left: 10px;
+    
+            & .arrow_example_1 {
+                width: 10px;
+                height: 10px;
+                border-top: 2px solid white !important;
+                border-right: 2px solid white !important;
+                transform: rotate(-135deg);
+                display: inline-block;
+                margin-top: 18px;
+                margin-left: 3px;
+                transition: 0.15s;
+
+                &:hover {
+                    cursor: pointer;
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+                    border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+                }
+            }
+        }
+        .questionBox {
+            display: flex;
+            align-items: center;
+            margin-left: calc(50vw - 200px);
+            
+            & button {
+                width: 167px;
+                height: 44px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
+                backdrop-filter: blur(20px);
+                background: rgba(0, 0, 0, 0.2);
+                color: white;
+                font-family: 'Inter';
+                font-style: normal;
+                font-size: 14px;
+                text-align: left;
+                padding-left: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            & .questionImg {
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.2);
+                backdrop-filter: blur(4px);
+                background-image: url(../Icons/questionIcon.png);
+                background-repeat: no-repeat;
+                background-size: 20px;
+                background-position: center;
+                margin-left: -35px;
+            }
+        }
+    }
+    
+    & .main__part__of__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 80vh;
+    }
+    
+    .register__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -30px;
+            margin-bottom: 100px;
+    
+            & .logo__text {
+                font-family: 'Jura';
+                font-style: normal;
+                font-size: 21.6565px;
+                letter-spacing: 0.135em;
+                color: white;
+            }
+        }
+        & .error__input {
+            border: 1px solid #ff00008c;
+        }
+        & input {
+            font-family: 'Inter';
+            font-style: normal;
+            height: 64px;
+            width: 422px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.88);
+            border: 1px;
+            margin-bottom: 10px;
+            padding-left: 30px;
+            transition: 0.5s;
+            font-size: 15px;
+            line-height: 18px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.88);
+                font-family: 'Inter';
+                font-style: normal;
+                opacity: 0.5;
+                font-size: 15px;
+                line-height: 18px;
+            }
+
+            &:focus {
+                outline: none;
+                border: 1px solid white;
+                box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+            }
+        }
+        & button {
+            margin-top: -15px;
+            height: 116px;
+            width: 116px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px;
+            color: white;
+            font-family: 'Inter';
+            font-style: normal;
+            transition: 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            
+            &:hover {
+                border: 1px solid #1CF1FF;
+                box-shadow: 0px 0px 60px rgba(28, 241, 255, 0.4);
+                cursor: pointer;
+            }
+        }
+    }   
+
+    .social__auth {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        bottom: 25px;
+
+        & button {
+            width: 110px;
+            height: 64px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin: 5px;
+            transition: 0.5s;
+
+            &:hover {
+                border: 1px solid white;
+                box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+                cursor: pointer;
+            }
+        }
+        & .discord__button {
+            & img {
+                width: 24px;
+                height: 24px;
+            }    
+        }
+        & .google__button {
+            & img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        & .facebook__button {
+            & img {
+                width: 23px;
+                height: 23px;
+            }
+        }
+        & .twitter__button {
+            & img {
+                width: 23px;
+                height: 18px;
+            }
+        }
+    }
+    & .errors__message {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 47px;
+        min-height: 32px;
+        width: 362px;
+        color: red;
+        background: white;
+        box-shadow: 0px 0px 24px rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        margin: 0 auto;
+
+        & img {
+            width: 21px;
+            height: 21px;
+            margin-right: 10px;
+        }
+    }
+    & .forget__password {
+        color: white;
+        text-align: center;
+        transition: 0.5s;
+        margin-top: 32px;
+        margin-bottom: 48px;
+        opacity: 0.5;
+
+        &:hover {
+            cursor: pointer;
+            color: rgba(0, 233, 250, 0.803);
+        }
+    }
+}
+
+
+@media screen and (max-width: 480px) {
+    .third__modal__box {
+        & .register__box {
+            & input {
+                width: 320px;
+            }
+        }
+        & .social__auth {      
+            margin-top: 20px;
+        }
+        & .errors__message {
+            width: 260px;
+        }
+    }
+}

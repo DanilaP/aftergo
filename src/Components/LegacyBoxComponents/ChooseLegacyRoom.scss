@@ -1,0 +1,209 @@
+.choose__legacy__room__modal__box {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(25px);
+
+        & .header {
+            padding-top: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+    
+            & .arrow_box {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.17);
+                text-align: center;
+                margin-left: 10px;
+    
+                .arrow_example_1 {
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid white !important;
+                    border-right: 2px solid white !important;
+                    transform: rotate(-135deg);
+                    display: inline-block;
+                    margin-top: 18px;
+                    margin-left: 3px;
+                    transition: 0.15s;
+                
+                    &:hover {
+                        cursor: pointer;
+                        width: 10px;
+                        height: 10px;
+                        border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+                        border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+                    }
+                }
+            }
+        }
+        & .choose__room__box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter';
+            font-style: normal;
+            width: 1232px;
+            height: 882px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin: 0 auto;
+            
+            & .header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-family: 'Inter';
+                font-style: normal;
+    
+                & .big__text {
+                    font-size: 24px;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                    margin-bottom: 16px;
+                }
+                & .small__text {
+                    font-size: 14px;
+                }
+            }
+            & .rooms {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                margin-top: 16px;
+    
+                & img {
+                    width: 284px;
+                    height: 333px;
+                    margin: 8px;
+
+                    &:focus {
+                        border: 2px solid #5CFFEB;
+                        margin: 4px;
+                        filter: drop-shadow(0px 0px 70px rgba(92, 255, 235, 0.25));
+                        border-radius: 2px;
+                        cursor: pointer;
+                    }
+                }
+            }
+            & .custom__room {
+                margin-bottom: 48px;
+    
+                & div {
+                    font-size: 24px;
+                    color: white;
+                    padding: 12px;
+                    background: rgba(0, 0, 0, 0.2);
+                    box-shadow: 0px 0px 86px rgba(255, 255, 255, 0.4);
+                    width: 350px;
+                    text-align: center;
+                    border: 1px solid white;
+                    position: absolute;
+                    margin-left: 400px;
+                    margin-top: 60px;
+                }
+                & img {
+                    width: 1184px;
+                    height: 162px;
+                    margin-top: 8px;
+
+                    &:focus {
+                        width: 1180px;
+                        margin: 4px;
+                        border: 2px solid #5CFFEB;
+                        box-shadow: (0px 0px 70px rgba(92, 255, 235, 0.25));
+                        border-radius: 2px;
+                        cursor: pointer;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+    
+            & .cont__button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+    
+                & button {
+                    width: 116px;
+                    height: 116px;
+                    border-radius: 50%;
+                    background: rgba(255, 255, 255, 0.1);
+                    border: 1px solid rgba(255, 255, 255, 0.25);
+                    color: white;
+                    
+                    &:hover {
+                        border: 1px solid #1CF1FF;
+                        cursor: pointer;
+                        box-shadow: 0px 0px 60px rgba(28, 241, 255, 0.4);
+                    }
+                }
+            }
+        }
+    }
+
+@media screen and (max-width: 1919px) {
+    .choose__legacy__room__modal__box {
+        & .choose__room__box {
+            width: 932px;
+            height: 720px;
+            margin-top: calc(50vh - 420px);
+
+            & .big__text {
+                margin-top: -48px;
+            }
+            & .rooms {
+                & img {
+                    width: 184px;
+                    height: 250px;
+                    margin: 8px;
+                    
+                    &:focus {
+                        width: 184px;
+                        height: 246px;
+                        margin: 4px;
+                        border: 2px solid #5CFFEB;
+                        filter: drop-shadow(0px 0px 70px rgba(92, 255, 235, 0.25));
+                        border-radius: 2px;
+                        cursor: pointer;
+                    }
+                }   
+            }
+            & .custom__room {
+                & img {
+                    width: 784px;
+
+                    &:focus {
+                        width: 780px;
+                        margin: 4px;
+                        border: 2px solid #5CFFEB;
+                        box-shadow: (0px 0px 70px rgba(92, 255, 235, 0.25));
+                        border-radius: 2px;
+                        cursor: pointer;
+                    }
+                }
+                & div {
+                    margin-left: 200px;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+            & .cont__button {
+                margin-top: -32px;
+
+                & button {
+                    width: 106px;
+                    height: 106px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,294 @@
+.friend__main {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px); 
+    font-family: 'Inter';
+    font-style: normal;
+
+    & .input__checkbox {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #FFFFFF;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 2px;
+        margin-bottom: 3px;
+        margin-left: 20px;
+        margin-top: 3px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    & .legacy__friend__data__box {
+        & .main__block {
+            display: flex;
+            flex-direction: column;
+
+            & .friend__data {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-family: 'Inter';
+                font-style: normal;
+                background: rgba(0, 0, 0, 0.2);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                width: 1232px;
+                height: 594px;
+                margin: 0 auto;
+                margin-top: 24px;
+                
+                & .big__text {
+                    font-size: 24px;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                }
+                & .small__text {
+                    text-align: center;
+                    font-size: 13px;
+                    margin-top: 12px;
+                    margin-bottom: 32px;
+                }
+                & .main__content__of__data__fields {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+
+                    & div {
+                        margin: 5px;
+                        
+                        & input {
+                            background: rgba(0, 0, 0, 0.2);
+                            border-radius: 2px;
+                            width: 430px;
+                            height: 62px;
+                            border: 0px;
+                            padding-left: 20px;
+                            font-family: 'Inter';
+                            font-style: normal;
+                            color: white;
+
+                            &::placeholder {
+                                color: white;
+                                opacity: 0.9;
+                            }
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                        & textarea {
+                            background: rgba(0, 0, 0, 0.2);
+                            border-radius: 2px;
+                            width: 430px;
+                            height: 115px;
+                            border: 0px;
+                            padding-left: 20px;
+                            padding-top: 20px;
+                            resize: none;
+                            font-family: 'Inter';
+                            font-style: normal;
+                            color: white;
+
+                            &::placeholder {
+                                color: white;
+                                opacity: 0.9;
+                            }
+                            &:focus {
+                                outline: none;
+                            }
+                        }
+                    }
+                    & .after__area__input {
+                        margin-top: -73px;
+                    }
+                    & .permitions {
+                        display: flex;
+
+                        &  .gift__to__friend {
+                            display: flex;
+                            align-items: center;
+                            justify-content: left;
+                            border: 1px solid #1CF1FF;
+                            padding: 6px;
+                            width: 438px;
+                            border-radius: 2px;
+                            background-color: rgba(28, 241, 255, 0.08);
+                            margin-left: -463px;
+                            
+                            & button {
+                                margin-left: 115px;
+                            }
+                            & div {
+                                width: 200px;
+                                color: white;
+                                font-family: 'Inter';
+                                margin-left: 30px;
+                                margin-top: -15px;
+                            }
+                            & .big__div {
+                                margin-top: -17px;
+                            }
+                            & .image3 {
+                                background-image: none;
+                            }
+                            & .image3.active3 {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                width: 20px;
+                                border-radius: 2px;
+                                height: 20px;
+                                background-image: url(../../Icons/checkbox.png);
+                                background-size: contain;
+                                margin-left: -7px;
+                                margin-top: -2px;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                            }
+                        }
+                        & .main__form__text {
+                            border: 1px solid white;
+                            padding: 10px;
+                            text-align: center;
+                            font-size: 13px;
+                            color: white;
+                            border-radius: 2px;
+                            width: 428px;
+                        }   
+                    }
+                    .privacy__legacy {
+                        display: flex;
+                        & .image2 {
+                            background-image: none;
+                        }
+                        & .image2.active2 {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 20px;
+                            border-radius: 2px;
+                            height: 20px;
+                            background-image: url(../../Icons/checkbox.png);
+                            background-size: contain;
+                            margin-left: -7px;
+                            margin-top: -2px;
+                            background-repeat: no-repeat;
+                            background-position: center;
+                        }
+                        & label {
+                            margin-left: 20px;
+                        }
+                        & .new__label {
+                            color: #1CF1FF;
+                            text-decoration: underline;
+                            margin-left: 0;
+                        }
+                    }
+                }
+                & .buy__button {
+                    position: inherit;
+                    margin-top: 40px;
+
+                    & button {
+                        width: 452px;
+                        border: 0px;
+                        border-radius: 2px;
+                        height: 64px;
+                        color: #ffffff7e;
+                        background: rgba(28, 241, 255, 0.1);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1919px) {
+    .friend__main {
+        & .legacy__friend__data__box {
+            & .main__block {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                justify-content: center;
+                & .header {
+                    position: fixed;
+                    top: 0;
+                }
+                & .friend__data {
+                    width: 1000px;
+                    height: 394px;
+                    margin-top: 15px;   
+                    overflow-y: scroll;
+                    scrollbar-color: #1CF1FF;
+
+                    &::-webkit-scrollbar {
+                        width: 3px;
+                        background-color: #62a34b7e;
+                    }
+                    &::-webkit-scrollbar-thumb {
+                        background-color: #1cf0ff;
+
+                    }
+                    & .big__text {
+                        font-size: 24px;
+                        margin-top: 160px;
+                    }
+                    & .small__text {
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        font-size: 14px;
+                        margin-bottom: 24px;
+                    }
+                    
+                    
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1190px) {
+    .friend__main {
+        & .legacy__friend__data__box {
+            & .main__block {
+                & .friend__data {
+                    width: 900px;
+                    & .big__text {
+                        margin-top: 192px;
+                    }
+                    & .main__content__of__data__fields {
+                        & div {
+                            text-align: center;
+                            & input {
+                                width: 400px;
+                                margin-left: 10px;
+                            }
+                            & textarea {
+                                width: 400px;
+                                margin-left: 10px;
+                            }
+                        }
+                        & .permitions {
+                            margin-left: 60px;
+                            & .main__form__text {
+                                width: 400px;
+                                margin-left: 20px;
+                            }
+                            & .gift__to__friend {
+                                width: 408px;
+                                margin-left: -490px;
+                            }
+                        }
+                    }
+                    & .buy__button {
+                        & button {
+                            width: 424px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+    

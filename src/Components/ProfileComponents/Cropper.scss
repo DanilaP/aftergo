@@ -1,0 +1,62 @@
+.cropper__modal__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+
+    & .crop__box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        flex-direction: column;
+        width: 796px;
+        height: 931px;
+        background: rgba(52, 52, 52, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        //overflow-y: scroll;
+        scrollbar-color: #1CF1FF;
+
+        & .header {
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 24px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+            line-height: 29px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #FFFFFF;
+        }
+        &::-webkit-scrollbar {
+            width: 3px;
+            background-color: #62a34b7e;
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: #1cf0ff;
+        }
+
+        & button {
+            width: 452px;
+            height: 64px;
+            color: black;
+            background: #1CF1FF;
+            border-radius: 2px;
+            border: 0px;
+            margin-top: 32px;
+            margin-bottom: 32px;
+        }
+    }
+}
+@media screen and (max-width: 1919px) {
+    .cropper__modal__box {
+        & .crop__box {
+            height: 631px;
+        }
+    }
+}

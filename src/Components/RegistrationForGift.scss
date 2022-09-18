@@ -1,0 +1,279 @@
+@import "@fontsource/jura";
+.registerGift__modal__box {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px); 
+
+
+    & .header {
+        width: 100vw;
+        display: grid;
+        
+        & .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -20px;
+
+            & .logo__text {
+                font-family: 'Jura';
+                font-style: normal;
+                font-size: 21.6565px;
+                letter-spacing: 0.135em;
+                color: white;
+                margin-top: -20px;
+            }
+            & img {
+                margin-top: -40px;
+            }
+        }
+        
+    
+        & .arrow_box {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.17);
+            text-align: center;   
+            margin-left: 20px;
+            margin-top: 20px;
+
+            & .arrow_example_1 {
+                width: 10px;
+                height: 10px;
+                border-top: 2px solid white !important;
+                border-right: 2px solid white !important;
+                transform: rotate(-135deg);
+                display: inline-block;
+                margin-top: 18px;
+                margin-left: 3px;
+                transition: 0.15s;
+    
+                &:hover {
+                    cursor: pointer;
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+                    border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+                }
+            }
+        }
+    }
+
+    & .main__content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 80vh;
+        width: 100vw;   
+
+        & .text {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            color: white;
+            font-family: 'Inter';
+            font-style: normal;
+            letter-spacing: 0.12em;
+            margin-top: 5%;
+    
+            & .first__text {
+                font-family: 'Inter';
+                font-style: normal;
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            & .second__text {
+                font-family: 'Inter';
+                font-style: normal;
+                font-size: 14px;
+                margin-bottom: 35px;
+                letter-spacing: normal;
+            }
+            & .inputs {
+                display: flex;
+                flex-direction: column;
+                margin-top: 40px;
+
+                & input {
+                    height: 64px;
+                    width: 422px;
+                    background: rgba(0, 0, 0, 0.2);
+                    border-radius: 2px;
+                    font-size: 15px;
+                    color: white;
+                    border: 1px;
+                    margin-bottom: 5px;
+                    padding-left: 30px;
+                    transition: 0.5s;
+                    margin-top: 5px;
+    
+                    &::placeholder {
+                        color: #FFFFFF;
+                        font-family: 'Inter';
+                        font-style: normal;
+                        opacity: 0.9;
+                    }
+        
+                    &:focus {
+                        outline: none;
+                        border: 1px solid white;
+                        box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.4);
+                    }
+                }
+            }
+        }
+        & .permitions {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: 'Inter';
+            font-style: normal;
+            font-size: 13px;
+    
+            & .image1 {
+                background-image: none;
+            }
+            & .image1.active1 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                border-radius: 2px;
+                height: 20px;
+                background-image: url(../Icons/checkbox.png);
+                background-size: contain;
+                margin-left: -7px;
+                margin-top: -2px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            & .image2 {
+                background-image: none;
+            }
+            & .image2.active2 {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 20px;
+                border-radius: 2px;
+                height: 20px;
+                background-image: url(../Icons/checkbox.png);
+                background-size: contain;
+                margin-left: -7px;
+                margin-top: -2px;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+            & .input__checkbox {
+                width: 20px;
+                height: 20px;
+                border: 1px solid #FFFFFF;
+                margin-left: -350px;
+                margin-top: 20px;
+                background: rgba(255, 255, 255, 0.04);
+                border-radius: 2px;
+    
+                &:hover {
+                    cursor: pointer;
+                }
+                
+            }
+            & .second {
+                margin-top: -25px;
+            }
+            & label {
+                margin-top: -20px;
+                
+            }
+            & .cont__button {
+                margin-top: 40px;
+                height: 116px;
+                width: 116px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px;
+                color: white;
+                font-family: 'Inter';
+                font-style: normal;
+                transition: 0.5s;
+                font-size: 14px;
+                line-height: 17px;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                
+                &:hover {
+                    border: 1px solid #1CF1FF;
+                    box-shadow: 0px 0px 60px rgba(28, 241, 255, 0.4);
+                    cursor: pointer;
+                }
+            }
+            & .new__label {
+                color: #1CF1FF;
+                text-decoration: underline;
+            }
+        }
+        .errors__message {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 47px;
+            min-height: 32px;
+            width: 362px;
+            color: red;
+            background: linear-gradient(92.14deg, #FFFFFF -10.92%, #F2F2F2 14.66%, #FFFFFF 48.51%, #E4E4E4 107.53%);
+            box-shadow: 0px 0px 24px rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            display: none;
+    
+            & img {
+                width: 21px;
+                height: 21px;
+                margin-right: 10px;
+            }
+    
+        }
+    }
+}
+
+@media  screen and (max-width: 472px) {
+    .registerGift__modal__box {
+        & .header {
+            & .arrow_box {
+                margin-top: 10px;
+                margin-left: 5px;
+            }
+        }
+        & .main__content {
+            & .text {
+                & .inputs {
+                    & input {
+                        width: 320px;
+                    }
+                }
+            }
+            & .permitions {
+                & input {
+                    margin-left: -335px;
+                }
+                & label {
+                    margin-left: 10px;
+                }
+                & .new__label {
+                    margin-left: 0px;
+                }
+                & .input__checkbox {
+                    margin-left: -340px;
+                }
+                & .cont__button {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

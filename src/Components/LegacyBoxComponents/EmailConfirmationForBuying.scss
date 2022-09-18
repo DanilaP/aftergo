@@ -1,0 +1,114 @@
+.email__confirmation__modal__box {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .forget__box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 50vh;
+        color: white;
+        font-family: 'Inter';
+        font-style: normal;
+        background: rgba(52, 52, 52, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        width: 764px;
+        height: 656px;
+        
+        & .big__text {
+            font-size: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 0.12em;
+        }
+        & .small_text {
+            font-size: 12px;
+            letter-spacing: normal;
+        }
+        & .input__box {
+            display: flex;
+            align-items: center;
+            margin-top: 62px;
+
+            & input {
+                width: 74px;
+                height: 80px;
+                text-align: center;
+                color: white;
+                background: rgba(0, 0, 0, 0.2);
+                border: 0px;
+                border-radius: 2px;
+                margin: 10px;
+                font-size: 24px;
+                transition: 0.25s;
+
+                &:focus {
+                    outline: none;
+                    border: 1px solid #FFFFFF;
+                    box-shadow: 0px 0px 12px rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+        & .send__again__text {
+            display: flex;
+            align-items: center;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+        & .send__button {
+            & button {
+                margin-top: 40px;
+                height: 116px;
+                width: 116px;
+                border-radius: 50%;
+                background: rgba(255, 255, 255, 0.1);
+                border: 1px;
+                color: white;
+                font-family: 'Inter';
+                font-style: normal;
+                transition: 0.5s;
+                border: 1px solid rgba(255, 255, 255, 0.25);
+                
+                &:hover {
+                    border: 1px solid #1CF1FF;
+                    box-shadow: 0px 0px 60px rgba(28, 241, 255, 0.4);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 850px) {
+    .email__confirmation__modal__box {
+        & .forget__box {
+            margin-top: 100px;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .email__confirmation__modal__box {
+        & .forget__box {
+            margin-top: 100px;
+
+            & .big__text {
+                font-size: 19px;
+            }
+            & .small__text {
+                font-size: 11px;
+            }
+            & .input__box {
+                & input {
+                    width: 40px;
+                    height: 43px;
+                    margin: 5px;
+                    font-size: 19px;
+                }
+            }
+        }
+    }
+}

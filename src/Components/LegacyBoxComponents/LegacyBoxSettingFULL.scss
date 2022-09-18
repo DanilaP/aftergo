@@ -1,0 +1,297 @@
+.legacy__FULL__main__box {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(25px); 
+    font-family: 'Inter';
+    font-style: normal;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    
+    & .input__checkbox {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #FFFFFF;
+        background: rgba(255, 255, 255, 0.04);
+        border-radius: 2px;
+        margin-bottom: 3px;
+        margin-left: 20px;
+        margin-top: 3px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    & .personal__data {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: "Inter";
+        font-style: medium;
+        width: 1232px;
+        height: 594px;
+        background-color: rgba(0, 0, 0, 0.2);
+        margin: 0 auto;
+        margin-top: 24px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        overflow-y: scroll;
+
+        & .big__text {
+            font-size: 24px;
+            letter-spacing: 12%;
+            text-transform: uppercase;
+        }
+        & .small__text {
+            font-size: 13px;
+            text-align: center;
+            margin-top: 16px;
+        }
+        & .main__form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            margin-top: 24px;
+
+            & input {
+                width: 432px;
+                height: 64px;
+                border: 0px;
+                background-color: rgba(0, 0, 0, 0.2);
+                margin: 5px;        
+                padding-left: 20px;
+                font-family: "Inter";
+                font-style: medium;
+                color: white;
+                
+                &::placeholder {
+                    color: white;
+                    opacity: 0.9;
+                }
+                &:focus {
+                    outline: none;
+                }
+            }
+            & .main__form__text {
+                border: 1px solid white;
+                width: 442px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 5px;
+                font-size: 13px;
+                padding: 5px;
+            }
+            & .permitions {
+                display: flex;
+                width: 452px;
+
+                & .checkboxes {
+                    margin-left: -10px;
+                    margin-right: 20px;
+                    margin-top: 2px;
+                    display: flex;
+                    flex-direction: column;
+
+                    & .image1 {
+                        background-image: none;
+                    }
+                    & .image1.active1 {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        border-radius: 2px;
+                        height: 20px;
+                        background-image: url(../../Icons/checkbox.png);
+                        background-size: contain;
+                        margin-left: -7px;
+                        margin-top: -2px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                    & .image2 {
+                        background-image: none;
+                    }
+                    & .image2.active2 {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        width: 20px;
+                        border-radius: 2px;
+                        height: 20px;
+                        background-image: url(../../Icons/checkbox.png);
+                        background-size: contain;
+                        margin-left: -7px;
+                        margin-top: -2px;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                    }
+                }
+                & .texts__to__checkboxes {
+
+                    & div {
+                        font-size: 13px;
+                        margin-top: 5px;
+                    }
+                    & label {
+                        color: #1CF1FF;
+                        text-decoration: underline;
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+            & .gift__to__friend {
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                border: 1px solid #1CF1FF;
+                padding: 6px;
+                width: 440px;
+                margin-left: 5px;
+                margin-top: 6px;
+                background-color: rgba(28, 241, 255, 0.08);
+
+                & button {
+                    margin-left: 115px;
+                }
+                & div {
+                    width: 200px;
+                    color: white;
+                    font-family: 'Inter';
+                    margin-left: 30px;
+                    margin-top: -15px;
+                }
+                & .big__div {
+                    margin-top: -17px;
+                }
+                & .image3 {
+                    background-image: none;
+                }
+                & .image3.active3 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 20px;
+                    border-radius: 2px;
+                    height: 20px;
+                    background-image: url(../../Icons/checkbox.png);
+                    background-size: contain;
+                    margin-left: -7px;
+                    margin-top: -2px;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
+            }   
+        }
+        & .make__buy__button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 44px;
+
+            & button {  
+                height: 68px;
+                width: 450px;
+                border-radius: 2px;
+                border: 0px;
+                background-color: rgba(28, 241, 255, 0.1);
+                font-size: 14px;
+                color: rgba(255, 255, 255, 0.411);
+
+                &:hover {
+                    background-color: #1CF1FF;
+                    color: black;
+                }
+            }
+        }
+    }
+}  
+@media screen and (max-width: 1919px) {
+    .legacy__FULL__main__box {
+        & .main__block {
+            & .header {
+                position: fixed;
+                top: 0;
+            }
+        }
+        & .personal__data {
+            width: 1000px;
+            overflow-y: scroll;
+            height: 394px;
+            scrollbar-color: #1CF1FF;
+
+            &::-webkit-scrollbar {
+                width: 3px;
+                background-color: #62a34b7e;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #1cf0ff;
+            }
+            & .big__text {
+                margin-top: 144px;
+            }
+            & .small__text {
+                margin-bottom: 0px;
+            }
+            & .make__buy__button {
+                margin-bottom: 24px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1190px) {
+    .legacy__FULL__main__box {
+
+        & .personal__data {
+            width: 900px;
+            height: 394px;
+            overflow-y: scroll;
+            scrollbar-color: #1CF1FF;
+
+            &::-webkit-scrollbar {
+                width: 3px;
+                background-color: #62a34b7e;
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #1cf0ff;
+            }
+            & .big__text {
+                margin-top: 88px;
+                font-size: 24px;
+                text-align: center;
+            }
+            & .small__text {
+                margin-bottom: 24px;
+            }
+            & .make__buy__button {
+                margin-top: 8px;
+
+                & button {
+                    height: 60px;
+                }
+            }
+            & .main__form {
+                margin-top: -12px;
+                padding-left: 24px;
+
+                & input {
+                    width: 390px;
+                    height: 60px;
+                }
+                & .main__form__text {
+                    width: 399px;
+                }
+                & .gift__to__friend {
+                    width: 398px;
+                }
+            }
+            
+        }
+    }
+}
