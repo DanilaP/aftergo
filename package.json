@@ -27,7 +27,7 @@
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject",
-    "deploy:dev": "serve -s build -p 80"
+    "deploy:dev": "serve -s build -p 8080"
   },
   "eslintConfig": {
     "extends": [
