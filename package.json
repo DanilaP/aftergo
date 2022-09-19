@@ -24,10 +24,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "CI=false && react-scripts build",
+    "build": "CI=false && react-scripts build && sh deploy.sh",
     "test": "react-scripts test --passWithNoTests",
-    "eject": "react-scripts eject",
-    "deploy:dev": "serve -s build -p 8080"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
