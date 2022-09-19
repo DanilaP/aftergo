@@ -19,13 +19,15 @@
     "react-scripts": "5.0.1",
     "redux": "^4.2.0",
     "sass": "^1.54.5",
+    "serve": "^14.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test --passWithNoTests",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prod:dev": "serve -s build"
   },
   "eslintConfig": {
     "extends": [
