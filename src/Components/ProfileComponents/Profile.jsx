@@ -57,7 +57,7 @@ function Profile() {
                     lastName: newUserLastName,
                 }
             }
-            $api.patch('http://aftergo-dev.eastus.azurecontainer.io:3000/api/auth/me', userNewData)
+            $api.patch('https://aftergo-api-dev.azurewebsites.net/api/auth/me', userNewData)
             .then((response) => {
                 console.log("данные успешно сменены");
                 stopEditing();
@@ -77,7 +77,7 @@ function Profile() {
         oldPasswordInput.current.value = "oldpassword";
     }
     useEffect(() => {
-        $api.get('http://aftergo-dev.eastus.azurecontainer.io:3000/api/auth/me')
+        $api.get('https://aftergo-api-dev.azurewebsites.net/api/auth/me')
         .then((response) => {
             setUserData(response.data);
         })
@@ -90,7 +90,7 @@ function Profile() {
             let formData = new FormData();
             formData.append('file', avatar[0]);
 
-            $api.patch('http://aftergo-dev.eastus.azurecontainer.io:3000/api/auth/me/image', formData)
+            $api.patch('https://aftergo-api-dev.azurewebsites.net/api/auth/me/image', formData)
             .then((response) => {
                 dispatch({type: "SETUSERIMAGE", payload: response.data.image});
                 setUserData(response.data);

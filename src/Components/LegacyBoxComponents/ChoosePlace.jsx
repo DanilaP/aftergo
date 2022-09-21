@@ -7,13 +7,9 @@ import { useNavigate } from 'react-router-dom';
 function ChoosePlace() {
     const history = useNavigate();
     const continueToNext = () => {
-        //store.dispatch({type: "CHOOSEPLACEMODALBOX", payload: false});
-        //store.dispatch({type: "CHOOSETOMBSTONEMODALBOX", payload: true});
         history("/ChooseTombstone");
     }
     const toPrev = () => {
-        //store.dispatch({type: "CHOOSEPLACEMODALBOX", payload: false});
-        //store.dispatch({type: "ORDERLANDMODALBOX", payload: true});
         history("/OrderNewLand");
     }
   return (

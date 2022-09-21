@@ -23,7 +23,7 @@ function LogInFirst() {
             email: userEmail,
             password: userPassword,
         }
-        await axios.post('http://aftergo-dev.eastus.azurecontainer.io:3000/api/auth/email/login', user)
+        await axios.post('https://aftergo-api-dev.azurewebsites.net/api/auth/email/login', user)
             .then((response) => {
                 localStorage.setItem("userToken", response.data.token);
                 history("/ChooseLandMenu");

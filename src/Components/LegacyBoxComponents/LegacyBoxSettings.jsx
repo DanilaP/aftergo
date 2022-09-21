@@ -17,8 +17,6 @@ function LegacyBoxSettings() {
         
     }
     const toPrev = () => {
-        //store.dispatch({type: "LEGACYBOXSETTINGS", payload: false});
-        //store.dispatch({type: "CHOOSELEGACYROOMMODALBOX", payload: true});
         history("/ChooseLegacyRoom");
     }
     const activeFirstCheckbox = () => {

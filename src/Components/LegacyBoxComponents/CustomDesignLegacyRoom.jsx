@@ -5,8 +5,6 @@ import { useNavigate } from 'react-router-dom';
 function CustomDesignLegacyRoom() {
     const history = useNavigate();
     const toNext = () => {
-        //store.dispatch({type: "CUSTOMDESIGNLEGACYROOM", payload: false});
-        //store.dispatch({type: "LEGACYBOXSETTINGS", payload: true});
         history("/LegacyBoxSettingFULL");
     }
   return (

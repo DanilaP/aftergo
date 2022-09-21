@@ -15,19 +15,13 @@ function ChooseTombstone() {
 
     const continueToNext = () => {
         if (numberOfTomb == 6) {
-            //store.dispatch({type: "CHOOSETOMBSTONEMODALBOX", payload: false});
-            //store.dispatch({type: "TOMBSTONECUSTOM", payload: true});
             history("/CustomTombstoneDesign");
         }
         else {
-            //store.dispatch({type: "CHOOSETOMBSTONEMODALBOX", payload: false});
-            //store.dispatch({type: "CHOOSELEGACYROOMMODALBOX", payload: true});
             history("/ChooseLegacyRoom");
         }
     }
     const toPrev = () => {
-        //store.dispatch({type: "CHOOSETOMBSTONEMODALBOX", payload: false});
-        //store.dispatch({type: "CHOOSEPLACEMODALBOX", payload: true});
         history("/ChoosePlace");
     }
     const chooseTomb = (vector) => {

@@ -9,13 +9,9 @@ function OrderNewLand() {
     const history = useNavigate();
 
     const continueToNext = () => {
-        //store.dispatch({type: "ORDERLANDMODALBOX", payload: false});
-        //store.dispatch({type: "CHOOSEPLACEMODALBOX", payload: true});
         history("/ChoosePlace");
     }
     const toPrev = () => {
-        //store.dispatch({type: "ORDERLANDMODALBOX", payload: false});
-        //store.dispatch({type: "CHOOSELANDMODALBOX", payload: true});
         history("/ChooseLandMenu");
     }
     const toNextMap = () => {

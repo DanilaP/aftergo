@@ -23,7 +23,7 @@ function ForgetPasswordFirst() {
         let valid = rule.test(userEmail);
 
         if (valid) {    
-            await axios.post('http://aftergo-dev.eastus.azurecontainer.io:3000/api/auth/forgot/password', userEmail)
+            await axios.post('https://aftergo-api-dev.azurewebsites.net/api/auth/forgot/password', userEmail)
             .then((response) => {
                 setIsError(false);
                 setErrorMessage("");

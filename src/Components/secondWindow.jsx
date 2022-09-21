@@ -1,7 +1,4 @@
 import './secondWindow.scss';
-import { useRef } from 'react';
-import store from '../store';
-import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 function SecondWindow() {
