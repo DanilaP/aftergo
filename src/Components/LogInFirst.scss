@@ -275,6 +275,14 @@
 
 @media screen and (max-width: 480px) {
     .third__modal__box {
+        & .header {
+            & .questionBox {
+                margin-left: calc(50vw - 180px);
+            }
+            & .questionText {
+                margin-left: calc(50vw - 50px);
+            }
+        }
         & .register__box {
             & input {
                 width: 320px;
@@ -282,6 +290,11 @@
         }
         & .social__auth {      
             margin-top: 20px;
+            bottom: 15px;
+
+            & button {
+                width: 80px;
+            }
         }
         & .errors__message {
             width: 260px;
