@@ -336,3 +336,88 @@
         }
     }
 }
+@media screen and (max-width: 1300px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .cont__button {
+                width: 250px;
+
+                & button {
+                    width: 240px;
+                }
+            }
+            & .choose__map {
+                width: 260px;
+                font-size: 15px;
+                & .choose__map__box {
+                    width: 240px;
+                    & .arrow_example_3 {
+                        margin-left: 35px;
+                    }
+                }
+            }
+            & .price {
+                width: 250px;
+
+                & .price__box {
+                    width: 248px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .information {
+                width: 290px;
+                padding-left: 5px;
+                padding-right: 5px;
+                & .information__box {
+                    & .first__row {
+                        margin-left: -8px;
+                        & .content__div {
+                            font-size: 10px;
+                        }
+                    }
+                    & .second__row {
+                        margin-left: 0px;
+                        & .content__div {
+                            font-size: 10px;
+                        }
+                    }
+                    & .third__row {
+                        margin-left: -24px;
+                        & .content__div {
+                            font-size: 10px;
+                        }
+                    }
+                }
+            }
+            & .price {
+                width: 200px;
+                padding-right: 6px;
+                
+                & div {
+                    font-size: 16px;
+                }
+                & .price__box {
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1300px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .cont__button {
+                width: 200px;
+
+                & button {
+                    width: 190px;
+                }
+            }
+        }
+    }
+}

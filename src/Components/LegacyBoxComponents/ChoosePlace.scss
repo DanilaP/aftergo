@@ -182,3 +182,59 @@
         }
     }
 }
+@media screen and (max-width: 1430px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .price {
+                width: 251px;
+                & .price__box {
+                    width: 250px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1310px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .place__status {
+                width: 250px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1220px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .cont__button {
+                width: 250px;
+                & button {
+                    width: 240px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1147px) {
+    .choose__place__modal__box {
+        & .order__land__footer {
+            & .info__about__owner__of__place {
+                width: 270px;
+                & .text {
+                    font-size: 13px;
+                }
+            }
+            & .place__status {
+                width: 200px;
+                font-size: 13px;
+            }
+            & .price {
+                & .price__box {
+                    & div {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
