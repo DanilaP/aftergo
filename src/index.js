@@ -30,6 +30,7 @@ import Cropper from './Components/ProfileComponents/Cropper';
 import FirstSubtitleComponent from './Components/FirstEnterComponents/FirstSubtitleComponent';
 import SecondSubtitleComponent from './Components/FirstEnterComponents/SecondSubtitleComponent';
 import ContinueButton from './Components/FirstEnterComponents/ContinueButton';
+import FirstEnterMenu from './Components/FirstEnterComponents/FirstEnterMenu';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -63,6 +64,7 @@ root.render(
           <Route path="/FirstSubtitles" element={<FirstSubtitleComponent/> }/>
           <Route path="/SecondSubtitles" element={<SecondSubtitleComponent/> }/>
           <Route path="/ContinueButton" element={<ContinueButton/> }/>
+          <Route path="/FirstEnterMenu" element={<FirstEnterMenu/> }/>
         </Routes>
       </BrowserRouter>
     </Provider>
