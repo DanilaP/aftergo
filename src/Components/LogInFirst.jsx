@@ -81,6 +81,7 @@ function LogInFirst() {
                             <img src = {logoImg} width = {"20px"} height = {"35px"}/>
                         </div>
                     </div>
+                    <div className="form__inputs">
                     <input onChange={(e) => setUserEmail(e.target.value)} 
                            placeholder='Email' 
                            type = "text" 
@@ -96,6 +97,7 @@ function LogInFirst() {
                     </div> 
                     : null
                     }
+                    </div>
                     <div onClick={openForgetPasswordModal} className='forget__password'>Forget password?</div>
                     <button onClick={continueToNext}>LOG IN</button>
                 </div>

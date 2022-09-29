@@ -1,0 +1,27 @@
+.continueButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .contButton {
+        width: 218px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 17px;
+        font-family: 'Inter';
+        background: rgba(0, 0, 0, 0.2);
+        border: 1px solid white;
+        backdrop-filter: blur(20px);
+        border-radius: 2px;
+        margin-top: calc(100vh - 150px);
+
+        &:hover {
+            cursor: pointer;
+            background: rgba(28, 241, 255, 0.06);
+            border: 1px solid #1CF1FF;
+        }
+    }
+}

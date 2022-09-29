@@ -27,6 +27,9 @@ import Profile from './Components/ProfileComponents/Profile';
 import ProfileNetworkConnection from './Components/ProfileComponents/ProfileNetworkConnection';
 import SecondWindowMenu from './Components/secondWindowMenu';
 import Cropper from './Components/ProfileComponents/Cropper';
+import FirstSubtitleComponent from './Components/FirstEnterComponents/FirstSubtitleComponent';
+import SecondSubtitleComponent from './Components/FirstEnterComponents/SecondSubtitleComponent';
+import ContinueButton from './Components/FirstEnterComponents/ContinueButton';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -57,6 +60,9 @@ root.render(
           <Route path="/ProfileNetworkConnection" element={<ProfileNetworkConnection/>}/>
           <Route path="/SecondWindowMenu" element={<SecondWindowMenu/>}/>
           <Route path="/Cropper" element={<Cropper/>}/>
+          <Route path="/FirstSubtitles" element={<FirstSubtitleComponent/> }/>
+          <Route path="/SecondSubtitles" element={<SecondSubtitleComponent/> }/>
+          <Route path="/ContinueButton" element={<ContinueButton/> }/>
         </Routes>
       </BrowserRouter>
     </Provider>

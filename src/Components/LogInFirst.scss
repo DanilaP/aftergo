@@ -5,7 +5,7 @@
     height: 178px;
     position: absolute;
     margin-left: calc(100vw - 258px);
-    margin-top: 280px;
+    top: 80px;
     background: rgba(0, 0, 0, 0.4);
     border: 1px solid #FFFFFF;
     box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.45);
@@ -120,6 +120,12 @@
         flex-direction: column;
         align-items: center;
 
+        & .form__inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
         .content {
             display: flex;
             justify-content: center;
@@ -286,6 +292,47 @@
         & .register__box {
             & input {
                 width: 320px;
+            }
+        }
+        & .social__auth {      
+            margin-top: 20px;
+            bottom: 15px;
+
+            & button {
+                width: 80px;
+            }
+        }
+        & .errors__message {
+            width: 260px;
+        }
+    }
+}
+@media screen and (max-width: 376px) {
+    .third__modal__box {
+        & .header {
+            & .questionBox {
+                margin-left: calc(50vw - 180px);
+            }
+            & .questionText {
+                margin-left: calc(50vw - 50px);
+            }
+        }
+        & .register__box {
+            & .form__inputs {
+                margin-top: -80px;
+            }
+            & input {
+                width: 320px;
+                margin-top: 0;
+            }
+            & .content {
+                margin-top: 40px;
+            }
+            & button {
+                font-size: 11px;
+                width: 90px;
+                height: 90px;
+                margin-bottom: 30px;
             }
         }
         & .social__auth {      
