@@ -4,11 +4,14 @@ import discord from '../../Icons/discordIcon.png';
 import google from '../../Icons/iconGoogle.png';
 import facebook from '../../Icons/facebookIcon.png';
 import twitter from '../../Icons/twitterIcon.png';
+import store from '../../store';
+import { useSelector } from 'react-redux';
 
 function ProfileNetworkConnection() {
+    const lastRoute = useSelector(store => store.lastRoute);
     const history = useNavigate();
     const closeModal = () => {
-        history("/Profile");
+        history(lastRoute);
     }
   return (
     <div className="profile__network__modal__box">

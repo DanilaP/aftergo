@@ -7,12 +7,14 @@ import { useNavigate } from 'react-router-dom';
 function OrderNewLand() {
     const [numberOfLand, setNumberOfLand] = useState(1);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/OrderNewLand"});
         history("/ChoosePlace");
     }
     const toPrev = () => {
-        history("/ChooseLandMenu");
+        history(lastRoute);
     }
     const toNextMap = () => {
         if ((numberOfLand + 1) === 10) {

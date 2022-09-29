@@ -2,15 +2,18 @@ import './Support.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import $api from '../Axios';
+import store from '../../store';
+import { useSelector } from 'react-redux';
 
 function Support() {
     const history = useNavigate();
     const [topic, setTopic] = useState("");
     const [email, setEmail] = useState("");
     const [description, setDescription] = useState("");
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const closeModal = () => {
-        history("/ChooseLandMenu");
+        history(lastRoute);
     }
     const sendMessageToSupport = () => {
         let supportMessage = {

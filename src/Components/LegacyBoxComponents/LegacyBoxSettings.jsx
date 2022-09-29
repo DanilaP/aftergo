@@ -13,11 +13,12 @@ function LegacyBoxSettings() {
     const [checkboxActiveFirst, setCheckBoxActiveFirst] = useState(false);
     const [checkboxActiveSecond, setCheckBoxActiveSecond] = useState(false);
     const [checkboxActiveThird, setCheckBoxActiveThird] = useState(false);
+    const lastRoute = useSelector(store => store.lastRoute);
     const continueToNext = () => {
         
     }
     const toPrev = () => {
-        history("/ChooseLegacyRoom");
+        history(lastRoute);
     }
     const activeFirstCheckbox = () => {
         checkboxActiveFirst ? setCheckBoxActiveFirst(false) : setCheckBoxActiveFirst(true);

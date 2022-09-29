@@ -11,6 +11,7 @@ function CreatePassword() {
     const [userPassword, setUserPassword] = useState();
     const [secondPassword, setUserSecondPassword] = useState();
     const [errorsActive, setErrorsActive] = useState(false);
+    const lastRoute = useSelector(store => store.lastRoute);
     const [errorsMessages, setErrorsMessages] = useState({
         lenght: "Be a mimimum of 8 characters",
         lowerCase: "Include at least one lowercase (a-z)",

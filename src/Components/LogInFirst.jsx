@@ -10,13 +10,14 @@ import errors from '../Icons/errors.png';
 import { useState } from 'react';
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
-//peresunko@aftergo.io
+
 function LogInFirst() {
     const [questionActive, setQuestionActive] = useState(false);
     const [userEmail, setUserEmail] = useState("");
     const [userPassword, setUserPassword] = useState("");
     const [isError, setIsError] = useState(false);
     let history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const continueToNext = async () => {
         let user = {
@@ -35,9 +36,10 @@ function LogInFirst() {
             })
     }
     const toPrev = () => {
-        history("/SecondWindow");
+        history(lastRoute);
     }
     const openForgetPasswordModal = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/LogInFirst"});
         history("/ForgetPasswordFirst");
     }
     const openTextQuestion = () => {

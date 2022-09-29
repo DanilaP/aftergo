@@ -1,27 +1,30 @@
 import './ChooseLandMenu.scss';
 import { useSelector } from 'react-redux';
 import store from '../../store';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function ChooseLandMenu() {
     const userData = useSelector(store => store.userData);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const toPrev = () => {
-        history("/LogInFirst");
+        history(lastRoute);
     }
     const GoToOrderingNewLand = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/OrderNewLand");
     }
     const goToSupport = () => {
-        console.log(userData);
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/Support");
     }
     const returnToTheWorld = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/");
     }
     const goToProfile = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/Profile");
     }
   return (

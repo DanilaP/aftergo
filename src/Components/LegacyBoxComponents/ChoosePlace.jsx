@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom';
 
 function ChoosePlace() {
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
         history("/ChooseTombstone");
     }
     const toPrev = () => {
-        history("/OrderNewLand");
+        history(lastRoute);
     }
   return (
     <div className="choose__place__modal__box">

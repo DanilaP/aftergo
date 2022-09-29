@@ -26,6 +26,7 @@ function LegacyBoxSettingFULL() {
         }
     }
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/LegacyBoxSettingFULL"});
         history("/EmailConfirmation");
     }
   return (

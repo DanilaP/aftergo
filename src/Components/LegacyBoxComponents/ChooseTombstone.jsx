@@ -4,25 +4,29 @@ import tombstone from '../../Icons/tombstoneExample.png';
 import { useState } from 'react';
 import customStone from '../../Icons/customStone.png';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function ChooseTombstone() {
     const history = useNavigate();
     const [numberOfTomb, setNumberOfTomb] = useState(1);
     const [tombImage, setTombImage] = useState(tombstone);
+    const lastRoute = useSelector(store => store.lastRoute);
     const [imagesMassive, setImagesMassive] = useState([
         tombstone, tombstone, tombstone, tombstone, tombstone, customStone
     ]);
 
     const continueToNext = () => {
         if (numberOfTomb == 6) {
+            store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
             history("/CustomTombstoneDesign");
         }
         else {
+            store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
             history("/ChooseLegacyRoom");
         }
     }
     const toPrev = () => {
-        history("/ChoosePlace");
+        history(lastRoute);
     }
     const chooseTomb = (vector) => {
         if (vector == "prev") {

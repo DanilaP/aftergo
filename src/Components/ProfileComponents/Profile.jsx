@@ -5,12 +5,8 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import $api from '../Axios';
 import { useRef } from 'react';
-import discord from '../../Icons/discordIcon.png';
-import google from '../../Icons/iconGoogle.png';
-import facebook from '../../Icons/facebookIcon.png';
-import twitter from '../../Icons/twitterIcon.png';
 import store from '../../store';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Cropper from './Cropper';
 
 function Profile() {
@@ -27,11 +23,13 @@ function Profile() {
     const [oldPassword, setOldPassword] = useState("");
     const [avatar, setAvatar] = useState();
     const dispatch = useDispatch();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const closeModal = () => {
-        history("/ChooseLandMenu");
+        history(lastRoute);
     }
     const setNetworkConnection = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/Profile"});
         history("/ProfileNetworkConnection");
     }
     const startEditing = async () => {

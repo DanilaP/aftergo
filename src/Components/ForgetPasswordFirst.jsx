@@ -13,6 +13,7 @@ function ForgetPasswordFirst() {
     const [errorMessage, setErrorMessage] = useState('');
     const [isError, setIsError] = useState(false);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const activateInput = (email) => {
         setInputActive(true);
@@ -27,6 +28,7 @@ function ForgetPasswordFirst() {
             .then((response) => {
                 setIsError(false);
                 setErrorMessage("");
+                store.dispatch({type: "LASTROUTE", payload: "/ForgetPasswordFirst"});
                 history("/ForgetPasswordCode");
             })
             .catch((error) => {
@@ -40,7 +42,7 @@ function ForgetPasswordFirst() {
         }
     }
     const toPrev = () => {
-        history("/LogInFirst");
+        history(lastRoute);
     }
   return (
       <div>

@@ -9,12 +9,14 @@ import { useNavigate } from 'react-router-dom';
 function ForgetPasswordCode() {
     const [inputActive, setInputActive] = useState(false);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ForgetPasswordCode"});
         history("/CreatePassword");
     }
     const toPrev = () => {
-        history("/ForgetPasswordFirst");
+        history(lastRoute);
     }
     const setFocus = (el) => {
         setInputActive(true);

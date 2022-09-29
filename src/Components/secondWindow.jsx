@@ -1,9 +1,10 @@
 import './secondWindow.scss';
 import { useNavigate } from 'react-router-dom';
-
+import store from '../store';
 function SecondWindow() {
     const history = useNavigate();
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/SecondWindow"});
         history("/LogInFirst");
     }
   return (

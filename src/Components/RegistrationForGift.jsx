@@ -13,12 +13,14 @@ function RegistrationForGift() {
     const [firstCheckBox, setFirstCheckBox] = useState(false);
     const [secondCheckBox, setSecindCheckBox] = useState(false);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const continueToNext = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/RegistrationForGift"});
         history("/ChooseLandMenu");
     }
     const toPrev = () => {
-        history("/LogInFirst");
+        history(lastRoute);
     }
     const checkPermitionsFirst = () => {
         checkboxActiveFirst ? setCheckBoxActiveFirst(false) : setCheckBoxActiveFirst(true);

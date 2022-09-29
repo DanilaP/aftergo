@@ -7,25 +7,29 @@ import legacy__room__4 from '../../Icons/legacy__room__4.png';
 import custom__legacy__room from '../../Icons/custom__legacy__room.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 function ChooseLegacyRoom() {
     const [customDesignActive, setCustomDesignActive] = useState(false);
     const [standartDesignNumber, setStandartDesignNumber] = useState(0);
     const history = useNavigate();
+    const lastRoute = useSelector(store => store.lastRoute);
 
     const continueToNext = () => {
         if (customDesignActive == true) {
+            store.dispatch({type: "LASTROUTE", payload: "/ChooseLegacyRoom"});
             history("/CustomDesignLegacyRoom");
         }
         else if (standartDesignNumber == 0) {
             return
         } 
         else {
+            store.dispatch({type: "LASTROUTE", payload: "/ChooseLegacyRoom"});
             history("/LegacyBoxSettingFULL");
         }
     }
     const toPrev = () => {
-        history("/ChooseTombstone");
+        history(lastRoute);
     }
     const createCustomDesign = () => {
         setCustomDesignActive(true);
