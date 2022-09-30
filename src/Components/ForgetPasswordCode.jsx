@@ -5,6 +5,7 @@ import logoImg from '../Icons/logoImg.png';
 import { useState } from 'react';
 import errorImg from '../Icons/errors.png';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function ForgetPasswordCode() {
     const [inputActive, setInputActive] = useState(false);
@@ -31,6 +32,9 @@ function ForgetPasswordCode() {
                 }
             }
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/ForgetPasswordFirst"});
+    }, [])
   return (
       <div>
         <div onClick={(e) => e.stopPropagation()} className="forgetPassword__code__modal__box">

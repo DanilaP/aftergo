@@ -35,13 +35,13 @@ function ChooseLandMenu() {
             </div>
         </div>
         <div className="main__menu">
-            <button>MY LEGACY BOX</button>
-            <button onClick={GoToOrderingNewLand}>ORDER MY LAND</button>
-            <button onClick={GoToOrderingNewLand}>GIFT TO FRIEND</button>
-            <button onClick={goToProfile}>PROFILE</button>
-            <button>ABOUT US</button>
-            <button onClick={goToSupport}>SUPPORT</button>
-            <button onClick={returnToTheWorld}>RETURN TO THE WORLD</button>
+            <button id = "block_a">MY LEGACY BOX</button>
+            <button id = "block_b" onClick={GoToOrderingNewLand}>ORDER MY LAND</button>
+            <button id = "block_c" onClick={GoToOrderingNewLand}>GIFT TO FRIEND</button>
+            <button id = "block_d" onClick={goToProfile}>PROFILE</button>
+            <button id = "block_e">ABOUT US</button>
+            <button id = "block_f" onClick={goToSupport}>SUPPORT</button>
+            <button id = "block_g" onClick={returnToTheWorld}>RETURN TO THE WORLD</button>
         </div>
     </div>
   );

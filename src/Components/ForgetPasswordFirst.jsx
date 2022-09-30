@@ -6,6 +6,7 @@ import { useState } from 'react';
 import errorImg from '../Icons/errors.png';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function ForgetPasswordFirst() {
     const [inputActive, setInputActive] = useState(false);
@@ -22,14 +23,16 @@ function ForgetPasswordFirst() {
     const continueToNext = async () => {
         let rule = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
         let valid = rule.test(userEmail);
-
+        store.dispatch({type: "LASTROUTE", payload: "/ForgetPasswordFirst"});
+        history("/ForgetPasswordCode");
+        /*
         if (valid) {    
             await axios.post('https://aftergo-api-dev.azurewebsites.net/api/auth/forgot/password', userEmail)
             .then((response) => {
                 setIsError(false);
                 setErrorMessage("");
                 store.dispatch({type: "LASTROUTE", payload: "/ForgetPasswordFirst"});
-                history("/ForgetPasswordCode");
+                //history("/ForgetPasswordCode");
             })
             .catch((error) => {
                 setErrorMessage('Incorrect email. Please try again.');
@@ -40,10 +43,14 @@ function ForgetPasswordFirst() {
             setErrorMessage('Incorrect email. Please try again.');
             setIsError(true);
         }
+        */
     }
     const toPrev = () => {
         history(lastRoute);
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/LogInFirst"});
+    }, [])
   return (
       <div>
         <div onClick={(e) => e.stopPropagation()} className="forgetPassword__modal__box">

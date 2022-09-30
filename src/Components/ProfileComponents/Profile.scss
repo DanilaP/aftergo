@@ -249,3 +249,124 @@
         }
     }
 }
+@media screen and (max-width: 1024px) {
+    .profile__modal__box {
+        & .profile__box {
+            width: 800px;
+            overflow-x: hidden;
+
+            & .header__text {
+                display: flex;
+                flex-direction: column;
+                margin-top: 300px;
+
+                & .text {
+                    margin: 0 auto;
+                }
+                & .close__btn {
+                    margin-top: -80px;
+                    margin-left: 750px;
+                }
+            }
+            & .user__personal__info__box {
+                display: flex;
+                overflow-x: scroll;
+                flex-direction: column;
+                width: 700px;
+            }
+            & .box__with__buttons {
+                display: grid;
+
+                & button {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 820px) {
+    .profile__modal__box {
+        & .profile__box {
+            width: 600px;
+
+            & .header__text {
+                margin-top: 300px;
+
+                & .close__btn {
+                    margin-top: -80px;
+                    margin-left: 550px;
+                }
+            }
+
+            & .user__personal__info__box {
+                width: 500px;
+            }
+            & .box__with__buttons {
+                & button {
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 620px) {
+    .profile__modal__box {
+        & .profile__box {
+            width: 400px;
+
+            & .header__text {
+                margin-top: 300px;
+
+                & .close__btn {
+                    margin-top: -80px;
+                    margin-left: 350px;
+                }
+            }
+
+            & .user__personal__info__box {
+                width: 300px;
+
+                & input {
+                    width: 250px;
+                }
+            }
+            & .box__with__buttons {
+                & button {
+                    width: 250px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 420px) {
+    .profile__modal__box {
+        & .profile__box {
+            width: 320px;
+            height: 650px;
+
+            & .header__text {
+                margin-top: 300px;
+
+                & .close__btn {
+                    margin-top: -60px;
+                    margin-left: 270px;
+                }
+            }
+
+            & .user__personal__info__box {
+                width: 300px;
+
+                & input {
+                    width: 250px;
+                }
+            }
+            & .box__with__buttons {
+                & button {
+                    width: 250px;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
+}

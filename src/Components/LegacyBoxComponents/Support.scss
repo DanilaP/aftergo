@@ -118,3 +118,84 @@
         }
     }
 }
+@media screen and (max-width: 1440px) {
+    .support__modal__box {
+        & .support__box {
+            width: 1000px;
+
+            & .close__btn {
+                margin-left: 950px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1015px) {
+    .support__modal__box {
+        & .support__box {
+            width: 800px;
+            overflow-y: scroll;
+            overflow-x: hidden;
+
+            & .header__text {
+                margin-top: 150px;
+            }
+            & .close__btn {
+                position: absolute;
+                margin-top: -650px;
+                margin-left: 750px;
+            }
+            & .inputs__box {
+                display: flex;
+                flex-direction: column;
+            }
+            & .text__area__box {
+                & textarea {
+                    width: 408px;
+                }
+            }
+            & .buttons {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}
+@media screen and (max-width: 830px) {
+    .support__modal__box {
+        & .support__box {
+            width: 600px;
+
+            & .close__btn {
+                margin-top: -650px;
+                margin-left: 550px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 750px) {
+    .support__modal__box {
+        & .support__box {
+            width: 380px;
+
+            & .close__btn {
+                margin-top: -650px;
+                margin-left: 330px;
+            }
+            & .inputs__box {
+                & input {
+                    width: 300px;
+                }
+            }
+            & .text__area__box {
+                & textarea {
+                    width: 280px;
+                }
+            }
+            & .buttons {
+                & button {
+                    width: 300px;
+                }
+            }
+        }
+    }
+}
