@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import store from '../../store';
 import userAvatar from '../../Icons/userAvatar.png';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function ChoosePlace() {
     const history = useNavigate();
@@ -14,6 +15,9 @@ function ChoosePlace() {
     const toPrev = () => {
         history(lastRoute);
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/OrderNewLand"});
+    }, [])
   return (
     <div className="choose__place__modal__box">
         <div className="header">

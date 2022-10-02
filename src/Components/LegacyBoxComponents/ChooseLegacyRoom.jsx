@@ -8,6 +8,7 @@ import custom__legacy__room from '../../Icons/custom__legacy__room.png';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function ChooseLegacyRoom() {
     const [customDesignActive, setCustomDesignActive] = useState(false);
@@ -38,6 +39,9 @@ function ChooseLegacyRoom() {
         setCustomDesignActive(false);
         setStandartDesignNumber(designNumber);
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
+    })
   return (
     <div className="choose__legacy__room__modal__box">
             <div className="header">

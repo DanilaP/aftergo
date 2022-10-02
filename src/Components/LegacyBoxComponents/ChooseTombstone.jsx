@@ -5,6 +5,7 @@ import { useState } from 'react';
 import customStone from '../../Icons/customStone.png';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function ChooseTombstone() {
     const history = useNavigate();
@@ -28,6 +29,9 @@ function ChooseTombstone() {
     const toPrev = () => {
         history(lastRoute);
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
+    }, [])
     const chooseTomb = (vector) => {
         if (vector == "prev") {
             if (numberOfTomb === 1) {
