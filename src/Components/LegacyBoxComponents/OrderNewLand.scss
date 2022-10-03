@@ -421,3 +421,227 @@
         }
     }
 }
+@media screen and (max-width: 1023px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            align-items: center;
+            justify-content: center;
+            justify-items: center;
+            
+
+            & .choose__map {
+                width: 211px;
+                height: 100px;
+                font-size: 11px;
+
+                & .main__text {
+                    font-size: 11px;
+                    margin-top: 30px;
+                }
+                & .choose__map__box {
+                    width: 201px;
+                    height: 88px;
+                    margin-top: -58px;
+                    
+                    & div {
+                        font-size: 11px;
+                    }
+                    & .arrow_example_2 {
+                        border-top: 2px solid white !important;
+                        border-right: 2px solid white !important;
+                        width: 8px;
+                        height: 8px;
+                    }
+                    & .arrow_example_3 {
+                        border-top: 2px solid white !important;
+                        border-right: 2px solid white !important;
+                        width: 8px;
+                        height: 8px;
+                        margin-left: 30px;
+                    }
+                }
+            }
+            & .price {
+                height: 90px;
+
+                & .price__box {
+                    height: 88px;
+                }
+            }
+            & .information {
+                height: 100px;
+
+                & .information__box{
+                    height: 88px;
+
+                    & .first__row {
+                        & .content__div {
+                            font-size: 8px;
+                            padding: 5px;
+                        }
+                    }
+                    & .second__row {
+                        & .content__div {
+                            font-size: 8px;
+                            padding: 5px;
+                        }
+                    }
+                    & .third__row {
+                        & .content__div {
+                            font-size: 8px;
+                            padding: 5px;
+                        }
+                    }
+                }
+            }
+            & .cont__button {
+                height: 80px;
+                width: 209px;
+                grid-column-start: 2;
+                grid-column-end: 3;
+                margin-left: -10px;
+
+                & button {
+                    width: 199px;
+                    height: 70px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1023px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .information {
+                margin-right: 0px;
+                width: 201px;
+
+                & .information__box {
+                    width: 201px;
+                    & .first__row {
+                        margin: 2px;
+                        & .content__div {
+                            padding-top: 3px;
+                            padding-bottom: 3px;
+                            padding-left: 4.5px;
+                            padding-right: 4.5px;
+                            margin: 0 auto;
+                        }
+                    }
+                    & .second__row {
+                        margin: 2px;
+                        & .content__div {
+                            padding: 3px;
+                            margin: 0 auto;
+                        }
+                    }
+                    & .third__row {
+                        margin: 2px;
+                        & .content__div {
+                            padding: 3px;
+                            margin: 0 auto;
+                        }
+                    }
+                }
+            }
+        }
+        & .choose__map {
+
+        }
+    }
+}
+@media screen and (max-width: 767px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            grid-template-columns: 1fr 1fr;   
+
+            & .price {
+                margin-left: 20px;
+            }
+            & .information {
+                margin-left: -10px;
+            }
+            & .cont__button {   
+                height: 98px;
+                margin-left: 10px;
+
+                & button {
+                    height: 88px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 486px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .price {
+                width: 160px;
+                margin-left: -10px;
+
+                & .price__box {
+                    width: 160px;
+                }
+            }
+            & .choose__map {
+                margin-left: 10px;
+                margin-right: 15px;
+            }
+            & .information {
+                margin-left: 10px;
+                margin-right: 15px;
+            }
+            & .cont__button {
+                width: 169px;
+                margin-left: -20px;
+
+                & button {
+                    width: 160px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 395px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .price {
+                width: 140px;
+
+                & .price__box {
+                    width: 140px;
+                }
+            }
+            & .cont__button {
+                width: 149px;
+
+                & button {
+                    width: 140px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 375px) {
+    .order__land__modal__box {
+        & .order__land__footer {
+            & .price {
+                width: 120px;
+
+                & .price__box {
+                    width: 120px;
+                }
+            }
+            & .cont__button {
+                width: 129px;
+
+                & button {
+                    width: 120px;
+                }
+            }
+        }
+    }
+}

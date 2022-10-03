@@ -9,7 +9,7 @@ import twitter from '../Icons/twitterIcon.png';
 import errors from '../Icons/errors.png';
 import { useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function LogInFirst() {
     const [questionActive, setQuestionActive] = useState(false);
@@ -24,7 +24,10 @@ function LogInFirst() {
             email: userEmail,
             password: userPassword,
         }
-        await axios.post('https://aftergo-api-dev.azurewebsites.net/api/auth/email/login', user)
+        let rule = /^[\w]{1}[\w-\.]*@[\w-]+\.[a-z]{2,4}$/i;
+        let valid = rule.test(userEmail);
+        if (valid) {
+            await axios.post('https://aftergo-api-dev.azurewebsites.net/api/auth/email/login', user)
             .then((response) => {
                 localStorage.setItem("userToken", response.data.token);
                 history("/ChooseLandMenu");
@@ -34,6 +37,10 @@ function LogInFirst() {
                     setIsError(true);
                 }
             })
+        }
+        else {
+            setIsError(true);
+        }
     }
     const toPrev = () => {
         history(lastRoute);
