@@ -8,6 +8,10 @@ const initialState = {
     secondDialog: false,
     showButton: false,
     lastRoute: "",
+    isActiveFirstSub: false,
+    isActiveSecondSub: false,
+    isActiveFirstModal: false,
+
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -19,6 +23,9 @@ function reducer(state = initialState, action) {
         case "SHOWSECONDDIALOG": return {secondDialog: action.payload};
         case "SHOWBUTTON": return {showButton: action.payload};
         case "LASTROUTE": return {lastRoute: action.payload};
+        case "SHOWFIRSTSUB": return {isActiveFirstSub: action.payload};
+        case "SHOWSECONDSUB": return {isActiveSecondSub: action.payload};
+        case "SHOWFIRSTBUTTON": return {isActiveFirstModal: action.payload};
         default: return state;
     }
 }

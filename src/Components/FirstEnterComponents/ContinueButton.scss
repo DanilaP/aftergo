@@ -17,6 +17,7 @@
         backdrop-filter: blur(20px);
         border-radius: 2px;
         margin-top: calc(100vh - 150px);
+        z-index: 2;
 
         &:hover {
             cursor: pointer;
