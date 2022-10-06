@@ -31,6 +31,7 @@ import FirstSubtitleComponent from './Components/FirstEnterComponents/FirstSubti
 import SecondSubtitleComponent from './Components/FirstEnterComponents/SecondSubtitleComponent';
 import ContinueButton from './Components/FirstEnterComponents/ContinueButton';
 import FirstEnterMenu from './Components/FirstEnterComponents/FirstEnterMenu';
+import LegacyBox from './Components/UserLegacyBox/LegacyBox';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -65,6 +66,7 @@ root.render(
           <Route path="/SecondSubtitles" element={<SecondSubtitleComponent/> }/>
           <Route path="/ContinueButton" element={<ContinueButton/> }/>
           <Route path="/FirstEnterMenu" element={<FirstEnterMenu/> }/>
+          <Route path="/LegacyBox" element={<LegacyBox/> }/>
         </Routes>
       </BrowserRouter>
     </Provider>
