@@ -5,10 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: url(./Icons/background.png);
+  /*background: url(./Icons/background.png);*/
   background-size: cover;
   height: 100vh;
+  overflow: hidden;
 }
+
+canvas {
+  position: absolute;
+  top: 0;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
