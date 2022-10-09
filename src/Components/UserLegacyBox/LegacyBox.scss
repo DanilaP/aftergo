@@ -11,7 +11,7 @@
     & .mini__menu {
         display: flex;
         flex-direction: column;
-        margin-top: 704px;
+        margin-top: 510px;
         margin-right: 52px;
 
         & div {
@@ -19,6 +19,7 @@
             align-items: center;
             justify-content: center;
             flex-direction: column;
+            text-align: center;
             color: white;
             height: 80px;
             width: 80px;
@@ -26,6 +27,13 @@
             border-radius: 2px;
             font-size: 13px;
             margin-bottom: 16px;
+
+            &:hover {
+                cursor: pointer;
+                border: 1px solid #5CFFEB;
+                height: 78px;
+                width: 78px;
+            }
         }
     }
 
@@ -54,6 +62,14 @@
             overflow-y: scroll;
             gap: 10px;
 
+            &::-webkit-scrollbar {
+                width: 0.5px;
+                background-color: rgba(255, 255, 255, 0.2);
+            }
+            &::-webkit-scrollbar-thumb {
+                background-color: #1cf0ff96;
+            }
+
             & div {
                 display: grid;
                 align-items: center;
@@ -61,12 +77,29 @@
                 width: 218px;
                 height: 218px;
                 background: rgba(255, 255, 255, 0.05);
-                border-radius: 2px;
+                //border-radius: 2px;
+
+                &:hover {
+                    width: 218px;
+                    height: 218px;
+                    border: 1px solid white;
+                    cursor: pointer;
+                }
+            }
+            & span {
+                color: white;
+                margin: 0 auto;
+                margin-top: -30px;
+                font-family: 'Inter';
             }
             & img {
                 opacity: 0.5;
-                width: 100px;
+                width: 218px;
+                height: 218px;
+            }
+            & .folder {
                 height: 100px;
+                width: 100px;
             }
         }
         & .info__box {
@@ -86,15 +119,23 @@
                 display: grid;
                 grid-template-columns: 1fr 2fr;
                 gap: 10px;
-                
+
+                &::-webkit-scrollbar {
+                    width: 1px;
+                    background-color: rgba(255, 255, 255, 0.2);
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: #1cf0ff96;
+                }
+
                 & .info__elem {
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border: 1px solid #1CF1FF;
+                    border: 1px solid #5CFFEB;
                     border-radius: 2px;
                     font-size: 15px;
-                    color: #1CF1FF;
+                    color: #5CFFEB;;
                 }
             }
             & .legacy__storage__size {
@@ -107,14 +148,10 @@
                     background: rgba(255, 255, 255, 0.2);
                     color: white;
 
-                    &::-webkit-progress-bar {
-                    }
                     &::-webkit-progress-value {
                         background-color: #1CF1FF;
                         box-shadow: 0px 0px 12px rgba(92, 255, 235, 0.25);
                         border-radius: 2px;
-                    }
-                    &::-moz-progress-bar {
                     }
                 }
                 & div {
@@ -146,7 +183,9 @@
         }
         & .redaction__buttons {
             text-align: center;
-            
+            display: flex;
+            flex-direction: column;
+
             & .new__folder {
                 width: 164px;
                 height: 48px;
@@ -160,6 +199,26 @@
                 background: rgba(0, 0, 0, 0.2);
                 border: 0.5px solid rgba(255, 255, 255, 0.2);
                 backdrop-filter: blur(10px);
+                transition: 0.3s;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #1CF1FF;
+                }
+            }
+            & .upload__files {
+                & input {
+                    width: 352px;
+                    position: absolute;
+                    height: 50px;
+                    opacity: 0;
+                    background-color: #1CF1FF;
+                    margin-top: 20px;
+                    
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
             & button {
                 margin-top: 20px;
@@ -202,7 +261,7 @@
 @media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .mini__menu {
-            margin-top: 450px;
+            margin-top: 280px;
         }
         & .legacy__box__main {
             width: 1280px;

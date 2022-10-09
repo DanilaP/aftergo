@@ -6,6 +6,7 @@ import facebook from '../../Icons/facebookIcon.png';
 import twitter from '../../Icons/twitterIcon.png';
 import store from '../../store';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function ProfileNetworkConnection() {
     const lastRoute = useSelector(store => store.lastRoute);

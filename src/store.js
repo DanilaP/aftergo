@@ -11,6 +11,7 @@ const initialState = {
     isActiveFirstSub: false,
     isActiveSecondSub: false,
     isActiveFirstModal: false,
+    lastRouteMenu: "",
 
 }
 function reducer(state = initialState, action) {
@@ -18,6 +19,7 @@ function reducer(state = initialState, action) {
         case "USERDATA": return {userData: action.value};
         case "CHOOSEROUTER": return {router: action.value};
         case "SETUSERIMAGE": return {userImage: action.payload};
+        case "LASTROUTEMENU": return {lastRouteMenu: action.payload};
         //First user enter to site//
         case "SHOWFIRSTDIALOG": return {firstDialog: action.payload};
         case "SHOWSECONDDIALOG": return {secondDialog: action.payload};
