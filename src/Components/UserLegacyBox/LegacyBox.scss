@@ -64,7 +64,7 @@
             overflow-x: hidden;
 
             &::-webkit-scrollbar {
-                width: 0.5px;
+                width: 1px;
                 background-color: rgba(255, 255, 255, 0.2);
             }
             &::-webkit-scrollbar-thumb {
@@ -79,17 +79,19 @@
                 height: 220px;
                 background: rgba(255, 255, 255, 0.05);
                 text-align: center;
-                position: inherit;
 
                 &:hover {
-                    width: 220px;
-                    height: 220px;
+                    width: 218px;
+                    height: 218px;
                     border: 1px solid white;
                     cursor: pointer;
 
+                    & .delete__btn {
+                        opacity: 1;
+                    }
                     & img {
-                        width: 220px;
-                        height: 220px;
+                        width: 218px;
+                        height: 218px;
                     }
                     & .delete__btn {
                         margin-left: 180px;
@@ -104,8 +106,9 @@
                     rotate: 45deg;
                     text-align: right;
                     z-index: 99999;
-                    //position: relative;
-                    
+                    opacity: 0;
+                    //transition: 0.5s;
+
                     &:hover {
                         color: #1CF1FF;
                     }
@@ -119,7 +122,7 @@
                 height: 220px;
                 background: rgba(255, 255, 255, 0.05);
                 text-align: center;
-                position: inherit;
+
 
                 &:hover {
                     width: 218px;
@@ -128,6 +131,7 @@
                     cursor: pointer;
 
                     & .delete__btn {
+                        opacity: 1;
                         margin-left: 180px;
                     }
                 }
@@ -140,6 +144,8 @@
                     font-size: 30px;
                     rotate: 45deg;
                     text-align: right;
+                    opacity: 0;
+                    //transition: 0.5s;
 
                     &:hover {
                         color: #1CF1FF;
@@ -147,6 +153,7 @@
                 }
                 & img {
                     margin-top: 30px;
+                    image-rendering: optimizeSpeed;
                 }
             }
             & span {
@@ -193,30 +200,30 @@
                 width: 350px;
                 height: 92px;
                 padding: 12px;
-                background: rgba(0, 0, 0, 0.2);
+                background: rgba(0, 0, 0, 0.1);
                 border: 1px solid rgba(255, 255, 255, 0.2);
                 border-radius: 2px;
-                overflow-y: scroll;
                 display: grid;
-                grid-template-columns: 1fr 2fr;
-                gap: 10px;
+                color: white;
+                font-size: 24px;
+                text-align: center;
 
-                &::-webkit-scrollbar {
-                    width: 1px;
-                    background-color: rgba(255, 255, 255, 0.2);
+                & .header {
+                    margin-top: 12px;
                 }
-                &::-webkit-scrollbar-thumb {
-                    background-color: #1cf0ff96;
+                & .line {
+                    width: 250px;
+                    height: 0px;
+                    border: 0.5px solid rgba(255, 255, 255, 0.1);
+                    margin: 0 auto;
                 }
+                & .open__info__button {
+                    color: #1CF1FF;
+                    font-size: 16px;
 
-                & .info__elem {
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    border: 1px solid #5CFFEB;
-                    border-radius: 2px;
-                    font-size: 15px;
-                    color: #5CFFEB;;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
             & .legacy__storage__size {

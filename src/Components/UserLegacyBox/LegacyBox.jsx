@@ -35,7 +35,7 @@ function LegacyBox() {
             //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
-                //console.log(response);
+                console.log(response);
                 setLandId(response.data.landId);
                 setOurFolderId(response.data.id); // устанавливаем id папки в которой находимся
 
@@ -123,7 +123,7 @@ function LegacyBox() {
             console.log(response);
         })
         .catch((error) => {
-        console.log(error);
+            console.log(error);
         })
     }
   return (
@@ -144,7 +144,7 @@ function LegacyBox() {
                         <div>
                             <div className='file'>
                                 <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
-                                <img src = {userFiles[id].image}/> 
+                                <img src = {userFiles[id].image} /> 
                                 <span>{userFiles[id].title}</span>
                             </div>
                         </div>
@@ -164,10 +164,9 @@ function LegacyBox() {
             </div>
             <div className="info__box">
                 <div className='information'>
-                    <div className="info__elem">8th map</div>
-                    <div className="info__elem">Legacy room</div>
-                    <div className="info__elem">Large land</div>
-                    <div className="info__elem">Tombstone: moon</div>
+                    <div className='header'>STANDART</div>
+                    <div className='line'></div>
+                    <div className='open__info__button'>OPEN</div>
                 </div>
                 <div className="legacy__storage__size">
                     <progress max={100} value = {20}></progress>
