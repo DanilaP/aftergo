@@ -14,6 +14,8 @@ import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';
 import folder from '../../Icons/folder.png';
 import { useRef } from 'react';
+import DeleteFileModalBox from './DeleteFileModalBox';
+import CreateFolderBox from './CreateFolderBox';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -25,7 +27,7 @@ function LegacyBox() {
     const [landId, setLandId] = useState();
     const [ourFolderId, setOurFolderId] = useState();
 
-    
+    const modalShow = useSelector(store => store.isCreateFolderShown);
 
     useEffect(() => {
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
@@ -33,7 +35,7 @@ function LegacyBox() {
             //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
-                console.log(response);
+                //console.log(response);
                 setLandId(response.data.landId);
                 setOurFolderId(response.data.id); // устанавливаем id папки в которой находимся
 
@@ -49,17 +51,16 @@ function LegacyBox() {
             console.log(error);
         })
     }, [])
+
     useEffect(() => {
-        console.log(ourFolderId);
-    }, [ourFolderId])
+        console.log(fileHistory);
+    }, [fileHistory])
 
     const goInsideFolder = (folderId) => {
         setOurFolderId(folderId); //меняем id папки в которой находимся и получаем ее данные
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + folderId)
         .then((response) => {
-            if (fileHistory.length != 1) {
                 setFileHistory([...fileHistory, folderId]); //добавляем эту папку в историю
-            }
             setUserFiles(response.data.files);
             setUserFolders(response.data.folders);
         })
@@ -68,13 +69,12 @@ function LegacyBox() {
         })
     }
     const goBackToFolder = () => {
-        $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + fileHistory[fileHistory.length - 1])
+        let newHistory = fileHistory.slice(0, -1);
+        setFileHistory(newHistory);
+        setOurFolderId(newHistory[fileHistory.length - 1]); // меняем текущую папку
+
+        $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + newHistory[newHistory.length - 1])
         .then((response) => {
-            if (fileHistory.length != 1) {
-                let newHistory = fileHistory.splice(-1);
-                setFileHistory(newHistory);
-                setOurFolderId(newHistory[fileHistory.length - 1]) // меняем текущую папку
-            }
             setUserFiles(response.data.files);
             setUserFolders(response.data.folders);
         })
@@ -104,7 +104,31 @@ function LegacyBox() {
             console.log(error);
          })
     }
+    const deleteFiles = (deletedFileId) => {
+        $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
+        .then((response) => {
+            console.log(response)
+        })
+        .catch((error) => {
+            console.log(error);
+        })
+    }
+    const createFolder = () => {
+        store.dispatch({type: "CREATEFOLDERSHOWN", payload: true});
+    }
+    const deleteFolder = (deletedFolderId, element) => {
+        element.stopPropagation();
+        $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
+        .then((response) => {
+            console.log(response);
+        })
+        .catch((error) => {
+        console.log(error);
+        })
+    }
   return (
+    <div>
+        {modalShow ? <CreateFolderBox object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
     <div className="user__legacy__box">
         <div className="mini__menu">
             <div onClick={goBackToFolder}>Back to folder</div>
@@ -118,15 +142,19 @@ function LegacyBox() {
                 {userFiles.map((el, id) => {
                     return (
                         <div>
-                            <img src = {userFiles[id].image}/> 
-                            <span>{userFiles[id].title}</span>
+                            <div className='file'>
+                                <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
+                                <img src = {userFiles[id].image}/> 
+                                <span>{userFiles[id].title}</span>
+                            </div>
                         </div>
                     )
                 })}
                 {userFolders.map((el, id) => {
                     return (
-                        <div>
+                        <div className='file__folder'>
                             <div onClick={() => goInsideFolder(el.id)}>
+                                <div onClick={(e) => deleteFolder(id, e)} className='delete__btn'>+</div>
                                 <img className='folder' src = {folder}/>   
                             </div>
                             <span>{userFolders[id].name}</span>
@@ -154,11 +182,11 @@ function LegacyBox() {
                 </div>
             </div>
             <div className="redaction__buttons">
-                <div className='new__folder'>
+                <div onClick={createFolder} className='new__folder'>
                     + New folder
                 </div>
-                <div className='upload__files'>
-                    <input onChange={(e) => uploadFiles(e.target.files)} type = "file"/>
+                <div className='upload__files'> 
+                    <input name='userChoosedFile' onChange={(e) => uploadFiles(e.target.files)} type = "file"/>
                     <button>UDPLOAD FILES</button>
                     <button>UDPLOAD FROM LINK</button>
                 </div>
@@ -168,6 +196,7 @@ function LegacyBox() {
                 <button>ORDER NEW LAND</button>
             </div>
         </div>
+    </div>
     </div>
   );
 }

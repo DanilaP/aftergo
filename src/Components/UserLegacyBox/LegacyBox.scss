@@ -71,20 +71,82 @@
                 background-color: #1cf0ff96;
             }
 
-            & div {
+            & .file {
                 display: grid;
                 align-items: center;
                 justify-content: center;
-                width: 218px;
-                height: 218px;
+                width: 220px;
+                height: 220px;
                 background: rgba(255, 255, 255, 0.05);
-                //border-radius: 2px;
+                text-align: center;
+                position: inherit;
+
+                &:hover {
+                    width: 220px;
+                    height: 220px;
+                    border: 1px solid white;
+                    cursor: pointer;
+
+                    & img {
+                        width: 220px;
+                        height: 220px;
+                    }
+                    & .delete__btn {
+                        margin-left: 180px;
+                    }
+                }
+                & .delete__btn {
+                    width: 30px;
+                    height: 30px;
+                    color: white;
+                    font-size: 30px;
+                    margin-left: 180px;
+                    rotate: 45deg;
+                    text-align: right;
+                    z-index: 99999;
+                    //position: relative;
+                    
+                    &:hover {
+                        color: #1CF1FF;
+                    }
+                }
+            }
+            & .file__folder {
+                display: grid;
+                align-items: center;
+                justify-content: center;
+                width: 220px;
+                height: 220px;
+                background: rgba(255, 255, 255, 0.05);
+                text-align: center;
+                position: inherit;
 
                 &:hover {
                     width: 218px;
                     height: 218px;
                     border: 1px solid white;
                     cursor: pointer;
+
+                    & .delete__btn {
+                        margin-left: 180px;
+                    }
+                }
+                & .delete__btn {
+                    width: 30px;
+                    height: 30px;
+                    margin-top: -20px;
+                    margin-left: 180px;
+                    color: white;
+                    font-size: 30px;
+                    rotate: 45deg;
+                    text-align: right;
+
+                    &:hover {
+                        color: #1CF1FF;
+                    }
+                }
+                & img {
+                    margin-top: 30px;
                 }
             }
             & span {
@@ -97,15 +159,28 @@
                 margin: 0 auto;
                 margin-top: -30px;
                 font-family: 'Inter';
+                z-index: 99999;
             }
             & img {
                 opacity: 0.5;
-                width: 218px;
-                height: 218px;
+                width: 220px;
+                height: 220px;
+                margin-top: -30px;
+
+                &:hover {
+                    width: 218px;
+                    height: 218px;
+                }
             }
             & .folder {
                 height: 100px;
                 width: 100px;
+                margin-top: 0px;
+
+                &:hover {
+                    width: 100px;
+                    height: 100px;
+                }
             }
         }
         & .info__box {

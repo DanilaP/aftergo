@@ -32,6 +32,8 @@ import SecondSubtitleComponent from './Components/FirstEnterComponents/SecondSub
 import ContinueButton from './Components/FirstEnterComponents/ContinueButton';
 import FirstEnterMenu from './Components/FirstEnterComponents/FirstEnterMenu';
 import LegacyBox from './Components/UserLegacyBox/LegacyBox';
+import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
+import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -67,6 +69,8 @@ root.render(
           <Route path="/ContinueButton" element={<ContinueButton/> }/>
           <Route path="/FirstEnterMenu" element={<FirstEnterMenu/> }/>
           <Route path="/LegacyBox" element={<LegacyBox/> }/>
+          <Route path='/DeleteFile' element={<DeleteFileModalBox/> }/>
+          <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
         </Routes>
       </BrowserRouter>
     </Provider>

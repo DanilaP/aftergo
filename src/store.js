@@ -12,6 +12,7 @@ const initialState = {
     isActiveSecondSub: false,
     isActiveFirstModal: false,
     lastRouteMenu: "",
+    isCreateFolderShown: false
 
 }
 function reducer(state = initialState, action) {
@@ -28,6 +29,9 @@ function reducer(state = initialState, action) {
         case "SHOWFIRSTSUB": return {isActiveFirstSub: action.payload};
         case "SHOWSECONDSUB": return {isActiveSecondSub: action.payload};
         case "SHOWFIRSTBUTTON": return {isActiveFirstModal: action.payload};
+
+        //LegacyBoxStates
+        case "CREATEFOLDERSHOWN": return {isCreateFolderShown: action.payload};
         default: return state;
     }
 }
