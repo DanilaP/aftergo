@@ -1,0 +1,1 @@
+export const NUMBER_OF_MAP_FOR_SLIDER = 10;

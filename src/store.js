@@ -21,6 +21,9 @@ const initialState = {
         folderId: "",
         landId: ""
     },
+    selectedTypeOfAccount: {},
+    selectedRoom: {},
+    selectedMapAreaNumber: 1
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -42,6 +45,9 @@ function reducer(state = initialState, action) {
         case "DELETEFOLDERFILEMODALBOX": return {isDeleteFileShown: action.payload};
         case "DELETEDFILEID": return {deleteFileId: action.payload};
         case "NEWFOLDER": return {newFolder: action.payload};
+        case "SET_SELECTED_TYPE_OF_ACCOUNT": return { ...state, selectedTypeOfAccount: action.payload };
+        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload }
+        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload }
         default: return state;
     }
 }

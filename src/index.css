@@ -10,6 +10,17 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+::-webkit-scrollbar {
+  width: 1px;               /* ширина scrollbar */
+}
+::-webkit-scrollbar-track {
+  background: rgb(78, 78, 78);       /* цвет дорожки */
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(78, 78, 78);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  border: 1px solid rgb(75, 240, 255);  /* padding вокруг плашки */
+}
 
 canvas {
   position: absolute;
