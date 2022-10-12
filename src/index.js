@@ -69,7 +69,7 @@ root.render(
           <Route path="/ContinueButton" element={<ContinueButton/> }/>
           <Route path="/FirstEnterMenu" element={<FirstEnterMenu/> }/>
           <Route path="/LegacyBox" element={<LegacyBox/> }/>
-          <Route path='/DeleteFile' element={<DeleteFileModalBox/> }/>
+          <Route path='/DeleteFileModalBox' element={<DeleteFileModalBox/> }/>
           <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
         </Routes>
       </BrowserRouter>

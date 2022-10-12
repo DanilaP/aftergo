@@ -5,31 +5,27 @@ import { useSelector } from "react-redux";
 import store from '../../store';
 import $api from '../Axios';
 
-function DeleteFileModalBox({}) {
-  const id = useSelector((store) => store.deleteFileId);
+function DeleteFolderModalBox({deletedId}) {
   const goToPrev = () => {
-    store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: false});
+    store.dispatch({type: "DELETEFOLDERMODALBOX", payload: false});
   }
-  const deleteFile = () => {
-    $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + id)
+  const deleteFolder = () => {
+    $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders' + deletedId)
       .then((response) => {
           console.log(response);
-          store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: false});
+          store.dispatch({type: "DELETEFOLDERMODALBOX", payload: false});
       })
       .catch((error) => {
           console.log(error);
       })
   }
-  useEffect(() => {
-    console.log(store.deleteFileId);
-  })
   return (
     <div className="DeleteFileModalBox">
         <div className="delete__box">
-            <div className="delete__box__header">Delete file</div>
+            <div className="delete__box__header">Delete folder</div>
             <div className="small__text">Are you sure you want to delete the file? You can't return it.</div>
             <div className="buttons">
-                <button onClick={deleteFile}>DELETE</button>
+                <button onClick={deleteFolder}>DELETE</button>
                 <button onClick={goToPrev}>CANCEL</button>
             </div>
         </div>
@@ -37,4 +33,4 @@ function DeleteFileModalBox({}) {
   );
 }
 
-export default DeleteFileModalBox;
+export default DeleteFolderModalBox;

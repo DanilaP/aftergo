@@ -84,6 +84,7 @@
                 height: 158px;
                 border-radius: 50%;
                 border: 1px solid rgba(255, 255, 255, 0.2);
+                image-rendering: optimizeQuality;
             }
             & .add__social__networks {
                 display: flex;

@@ -5,17 +5,20 @@ import { useSelector } from "react-redux";
 import store from '../../store';
 import $api from '../Axios';
 
-function CreateFolderBox({object}) {
+function CreateFolderBox({object, func}) {
   const [nameOfFolder, setNameOfFolder] = useState("");
 
   const goToPrev = () => {
     store.dispatch({type: "CREATEFOLDERSHOWN", payload: false});
   }
-  const createFolder = () => {
+  const createFolder = async () => {
     let folderObject = object;
     folderObject.name = nameOfFolder;
-    $api.post('https://aftergo-api-dev.azurewebsites.net/api/folders', folderObject)
+
+    await $api.post('https://aftergo-api-dev.azurewebsites.net/api/folders', folderObject)
     .then((response) => {
+      func(response.data);
+      store.dispatch({type: "NEWFOLDER", payload: response.data});
       store.dispatch({type: "CREATEFOLDERSHOWN", payload: false});
     })
     .catch((error) => {

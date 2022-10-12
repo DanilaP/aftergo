@@ -26,6 +26,8 @@ function LegacyBox() {
     const [nameShown, setNameShown] = useState(false);
     const [landId, setLandId] = useState();
     const [ourFolderId, setOurFolderId] = useState();
+    const [tombstoneImage, setTombStoneImage] = useState();
+    const [legacyRoomImage, setlegacyRoomImage] = useState();
 
     const modalShow = useSelector(store => store.isCreateFolderShown);
 
@@ -56,9 +58,10 @@ function LegacyBox() {
         console.log(fileHistory);
     }, [fileHistory])
 
-    const goInsideFolder = (folderId) => {
+
+    const goInsideFolder = async (folderId) => {
         setOurFolderId(folderId); //меняем id папки в которой находимся и получаем ее данные
-        $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + folderId)
+        await $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + folderId)
         .then((response) => {
                 setFileHistory([...fileHistory, folderId]); //добавляем эту папку в историю
             setUserFiles(response.data.files);
@@ -68,12 +71,12 @@ function LegacyBox() {
             console.log(error);
         })
     }
-    const goBackToFolder = () => {
+    const goBackToFolder = async () => {
         let newHistory = fileHistory.slice(0, -1);
         setFileHistory(newHistory);
         setOurFolderId(newHistory[fileHistory.length - 1]); // меняем текущую папку
 
-        $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + newHistory[newHistory.length - 1])
+        await $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + newHistory[newHistory.length - 1])
         .then((response) => {
             setUserFiles(response.data.files);
             setUserFolders(response.data.folders);
@@ -96,18 +99,29 @@ function LegacyBox() {
         formData.append("folderId", ourFolderId);
         formData.append("access", "private");
 
-         $api.post('https://aftergo-api-dev.azurewebsites.net/api/files', formData) 
+         await $api.post('https://aftergo-api-dev.azurewebsites.net/api/files', formData) 
          .then((response) => {
             console.log(response);
+            let newFile = {
+                id: response.data.id,
+                image: response.data.blobId,
+                folderId: response.data.folderId,
+                landId: response.data.landId,
+                title: response.data.title,
+                format: response.data.format,
+                access: response.data.access
+            }
+            setUserFiles([...userFiles, newFile]);
          })
          .catch((error) => {
             console.log(error);
          })
     }
-    const deleteFiles = (deletedFileId) => {
-        $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
+    const deleteFiles = async (deletedFileId) => {
+        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
         .then((response) => {
             console.log(response)
+            setUserFiles(userFiles.filter(el => el.id !== userFiles[deletedFileId].id));
         })
         .catch((error) => {
             console.log(error);
@@ -116,19 +130,23 @@ function LegacyBox() {
     const createFolder = () => {
         store.dispatch({type: "CREATEFOLDERSHOWN", payload: true});
     }
-    const deleteFolder = (deletedFolderId, element) => {
+    const deleteFolder = async (deletedFolderId, element) => {
         element.stopPropagation();
-        $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
+        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
         .then((response) => {
             console.log(response);
+            setUserFolders(userFolders.filter(el => el.id !== userFolders[deletedFolderId].id));
         })
         .catch((error) => {
             console.log(error);
         })
     }
+    const getData = (data) => {
+        setUserFolders([...userFolders, data]);
+    }
   return (
     <div>
-        {modalShow ? <CreateFolderBox object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
+        {modalShow ? <CreateFolderBox func = {getData} object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
     <div className="user__legacy__box">
         <div className="mini__menu">
             <div onClick={goBackToFolder}>Back to folder</div>

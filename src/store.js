@@ -12,8 +12,15 @@ const initialState = {
     isActiveSecondSub: false,
     isActiveFirstModal: false,
     lastRouteMenu: "",
-    isCreateFolderShown: false
-
+    isCreateFolderShown: false,
+    isDeleteFileShown: false,
+    deleteFileId: "",
+    newFolder: {
+        name: "",
+        id: "",
+        folderId: "",
+        landId: ""
+    },
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -30,8 +37,11 @@ function reducer(state = initialState, action) {
         case "SHOWSECONDSUB": return {isActiveSecondSub: action.payload};
         case "SHOWFIRSTBUTTON": return {isActiveFirstModal: action.payload};
 
-        //LegacyBoxStates
+        //LegacyBoxStates//
         case "CREATEFOLDERSHOWN": return {isCreateFolderShown: action.payload};
+        case "DELETEFOLDERFILEMODALBOX": return {isDeleteFileShown: action.payload};
+        case "DELETEDFILEID": return {deleteFileId: action.payload};
+        case "NEWFOLDER": return {newFolder: action.payload};
         default: return state;
     }
 }
