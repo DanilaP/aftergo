@@ -20,7 +20,7 @@ export default function ChooseLand() {
         if (!typeOfAccount?.name) history('/OrderNewLand');
     }, [])
     return (
-        <div className="choose__land__modal__box">
+        <div className="choose__land__modal__boxs">
             <InfoBlock text={typeOfAccount.name} />
             <SelectRoomImg />
             <SelectedLegacyMap numberOfMap={numberOfMap}/>

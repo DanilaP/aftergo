@@ -71,19 +71,15 @@
             }
             & .first__btn {
                 margin-left: -900px;
-                
-                & .arrow_example_1 {
-                    margin-top: 0;
-                }
+                cursor: pointer;
+                font-size: 26px;
+                color: white;
             }
             & .second__btn {
                 margin-left: 900px;
-
-                & .arrow_example_1 {
-                    margin-top: 0;
-                    rotate: (-180deg);
-                    margin-left: 0;
-                }
+                cursor: pointer;
+                font-size: 26px;
+                color: white;
             }
             & .header {
                 margin-top: -600px;

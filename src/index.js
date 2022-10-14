@@ -14,7 +14,7 @@ import CreatePassword from './Components/createPassword';
 import ChooseLandMenu from './Components/LegacyBoxComponents/ChooseLandMenu';
 import OrderNewLand from './Components/LegacyBoxComponents/OrderNewLand/OrderNewLand';
 import ChoosePlace from './Components/LegacyBoxComponents/ChoosePlace/ChoosePlace';
-import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone';
+import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone/ChooseTombstone';
 import ChooseLegacyRoom from './Components/LegacyBoxComponents/ChooseLegacyRoom';
 import CustomDesignLegacyRoom from './Components/LegacyBoxComponents/CustomDesignLegacyRoom';
 import Support from './Components/LegacyBoxComponents/Support';
