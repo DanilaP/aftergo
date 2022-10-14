@@ -1,7 +1,6 @@
 import './ChooseTombstone.scss';
 import store from '../../../store';
 import tombstone from '../../../Icons/tombstoneExample.png';
-import { getAllTombstonesInfo } from '../../../Api/request';
 import { useState } from 'react';
 import customStone from '../../../Icons/customStone.png';
 import { useNavigate } from 'react-router-dom';
@@ -31,7 +30,6 @@ function ChooseTombstone() {
         history(lastRoute);
     }
     useEffect(() => {
-        getAllTombstonesInfo()
         store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
     }, [])
     const chooseTomb = (vector) => {
