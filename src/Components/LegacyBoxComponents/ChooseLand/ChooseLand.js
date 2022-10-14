@@ -14,14 +14,14 @@ export default function ChooseLand() {
     const typeOfAccount = useSelector(store => store.selectedTypeOfAccount);
     const numberOfMap = useSelector(state => state.selectedMapAreaNumber);
     const onContinue = () => {
-
+        history('/ChooseTombStone')
     }
     useEffect(() => {
         if (!typeOfAccount?.name) history('/OrderNewLand');
     }, [])
     return (
         <div className="choose__land__modal__boxs">
-            <InfoBlock text={typeOfAccount.name} />
+            <InfoBlock text={typeOfAccount?.name} />
             <SelectRoomImg />
             <SelectedLegacyMap numberOfMap={numberOfMap}/>
             <SelectAreaInfo freePlaces={5} />
