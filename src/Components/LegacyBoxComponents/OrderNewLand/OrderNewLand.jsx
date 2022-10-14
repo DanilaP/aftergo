@@ -10,6 +10,7 @@ import { ModalCustomDesign } from './components/modal-custom-design';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import Room from '../../SceneComponents/Room';
 
 function OrderNewLand() {
 
@@ -51,7 +52,10 @@ function OrderNewLand() {
                 <MoreInfo moreInfo={PRIVELEGES_PRICES[currTypeLagacyRoomId]} />
                 <BlueCustomBtn text="CONTINUE" onClick={onContinue} disabled={!isSelected} />
             </div>
-            <div className='newLand__content__three-room' style={{backgroundImage: `url(${selectedRoom?.img})`}}>
+            <div className='newLand__content__three-room' /*style={{backgroundImage: `url(${selectedRoom?.img})`}}*/>
+                <div className='newLand__content__three-room-cont'>
+                    <Room />
+                </div>
                 <div className='newLand__content__three-room-scene'>
                     <ChangeScene scenes={SCENES} onChooseScene={onChooseScene} />
                 </div>

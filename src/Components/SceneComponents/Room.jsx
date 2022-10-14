@@ -6,10 +6,10 @@ import { SkyMaterial } from "@babylonjs/materials";
 import { WaterMaterial } from "@babylonjs/materials";
 
 const ops = {};
-ops.width = window.innerWidth;
-ops.height = window.innerHeight;
 
 const Room = props => {
+    ops.width = props.innerWidth;
+    ops.height = props.innerHeight;
     const canvasRef = React.useRef(null);
 
     React.useEffect(() => {
@@ -68,6 +68,7 @@ const Room = props => {
             ref={canvasRef}
             {...ops}
             {...props}
+            className="room__canvas"
         ></canvas>
     );
 }

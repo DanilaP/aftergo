@@ -22,19 +22,29 @@
         border: 1px solid rgba(255, 255, 255, 0.14);
         &__three-room {
             background-size: cover;
+            &-scene {
+                margin-top: -600px;
+            }
             &-selectBtn {
-                margin: 0 auto;
-                width: 50%;
+                width: 40%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-top: 166px;
+                margin-top: 150px;
+                margin-left: 35%;
             }
         }
     }
 }
-
+.room__canvas {
+    position: inherit;
+    width: 100%;
+    height: 830px;
+}
 @media screen and (max-width: 1655px) {
+    .room__canvas {
+        height: 630px;
+    }
     .newLand {
         &__content {
             width: 1296px;
@@ -48,8 +58,11 @@
         &__content {
             &__three-room { 
                 height: 630px;
-                &-selectBtn { 
-                    margin: 60px auto;
+                &-scene {
+                    margin-top: -500px;
+                }
+                &-selectBtn {
+                    margin-top: 50px;
                 }
             }
         }
