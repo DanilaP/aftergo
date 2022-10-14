@@ -1,0 +1,88 @@
+@keyframes identifier {
+    from {
+        opacity: 0;
+    } to {
+        opacity: 1;
+    }
+}
+.info__legacyRoom {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 92%;
+    height: 517px;
+    padding: 20px;
+    background-color: #1C1C1C;
+    margin-top: 20px;
+    &-item {
+        &__value {
+           text-align: right;
+        }
+        &-default {
+            animation: identifier 1s;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            align-items: center;
+            width: 97%;
+            height: 27px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+            color: #1C1C1C;
+            background: linear-gradient(90deg, #1CF1FF 43.33%, #FFFFFF 68.13%);
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        &-active {
+            animation: identifier 1s;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            align-items: center;
+            width: 97%;
+            height: 27px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+            color: #1C1C1C;
+            background: linear-gradient(90deg, #1CF1FF 38.75%, #3CFF38 63.33%);
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        &-inactive {
+            animation: identifier 1s;
+            display: grid;
+            grid-template-columns: 65% 35%;
+            align-items: center;
+            width: 97%;
+            height: 27px;
+            margin-bottom: 8px;
+            font-size: 12px;
+            line-height: 15px;
+            text-transform: uppercase;
+            color: #1C1C1C;
+            background: linear-gradient(90deg, #1CF1FF 30.21%, #FF0000 80.1%);
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    }
+}
+
+@media screen and (max-width: 1655px) {
+    .info__legacyRoom {
+        width: 90.5%;
+        height: 317px;
+        &-item {
+            &-default {
+                font-size: 8px;
+            }
+            &-active {
+                font-size: 8px;
+            }
+            &-inactive {
+                font-size: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+.newLand {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    &__content {
+        display: grid;
+        grid-template-columns: 520px 1060px;
+        grid-column-gap: 16px;
+        padding: 20px;
+        width: 1596px;
+        height: 830px;
+        background: #323232;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        &__three-room {
+            background-size: cover;
+            &-selectBtn {
+                margin: 0 auto;
+                width: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 166px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1655px) {
+    .newLand {
+        &__content {
+            width: 1296px;
+            height: 630px;
+            grid-template-columns: 420px 860px;
+        }
+    }
+}
+@media screen and (max-width: 1655px) {
+    .newLand {
+        &__content {
+            &__three-room { 
+                height: 630px;
+                &-selectBtn { 
+                    margin: 60px auto;
+                }
+            }
+        }
+    }
+}

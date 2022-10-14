@@ -109,3 +109,57 @@
         }
     }
 }
+@media screen and (max-width: 1440px) {
+    .firstEnterMenu {
+        & .menu {
+            & .menu__item {
+                width: 178px;
+                text-align: center;
+            }
+            & #legacy__map__button {
+                width: 178px;
+                text-align: center;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1200px) {
+    .firstEnterMenu {
+        & .menu {
+            & .menu__item {
+                width: 148px;
+                height: 70px;
+                font-size: 11px;
+            }
+            & #legacy__map__button {
+                width: 148px;
+                height: 70px;
+                font-size: 11px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .firstEnterMenu {
+        & .menu {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        & .head__content {
+            margin-top: calc(100vh - 300px);
+        }
+    }
+}
+@media screen and (max-width: 520px) {
+    .firstEnterMenu {
+        & .menu {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
+        & .head__content {
+            margin-top: calc(100vh - 400px);
+            width: 350px;
+            font-size: 12px;
+        }
+    }
+}

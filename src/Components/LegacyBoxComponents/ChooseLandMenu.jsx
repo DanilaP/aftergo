@@ -27,6 +27,10 @@ function ChooseLandMenu() {
         store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/Profile");
     }
+    const GoToLegacyBox = () => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
+        history("/LegacyBox");
+    }
   return (
     <div className="choose__land__modal__box">
         <div className="header">
@@ -35,7 +39,7 @@ function ChooseLandMenu() {
             </div>
         </div>
         <div className="main__menu">
-            <button id = "block_a">MY LEGACY BOX</button>
+            <button id = "block_a" onClick={GoToLegacyBox}>MY LEGACY BOX</button>
             <button id = "block_b" onClick={GoToOrderingNewLand}>ORDER MY LAND</button>
             <button id = "block_c" onClick={GoToOrderingNewLand}>GIFT TO FRIEND</button>
             <button id = "block_d" onClick={goToProfile}>PROFILE</button>

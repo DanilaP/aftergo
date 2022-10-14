@@ -1,10 +1,11 @@
 import './ChooseTombstone.scss';
-import store from '../../store';
-import tombstone from '../../Icons/tombstoneExample.png';
+import store from '../../../store';
+import tombstone from '../../../Icons/tombstoneExample.png';
 import { useState } from 'react';
-import customStone from '../../Icons/customStone.png';
+import customStone from '../../../Icons/customStone.png';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function ChooseTombstone() {
     const history = useNavigate();
@@ -28,6 +29,9 @@ function ChooseTombstone() {
     const toPrev = () => {
         history(lastRoute);
     }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
+    }, [])
     const chooseTomb = (vector) => {
         if (vector == "prev") {
             if (numberOfTomb === 1) {
@@ -57,14 +61,14 @@ function ChooseTombstone() {
             <div className="slider__images">
                 <div className='header'>CHOOSE TOMBSTONE</div>
                 <div className="slider">
-                    <button className='first__btn'>
-                        <div onClick={() => chooseTomb("prev")} className="arrow_example_1"></div>
+                    <button className='first__btn' onClick={() => chooseTomb("prev")}>
+                        {`<`}
                     </button>
                     <div className="slider__image">
                         <img src = {tombImage} />
                     </div>
-                    <button className='second__btn'>
-                        <div onClick={() => chooseTomb("next")} className="arrow_example_1"></div>
+                    <button className='second__btn' onClick={() => chooseTomb("next")}>
+                        {`>`}
                     </button>
                     <div className='number__of__tombstone'>
                         <div>MOON</div>

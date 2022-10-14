@@ -87,7 +87,7 @@ function Profile() {
         if (avatar) {
             let formData = new FormData();
             formData.append('file', avatar[0]);
-
+            console.log(avatar[0]);
             $api.patch('https://aftergo-api-dev.azurewebsites.net/api/auth/me/image', formData)
             .then((response) => {
                 dispatch({type: "SETUSERIMAGE", payload: response.data.image});

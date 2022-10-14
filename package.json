@@ -29,6 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build && sh deploy.sh",
+    "build:local": "react-scripts build",
     "test": "react-scripts test --passWithNoTests",
     "eject": "react-scripts eject"
   },

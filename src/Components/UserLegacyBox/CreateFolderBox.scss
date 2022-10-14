@@ -1,0 +1,57 @@
+.CreateFolderBox {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .create__box {
+        width: 492px;
+        height: 186px;
+        background: rgba(52, 52, 52, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        & input {
+            width: 422px;
+            height: 64px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            font-family: 'Inter';
+            font-style: normal;
+            margin-bottom: 16px;
+            border: 0px;
+            color: white;
+            padding-left: 30px;
+
+            &::placeholder {
+                color: white;
+                opacity: 0.9;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        & button {
+            width: 456px;
+            height: 64px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 2px;
+            font-family: 'Inter';
+            font-style: normal;
+            border: 0;
+            color: #1CF1FF;
+            
+            &:hover {
+                background: #1CF1FF;
+                cursor: pointer;
+                color: black;
+            }
+        }
+    }
+}

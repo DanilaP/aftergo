@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 function CustomTombstoneDesign() {
     const history = useNavigate();
     const toNext = () => {
-        store.dispatch({type: "LASTROUTE", payload: "/CustomTombstoneDesign"});
         history("/ChooseLegacyRoom");
     }
   return (

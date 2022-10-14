@@ -84,6 +84,7 @@
                 height: 158px;
                 border-radius: 50%;
                 border: 1px solid rgba(255, 255, 255, 0.2);
+                image-rendering: optimizeQuality;
             }
             & .add__social__networks {
                 display: flex;
@@ -342,7 +343,7 @@
 @media screen and (max-width: 420px) {
     .profile__modal__box {
         & .profile__box {
-            width: 320px;
+            width: 370px;
             height: 650px;
 
             & .header__text {
@@ -350,7 +351,7 @@
 
                 & .close__btn {
                     margin-top: -60px;
-                    margin-left: 270px;
+                    margin-left: 330px;
                 }
             }
 
