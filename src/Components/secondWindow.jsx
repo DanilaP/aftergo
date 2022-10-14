@@ -1,7 +1,6 @@
 import './secondWindow.scss';
 import { useNavigate } from 'react-router-dom';
 import store from '../store';
-// import BabylonScene from "./SceneComponent/SceneComponent";
 
 
 function SecondWindow() {
