@@ -6,7 +6,7 @@
     font-family: 'Inter';
     font-style: normal;
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: 1fr 2fr 4fr;
     justify-content: center;
     justify-items: center;
     &-info {
@@ -15,7 +15,7 @@
         padding: 24px;
         background: rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.2);
-        margin-top: 115px;
+        margin-top: 50px;
     }
     &-payment {
         width: 1232px;
@@ -25,11 +25,23 @@
         border-radius: 2px;
         margin-top: 16px;
     }
+    &-action {
+        margin-top: 40px;
+        button {
+            width: 450px;
+            height: 70px;
+            background: #1CF1FF;
+            border-radius: 2px;
+            border: none;
+            outline: none;
+            cursor: pointer;
+        }
+    }
 }
 @media screen and (max-height: 950px) {
     .legacy__box__form {
         &-info {
-            margin-top: 80px;
+            margin-top: 15px;
         }
         &-payment {
             height: 270px;

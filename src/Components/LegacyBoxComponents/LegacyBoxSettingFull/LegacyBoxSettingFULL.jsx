@@ -27,6 +27,9 @@ function LegacyBoxSettingFULL() {
         <div className='legacy__box__form-payment'>
           <VariableTariffs />
         </div>
+        <div className='legacy__box__form-action'>
+          <button>Continue</button>
+        </div>
     </div>
   );
 }
