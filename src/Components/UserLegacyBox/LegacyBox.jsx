@@ -17,6 +17,7 @@ import CreateFolderBox from './CreateFolderBox';
 import ChangeNameOfFiles from './ChangeNameOfFiles';
 import ChangeNameOfFolders from './ChangeNameOfFolders';
 import ChangeNameOfLegacyBox from './ChangeNameOfLegacyBox';
+import DeleteFileModalBox from './DeleteFileModalBox';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -40,6 +41,10 @@ function LegacyBox() {
     //Change legacyBox//
     const [legacyBoxName, setLegacyBoxName] = useState();
     const changeLegacyBoxName = useSelector(store => store.changeLegacyBoxName);
+    //Delete file//
+    const deleteFileBox = useSelector(store => store.isDeleteFileShown);
+    const [deletedFile, setDeletedFile] = useState();
+    const [deletedFileType, setDeletedFileType] = useState();
 
     useEffect(() => {
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
@@ -129,28 +134,40 @@ function LegacyBox() {
          })
     }
     const deleteFiles = async (deletedFileId) => {
-        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
-        .then((response) => {
-            console.log(response)
-            setUserFiles(userFiles.filter(el => el.id !== userFiles[deletedFileId].id));
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        setDeletedFile(userFiles[deletedFileId].id);
+        setDeletedFileType("files");
+        store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
+        //await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
+        //.then((response) => {
+        //    console.log(response)
+        //    setUserFiles(userFiles.filter(el => el.id !== userFiles[deletedFileId].id));
+        //})
+        //.catch((error) => {
+        //    console.log(error);
+        //})
+    }
+    const updateDeletedFiles = (file) => {
+        setUserFiles(userFiles.filter(el => el.id !== file));
     }
     const createFolder = () => {
         store.dispatch({type: "CREATEFOLDERSHOWN", payload: true});
     }
     const deleteFolder = async (deletedFolderId, element) => {
         element.stopPropagation();
-        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
-        .then((response) => {
-            console.log(response);
-            setUserFolders(userFolders.filter(el => el.id !== userFolders[deletedFolderId].id));
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        setDeletedFile(userFolders[deletedFolderId].id);
+        setDeletedFileType("folders");
+        store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
+        //await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
+        //.then((response) => {
+        //    console.log(response);
+        //    setUserFolders(userFolders.filter(el => el.id !== userFolders[deletedFolderId].id));
+        //})
+        //.catch((error) => {
+        //    console.log(error);
+        //})
+    }
+    const updateDeletedFolders = (folder) => {
+        setUserFolders(userFolders.filter(el => el.id !== folder));
     }
     const getData = (data) => {
         setUserFolders([...userFolders, data]);
@@ -210,6 +227,7 @@ function LegacyBox() {
     }
   return (
     <div>
+        {deleteFileBox ? <DeleteFileModalBox funcForFolders = {updateDeletedFolders} funcForFiles = {updateDeletedFiles} deletedType = {deletedFileType} object = {deletedFile} /> : null}
         {changeLegacyBoxName ? <ChangeNameOfLegacyBox /> : null}
         {changeFolderName ? <ChangeNameOfFolders func = {getNewFolderName} object = {changedFolder} /> : null }
         {changeFileName ? <ChangeNameOfFiles func = {getNewFileName} object = {changedFile} /> : null}
