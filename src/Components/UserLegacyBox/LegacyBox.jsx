@@ -13,9 +13,11 @@ import aboutUsImage from '../../Icons/AboutUs.png';
 import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';
 import folder from '../../Icons/folder.png';
-import { useRef } from 'react';
-import DeleteFileModalBox from './DeleteFileModalBox';
 import CreateFolderBox from './CreateFolderBox';
+import ChangeNameOfFiles from './ChangeNameOfFiles';
+import ChangeNameOfFolders from './ChangeNameOfFolders';
+import ChangeNameOfLegacyBox from './ChangeNameOfLegacyBox';
+import DeleteFileModalBox from './DeleteFileModalBox';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -30,6 +32,19 @@ function LegacyBox() {
     const [legacyRoomImage, setlegacyRoomImage] = useState();
 
     const modalShow = useSelector(store => store.isCreateFolderShown);
+    //Change file//
+    const changeFileName = useSelector(store => store.changeFileName);
+    const [changedFile, setChangedFile] = useState();
+    //Change folder//
+    const [changedFolder, setChangedFolder] = useState();
+    const changeFolderName = useSelector(store => store.changeFolderName);
+    //Change legacyBox//
+    const [legacyBoxName, setLegacyBoxName] = useState();
+    const changeLegacyBoxName = useSelector(store => store.changeLegacyBoxName);
+    //Delete file//
+    const deleteFileBox = useSelector(store => store.isDeleteFileShown);
+    const [deletedFile, setDeletedFile] = useState();
+    const [deletedFileType, setDeletedFileType] = useState();
 
     useEffect(() => {
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
@@ -38,6 +53,7 @@ function LegacyBox() {
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
                 console.log(response);
+                setLegacyBoxName(response.data.name);
                 setLandId(response.data.landId);
                 setOurFolderId(response.data.id); // устанавливаем id папки в которой находимся
 
@@ -118,37 +134,91 @@ function LegacyBox() {
          })
     }
     const deleteFiles = async (deletedFileId) => {
-        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
-        .then((response) => {
-            console.log(response)
-            setUserFiles(userFiles.filter(el => el.id !== userFiles[deletedFileId].id));
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        setDeletedFile(userFiles[deletedFileId].id);
+        setDeletedFileType("files");
+        store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
+    }
+    const updateDeletedFiles = (file) => {
+        setUserFiles(userFiles.filter(el => el.id !== file));
     }
     const createFolder = () => {
         store.dispatch({type: "CREATEFOLDERSHOWN", payload: true});
     }
     const deleteFolder = async (deletedFolderId, element) => {
         element.stopPropagation();
-        await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
-        .then((response) => {
-            console.log(response);
-            setUserFolders(userFolders.filter(el => el.id !== userFolders[deletedFolderId].id));
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        setDeletedFile(userFolders[deletedFolderId].id);
+        setDeletedFileType("folders");
+        store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
+    }
+    const updateDeletedFolders = (folder) => {
+        setUserFolders(userFolders.filter(el => el.id !== folder));
     }
     const getData = (data) => {
         setUserFolders([...userFolders, data]);
     }
+
+
+
+    const createNewFileName = (id) => {
+        setChangedFile({
+            title: "",
+            folderId: ourFolderId,
+            access: "private",
+            fileId: userFiles[id].id,
+        })
+        store.dispatch({type: "CHANGEFILENAME", payload: true});
+    }
+    const getNewFileName = (newFile) => {
+        let updatedArray = userFiles;
+        let indexElem, elem;
+
+        updatedArray.map((el, index) => {
+            if (el.id === newFile.id) {
+                indexElem = index;
+                elem = el;
+            }
+        })
+        updatedArray[indexElem] = {...elem, title: newFile.title};
+        setUserFiles(updatedArray);
+    }
+
+    const createNewFolderName = (id) => {
+        setChangedFolder({
+            folderId: userFolders[id].id,
+            name: userFolders[id].name,
+        })
+        store.dispatch({type: "CHANGEFOLDERNAME", payload: true});
+    }
+    const getNewFolderName = (newFolder) => {
+        let updatedFolderArray = userFolders;
+        let indexElem, elem;
+
+        updatedFolderArray.map((el, index) => {
+            if (el.id === newFolder.id) {
+                indexElem = index;
+                elem = el;
+            }
+        })
+        updatedFolderArray[indexElem] = {...elem, name: newFolder.name};
+        setUserFolders(updatedFolderArray);
+    }
+
+    const createNewLegacyBoxName = () => {
+        store.dispatch({type: "CHANGELEGACYBOXNAME", payload: true});
+    }
+    const getNewLegacyBoxName = () => {
+        
+    }
   return (
     <div>
+        {deleteFileBox ? <DeleteFileModalBox funcForFolders = {updateDeletedFolders} funcForFiles = {updateDeletedFiles} deletedType = {deletedFileType} object = {deletedFile} /> : null}
+        {changeLegacyBoxName ? <ChangeNameOfLegacyBox /> : null}
+        {changeFolderName ? <ChangeNameOfFolders func = {getNewFolderName} object = {changedFolder} /> : null }
+        {changeFileName ? <ChangeNameOfFiles func = {getNewFileName} object = {changedFile} /> : null}
         {modalShow ? <CreateFolderBox func = {getData} object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
     <div className="user__legacy__box">
         <div className="mini__menu">
+            <div onClick={createNewLegacyBoxName} className="legacy__box__name">{legacyBoxName}</div>
             <div onClick={goBackToFolder}>Back to folder</div>
             <div className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
             <div className="aboutUs__button"><img width={"80px"} height = {"80px"} src = {shareImage}/></div>
@@ -163,7 +233,7 @@ function LegacyBox() {
                             <div className='file'>
                                 <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
                                 <img src = {userFiles[id].image} /> 
-                                <span>{userFiles[id].title}</span>
+                                <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
                             </div>
                         </div>
                     )
@@ -175,7 +245,7 @@ function LegacyBox() {
                                 <div onClick={(e) => deleteFolder(id, e)} className='delete__btn'>+</div>
                                 <img className='folder' src = {folder}/>   
                             </div>
-                            <span>{userFolders[id].name}</span>
+                            <span onDoubleClick={() => createNewFolderName(id)}>{userFolders[id].name}</span>
                         </div>
                     )
                 })}
