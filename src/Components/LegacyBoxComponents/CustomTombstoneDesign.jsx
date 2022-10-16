@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 function CustomTombstoneDesign() {
     const history = useNavigate();
     const toNext = () => {
-        history("/ChooseLegacyRoom");
+        history("/LegacyBoxSettingFULL");
     }
   return (
     <div className="customTombstoneDesign__modal__box">

@@ -18,7 +18,7 @@ import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone/Ch
 import ChooseLegacyRoom from './Components/LegacyBoxComponents/ChooseLegacyRoom';
 import CustomDesignLegacyRoom from './Components/LegacyBoxComponents/CustomDesignLegacyRoom';
 import Support from './Components/LegacyBoxComponents/Support';
-import LegacyBoxSettingFULL from './Components/LegacyBoxComponents/LegacyBoxSettingFULL';
+import LegacyBoxSettingFULL from './Components/LegacyBoxComponents/LegacyBoxSettingFull/LegacyBoxSettingFULL';
 import LegacyBoxFriendData from './Components/LegacyBoxComponents/LegacyBoxFriendData';
 import CustomTombstoneDesign from './Components/LegacyBoxComponents/CustomTombstoneDesign';
 import EmailConfirmation from './Components/LegacyBoxComponents/EmailConfirmationForBuying';

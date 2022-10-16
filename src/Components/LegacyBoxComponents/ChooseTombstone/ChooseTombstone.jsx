@@ -23,7 +23,7 @@ function ChooseTombstone() {
         }
         else {
             store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
-            history("/ChooseLegacyRoom");
+            history("/LegacyBoxSettingFULL");
         }
     }
     const toPrev = () => {
