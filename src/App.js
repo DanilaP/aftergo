@@ -3,18 +3,15 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import $api from './Components/Axios';
-import BabylonScene from "./Components/SceneComponent/SceneComponent";
 import store from "./store";
 import { useSelector } from "react-redux";
 import FirstSubtitleComponent from "./Components/FirstEnterComponents/FirstSubtitleComponent";
 import SecondSubtitleComponent from "./Components/FirstEnterComponents/SecondSubtitleComponent";
 import ContinueButton from "./Components/FirstEnterComponents/ContinueButton";
+import Capsule from "./Components/SceneComponents/Capsule";
+import Room from './Components/SceneComponents/Room';
 
 function App() {
-  const [isActive, setIsActive] = useState(false);
-  const isActiveFirstSub = useSelector(store => store.isActiveFirstSub);
-  const isActiveSecondSub = useSelector(store => store.isActiveSecondSub);
-  const isActiveFirstModal = useSelector(store => store.isActiveFirstModal);
   // const history = useNavigate();
     // useEffect(() => {
     //   if(localStorage.getItem("userToken")) {
@@ -38,10 +35,7 @@ function App() {
     // }, [])
   return (
     <div className="App">
-      {isActiveFirstSub ? < FirstSubtitleComponent /> : null}
-      {isActiveSecondSub ? < SecondSubtitleComponent /> : null}
-      {isActiveFirstModal ? < ContinueButton /> : null}
-      <BabylonScene/>
+      <Capsule/>
     </div>
   );
 }

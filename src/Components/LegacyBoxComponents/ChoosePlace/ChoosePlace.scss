@@ -1,0 +1,26 @@
+.choose__place__modal__box {
+    position: absolute;
+    bottom: 42px;
+    right: 32px;
+    width: 484px;
+    height: 587px;
+    background: rgba(33, 33, 33, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(20px);
+    border-radius: 2px;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
+    padding: 20px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: white;
+    button {
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+}
