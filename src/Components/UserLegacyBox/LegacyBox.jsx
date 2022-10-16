@@ -137,14 +137,6 @@ function LegacyBox() {
         setDeletedFile(userFiles[deletedFileId].id);
         setDeletedFileType("files");
         store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
-        //await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + userFiles[deletedFileId].id)
-        //.then((response) => {
-        //    console.log(response)
-        //    setUserFiles(userFiles.filter(el => el.id !== userFiles[deletedFileId].id));
-        //})
-        //.catch((error) => {
-        //    console.log(error);
-        //})
     }
     const updateDeletedFiles = (file) => {
         setUserFiles(userFiles.filter(el => el.id !== file));
@@ -157,14 +149,6 @@ function LegacyBox() {
         setDeletedFile(userFolders[deletedFolderId].id);
         setDeletedFileType("folders");
         store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: true});
-        //await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + userFolders[deletedFolderId].id)
-        //.then((response) => {
-        //    console.log(response);
-        //    setUserFolders(userFolders.filter(el => el.id !== userFolders[deletedFolderId].id));
-        //})
-        //.catch((error) => {
-        //    console.log(error);
-        //})
     }
     const updateDeletedFolders = (folder) => {
         setUserFolders(userFolders.filter(el => el.id !== folder));
