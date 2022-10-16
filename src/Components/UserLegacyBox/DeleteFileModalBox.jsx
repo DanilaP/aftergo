@@ -20,9 +20,6 @@ function DeleteFileModalBox({}) {
           console.log(error);
       })
   }
-  useEffect(() => {
-    console.log(store.deleteFileId);
-  })
   return (
     <div className="DeleteFileModalBox">
         <div className="delete__box">

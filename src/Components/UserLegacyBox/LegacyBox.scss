@@ -35,6 +35,24 @@
                 width: 78px;
             }
         }
+        & .legacy__box__name {
+            width: 166px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid #FFFFFF;
+            backdrop-filter: blur(60px);
+            position: absolute;
+            margin-top: -275px;
+            margin-left: 175px;
+            border-radius: 0px;
+            
+            &:hover {   
+                width: 166px;
+                height: 40px;
+                cursor: pointer;
+                color: #1CF1FF;
+            }
+        }
     }
 
 
@@ -167,6 +185,11 @@
                 margin-top: -30px;
                 font-family: 'Inter';
                 z-index: 99999;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #1CF1FF;
+                }
             }
             & img {
                 opacity: 0.5;

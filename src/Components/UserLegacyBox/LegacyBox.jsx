@@ -13,9 +13,10 @@ import aboutUsImage from '../../Icons/AboutUs.png';
 import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';
 import folder from '../../Icons/folder.png';
-import { useRef } from 'react';
-import DeleteFileModalBox from './DeleteFileModalBox';
 import CreateFolderBox from './CreateFolderBox';
+import ChangeNameOfFiles from './ChangeNameOfFiles';
+import ChangeNameOfFolders from './ChangeNameOfFolders';
+import ChangeNameOfLegacyBox from './ChangeNameOfLegacyBox';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -30,6 +31,15 @@ function LegacyBox() {
     const [legacyRoomImage, setlegacyRoomImage] = useState();
 
     const modalShow = useSelector(store => store.isCreateFolderShown);
+    //Change file//
+    const changeFileName = useSelector(store => store.changeFileName);
+    const [changedFile, setChangedFile] = useState();
+    //Change folder//
+    const [changedFolder, setChangedFolder] = useState();
+    const changeFolderName = useSelector(store => store.changeFolderName);
+    //Change legacyBox//
+    const [legacyBoxName, setLegacyBoxName] = useState();
+    const changeLegacyBoxName = useSelector(store => store.changeLegacyBoxName);
 
     useEffect(() => {
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
@@ -38,6 +48,7 @@ function LegacyBox() {
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
                 console.log(response);
+                setLegacyBoxName(response.data.name);
                 setLandId(response.data.landId);
                 setOurFolderId(response.data.id); // устанавливаем id папки в которой находимся
 
@@ -144,11 +155,68 @@ function LegacyBox() {
     const getData = (data) => {
         setUserFolders([...userFolders, data]);
     }
+
+
+
+    const createNewFileName = (id) => {
+        setChangedFile({
+            title: "",
+            folderId: ourFolderId,
+            access: "private",
+            fileId: userFiles[id].id,
+        })
+        store.dispatch({type: "CHANGEFILENAME", payload: true});
+    }
+    const getNewFileName = (newFile) => {
+        let updatedArray = userFiles;
+        let indexElem, elem;
+
+        updatedArray.map((el, index) => {
+            if (el.id === newFile.id) {
+                indexElem = index;
+                elem = el;
+            }
+        })
+        updatedArray[indexElem] = {...elem, title: newFile.title};
+        setUserFiles(updatedArray);
+    }
+
+    const createNewFolderName = (id) => {
+        setChangedFolder({
+            folderId: userFolders[id].id,
+            name: userFolders[id].name,
+        })
+        store.dispatch({type: "CHANGEFOLDERNAME", payload: true});
+    }
+    const getNewFolderName = (newFolder) => {
+        let updatedFolderArray = userFolders;
+        let indexElem, elem;
+
+        updatedFolderArray.map((el, index) => {
+            if (el.id === newFolder.id) {
+                indexElem = index;
+                elem = el;
+            }
+        })
+        updatedFolderArray[indexElem] = {...elem, name: newFolder.name};
+        setUserFolders(updatedFolderArray);
+    }
+
+    const createNewLegacyBoxName = () => {
+        store.dispatch({type: "CHANGELEGACYBOXNAME", payload: true});
+    }
+    const getNewLegacyBoxName = () => {
+        
+    }
   return (
     <div>
+        {changeLegacyBoxName ? <ChangeNameOfLegacyBox /> : null}
+        {changeFolderName ? <ChangeNameOfFolders func = {getNewFolderName} object = {changedFolder} /> : null }
+        {changeFileName ? <ChangeNameOfFiles func = {getNewFileName} object = {changedFile} /> : null}
         {modalShow ? <CreateFolderBox func = {getData} object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
     <div className="user__legacy__box">
         <div className="mini__menu">
+            <div onClick={createNewLegacyBoxName} className="legacy__box__name">{legacyBoxName}</div>
             <div onClick={goBackToFolder}>Back to folder</div>
             <div className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
             <div className="aboutUs__button"><img width={"80px"} height = {"80px"} src = {shareImage}/></div>
@@ -163,7 +231,7 @@ function LegacyBox() {
                             <div className='file'>
                                 <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
                                 <img src = {userFiles[id].image} /> 
-                                <span>{userFiles[id].title}</span>
+                                <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
                             </div>
                         </div>
                     )
@@ -175,7 +243,7 @@ function LegacyBox() {
                                 <div onClick={(e) => deleteFolder(id, e)} className='delete__btn'>+</div>
                                 <img className='folder' src = {folder}/>   
                             </div>
-                            <span>{userFolders[id].name}</span>
+                            <span onDoubleClick={() => createNewFolderName(id)}>{userFolders[id].name}</span>
                         </div>
                     )
                 })}

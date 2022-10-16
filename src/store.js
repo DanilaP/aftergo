@@ -21,6 +21,9 @@ const initialState = {
         folderId: "",
         landId: ""
     },
+    changeFileName: false,
+    changeFolderName: false,
+    changeLegacyBoxName: false,
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -42,6 +45,9 @@ function reducer(state = initialState, action) {
         case "DELETEFOLDERFILEMODALBOX": return {isDeleteFileShown: action.payload};
         case "DELETEDFILEID": return {deleteFileId: action.payload};
         case "NEWFOLDER": return {newFolder: action.payload};
+        case "CHANGEFILENAME": return {changeFileName: action.payload};
+        case "CHANGEFOLDERNAME": return {changeFolderName: action.payload};
+        case "CHANGELEGACYBOXNAME": return {changeLegacyBoxName: action.payload};
         default: return state;
     }
 }
