@@ -1,0 +1,22 @@
+.selectAreaInfo {
+    width: 483px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    display: grid;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    &__info {
+        display: grid;
+        grid-template-columns: 1fr;
+        &__title {
+            font-size: 24px;
+        }
+        &__freePlaces {
+            margin-top: 4px;
+            font-size: 20px;
+            color: grey;
+        }
+    }
+}

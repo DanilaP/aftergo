@@ -12,9 +12,9 @@ import ForgetPasswordFirst from './Components/ForgetPasswordFirst';
 import ForgetPasswordCode from './Components/ForgetPasswordCode';
 import CreatePassword from './Components/createPassword';
 import ChooseLandMenu from './Components/LegacyBoxComponents/ChooseLandMenu';
-import OrderNewLand from './Components/LegacyBoxComponents/OrderNewLand';
-import ChoosePlace from './Components/LegacyBoxComponents/ChoosePlace';
-import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone';
+import OrderNewLand from './Components/LegacyBoxComponents/OrderNewLand/OrderNewLand';
+import ChoosePlace from './Components/LegacyBoxComponents/ChoosePlace/ChoosePlace';
+import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone/ChooseTombstone';
 import ChooseLegacyRoom from './Components/LegacyBoxComponents/ChooseLegacyRoom';
 import CustomDesignLegacyRoom from './Components/LegacyBoxComponents/CustomDesignLegacyRoom';
 import Support from './Components/LegacyBoxComponents/Support';
@@ -34,6 +34,7 @@ import FirstEnterMenu from './Components/FirstEnterComponents/FirstEnterMenu';
 import LegacyBox from './Components/UserLegacyBox/LegacyBox';
 import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
 import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
+import ChooseLand from './Components/LegacyBoxComponents/ChooseLand/ChooseLand';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -71,6 +72,7 @@ root.render(
           <Route path="/LegacyBox" element={<LegacyBox/> }/>
           <Route path='/DeleteFileModalBox' element={<DeleteFileModalBox/> }/>
           <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
+          <Route path='/ChooseLand' element={<ChooseLand /> }/>
         </Routes>
       </BrowserRouter>
     </Provider>

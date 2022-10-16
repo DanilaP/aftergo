@@ -24,6 +24,9 @@ const initialState = {
     changeFileName: false,
     changeFolderName: false,
     changeLegacyBoxName: false,
+    selectedTypeOfAccount: {},
+    selectedRoom: {},
+    selectedMapAreaNumber: 1
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -48,6 +51,9 @@ function reducer(state = initialState, action) {
         case "CHANGEFILENAME": return {changeFileName: action.payload};
         case "CHANGEFOLDERNAME": return {changeFolderName: action.payload};
         case "CHANGELEGACYBOXNAME": return {changeLegacyBoxName: action.payload};
+        case "SET_SELECTED_TYPE_OF_ACCOUNT": return { ...state, selectedTypeOfAccount: action.payload };
+        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload }
+        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload }
         default: return state;
     }
 }
