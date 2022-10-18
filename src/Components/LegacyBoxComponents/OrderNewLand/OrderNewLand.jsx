@@ -49,7 +49,7 @@ function OrderNewLand() {
             <div className='newLand__content__info'>
                 <StringSlider array={STRING_SLIDER_TYPES} onChange={onTypeChange} />
                 <Info info={PRIVELEGES_ALL_LEVELS[currTypeLagacyRoomId]} />
-                <MoreInfo moreInfo={PRIVELEGES_PRICES[currTypeLagacyRoomId]} />
+                <MoreInfo moreInfo={PRIVELEGES_PRICES[currTypeLagacyRoomId]} /> 
                 <BlueCustomBtn text="CONTINUE" onClick={onContinue} disabled={!isSelected} />
             </div>
             <div className='newLand__content__three-room' /*style={{backgroundImage: `url(${selectedRoom?.img})`}}*/>

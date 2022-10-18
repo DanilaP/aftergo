@@ -32,24 +32,25 @@ const initialState = {
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
-        case "USERDATA": return {userData: action.value};
-        case "CHOOSEROUTER": return {router: action.value};
-        case "SETUSERIMAGE": return {userImage: action.payload};
-        case "LASTROUTEMENU": return {lastRouteMenu: action.payload};
+        case "USERDATA": return { ...state, userData: action.value};
+        case "CHOOSEROUTER": return { ...state, router: action.value};
+        case "SETUSERIMAGE": return { ...state, userImage: action.payload};
+        case "LASTROUTEMENU": return { ...state, lastRouteMenu: action.payload};
         //First user enter to site//
-        case "SHOWFIRSTDIALOG": return {firstDialog: action.payload};
-        case "SHOWSECONDDIALOG": return {secondDialog: action.payload};
-        case "SHOWBUTTON": return {showButton: action.payload};
-        case "LASTROUTE": return {lastRoute: action.payload};
-        case "SHOWFIRSTSUB": return {isActiveFirstSub: action.payload};
-        case "SHOWSECONDSUB": return {isActiveSecondSub: action.payload};
-        case "SHOWFIRSTBUTTON": return {isActiveFirstModal: action.payload};
+        case "SHOWFIRSTDIALOG": return { ...state, firstDialog: action.payload};
+        case "SHOWSECONDDIALOG": return { ...state, secondDialog: action.payload};
+        case "SHOWBUTTON": return { ...state, showButton: action.payload};
+        case "LASTROUTE": return { ...state, lastRoute: action.payload};
+        case "SHOWFIRSTSUB": return { ...state, isActiveFirstSub: action.payload};
+        case "SHOWSECONDSUB": return { ...state, isActiveSecondSub: action.payload};
+        case "SHOWFIRSTBUTTON": return { ...state, isActiveFirstModal: action.payload};
 
         //LegacyBoxStates//
-        case "CREATEFOLDERSHOWN": return {isCreateFolderShown: action.payload};
-        case "DELETEFOLDERFILEMODALBOX": return {isDeleteFileShown: action.payload};
-        case "DELETEDFILEID": return {deleteFileId: action.payload};
-        case "NEWFOLDER": return {newFolder: action.payload};
+        case "CREATEFOLDERSHOWN": return { ...state, isCreateFolderShown: action.payload};
+        case "DELETEFOLDERFILEMODALBOX": return { ...state, isDeleteFileShown: action.payload};
+        case "DELETEDFILEID": return { ...state, deleteFileId: action.payload};
+        case "NEWFOLDER": return { ...state, newFolder: action.payload};
+
         case "CHANGEFILENAME": return {changeFileName: action.payload};
         case "CHANGEFOLDERNAME": return {changeFolderName: action.payload};
         case "CHANGELEGACYBOXNAME": return {changeLegacyBoxName: action.payload};
