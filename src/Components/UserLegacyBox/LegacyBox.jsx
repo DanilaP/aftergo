@@ -18,6 +18,10 @@ import ChangeNameOfFiles from './ChangeNameOfFiles';
 import ChangeNameOfFolders from './ChangeNameOfFolders';
 import ChangeNameOfLegacyBox from './ChangeNameOfLegacyBox';
 import DeleteFileModalBox from './DeleteFileModalBox';
+import ImageSlider from './ImageSlider';
+import video from '../../Icons/video.png';
+import VideoPlayer from './VideoPlayer';
+import Loader from '../Loader/Loader';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -45,21 +49,34 @@ function LegacyBox() {
     const deleteFileBox = useSelector(store => store.isDeleteFileShown);
     const [deletedFile, setDeletedFile] = useState();
     const [deletedFileType, setDeletedFileType] = useState();
+    //ImageSlider//
+    const imageSliderShown = useSelector(store => store.imageSliderShown);
+    const [imageForOurSlider, setImageForOurSlider] = useState({});
+    const imageTypes = ["png", "jpeg", "GIF", "TIFF", "BMP", "PSD", "PICT","EPS"];
+    const textTypes = ["txt", "pdf", "doc", "docx", "xls"];
+    const videoTypes = ["flv", "avi", "mp4", "3gp", "wmv", "webm"];
+    //Video//
+    const isVideoShown = useSelector(store => store.videoShown);
+    const [userVideo, setUserVideo] = useState({});
+    //Loader//
+    const [loaderShown, setLoaderShown] = useState(false);
 
     useEffect(() => {
+        setLoaderShown(true);
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
         .then((response) => {
+            setLegacyBoxName(response.data[0].name);
             //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
                 console.log(response);
-                setLegacyBoxName(response.data.name);
                 setLandId(response.data.landId);
                 setOurFolderId(response.data.id); // устанавливаем id папки в которой находимся
 
                 setFileHistory([...fileHistory, response.data.id]); //добавляем рутовую папку первой в историю
                 setUserFiles(response.data.files); //выгружаем массив файлов с рутовой папки
                 setUserFolders(response.data.folders); //выгружаем массив папок с рутовой папки
+                setLoaderShown(false);
             })
             .catch((error) => {
                 console.log(error);
@@ -71,11 +88,12 @@ function LegacyBox() {
     }, [])
 
     useEffect(() => {
-        console.log(fileHistory);
+        //console.log(fileHistory);
     }, [fileHistory])
 
 
     const goInsideFolder = async (folderId) => {
+        setLoaderShown(true);
         setOurFolderId(folderId); //меняем id папки в которой находимся и получаем ее данные
         await $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + folderId)
         .then((response) => {
@@ -86,8 +104,10 @@ function LegacyBox() {
         .catch((error) => {
             console.log(error);
         })
+        setLoaderShown(false);
     }
     const goBackToFolder = async () => {
+        setLoaderShown(true);
         let newHistory = fileHistory.slice(0, -1);
         setFileHistory(newHistory);
         setOurFolderId(newHistory[fileHistory.length - 1]); // меняем текущую папку
@@ -100,6 +120,7 @@ function LegacyBox() {
         .catch((error) => {
             console.log(error);
         })
+        setLoaderShown(false);
     }
 
 
@@ -206,13 +227,41 @@ function LegacyBox() {
     const createNewLegacyBoxName = () => {
         store.dispatch({type: "CHANGELEGACYBOXNAME", payload: true});
     }
-    const getNewLegacyBoxName = () => {
-        
+    const getNewLegacyBoxName = (newName) => {
+        setLegacyBoxName(newName);
+    }
+    const showImages = (image) => {
+        if (imageTypes.indexOf(image.format.split("/").pop()) != -1) {
+            let imageForSlider = {
+                src: image.image,
+                width: 0,
+                height: 0,
+                type: image.format,
+            };
+            let imageInfo = new Image;
+            imageInfo.src = image;
+            imageInfo.onload = function(){
+                let height = imageInfo.height;
+                let width = imageInfo.width;
+    
+                imageForSlider.width = width;
+                imageForSlider.height = height;
+            }
+            setImageForOurSlider(imageForSlider);
+            store.dispatch({type: "IMAGESLIDERSHOWN", payload: true});
+        }
+    }
+    const showVideo =  (video) => {
+        store.dispatch({type: "VIDEOSHOWN", payload: true});
+        setUserVideo(video);
     }
   return (
     <div>
+        {loaderShown ? <Loader /> : null}
+        {isVideoShown ? <VideoPlayer video = {userVideo} /> : null}
+        {imageSliderShown ? <ImageSlider image = {imageForOurSlider} /> : null}
         {deleteFileBox ? <DeleteFileModalBox funcForFolders = {updateDeletedFolders} funcForFiles = {updateDeletedFiles} deletedType = {deletedFileType} object = {deletedFile} /> : null}
-        {changeLegacyBoxName ? <ChangeNameOfLegacyBox /> : null}
+        {changeLegacyBoxName ? <ChangeNameOfLegacyBox id = {landId} func = {getNewLegacyBoxName} object = {legacyBoxName} /> : null}
         {changeFolderName ? <ChangeNameOfFolders func = {getNewFolderName} object = {changedFolder} /> : null }
         {changeFileName ? <ChangeNameOfFiles func = {getNewFileName} object = {changedFile} /> : null}
         {modalShow ? <CreateFolderBox func = {getData} object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
@@ -228,15 +277,31 @@ function LegacyBox() {
         <div className="legacy__box__main">
             <div className="file__box">
                 {userFiles.map((el, id) => {
-                    return (
-                        <div>
-                            <div className='file'>
-                                <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
-                                <img src = {userFiles[id].image} /> 
-                                <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
+                    if (loaderShown) {
+                        <Loader />
+                    }
+                    else if (imageTypes.indexOf(el.format.split("/").pop()) != -1) {
+                        return (
+                            <div>
+                                <div className='file'>
+                                    <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
+                                    <img onDoubleClick={() => showImages(userFiles[id])} src = {userFiles[id].image} /> 
+                                    <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
+                                </div>
                             </div>
-                        </div>
-                    )
+                        )
+                    }
+                    else if (videoTypes.indexOf(el.format.split("/").pop()) != -1) {
+                        return (
+                            <div>
+                                <div className='file'>
+                                    <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
+                                    <img disabled = {true} onDoubleClick={() => showVideo(userFiles[id])} src = {userFiles[id].image}/>
+                                    <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
+                                </div>
+                            </div>
+                        )
+                    }
                 })}
                 {userFolders.map((el, id) => {
                     return (

@@ -42,7 +42,7 @@
             border: 1px solid #FFFFFF;
             backdrop-filter: blur(60px);
             position: absolute;
-            margin-top: -275px;
+            margin-top: -515px;
             margin-left: 175px;
             border-radius: 0px;
             
@@ -110,6 +110,8 @@
                     & img {
                         width: 218px;
                         height: 218px;
+                        margin-top: -30px;
+                        margin-left: 0.5px;
                     }
                     & .delete__btn {
                         margin-left: 180px;
@@ -192,7 +194,7 @@
                 }
             }
             & img {
-                opacity: 0.5;
+                //opacity: 0.5;
                 width: 220px;
                 height: 220px;
                 margin-top: -30px;
@@ -373,6 +375,10 @@
     .user__legacy__box {
         & .mini__menu {
             margin-top: 280px;
+
+            & .legacy__box__name {
+                margin-top: -275px;
+            }
         }
         & .legacy__box__main {
             width: 1280px;
@@ -428,7 +434,41 @@
 @media screen and (max-width: 1510px) {
     .user__legacy__box {
         & .legacy__box__main {
-
+            width: 1162px;
+            & .file__box {
+                width: 700px;
+                gap: 10px;
+            }
+            & .redaction__buttons {
+                & .new__folder {
+                    margin-left: 600px;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1393px) {
+    .user__legacy__box {
+        & .legacy__box__main {
+            width: 962px;
+            & .file__box {
+                grid-template-columns: repeat(2, 1fr);
+                width: 500px;
+                margin: 0 auto;
+            }
+            & .redaction__buttons {
+                & .new__folder {
+                    margin-left: 400px;
+                }
+                & button {
+                    width: 200px;
+                }
+                & .upload__files {
+                    & input {
+                        width: 200px;
+                    }
+                }
+            }
         }
     }
 }

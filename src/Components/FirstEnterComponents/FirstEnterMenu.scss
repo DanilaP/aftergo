@@ -48,7 +48,6 @@
         gap: 20px;
         margin-top: 20px;
 
-
         @keyframes legacyAnimation {  
             0% {
                 
@@ -76,7 +75,7 @@
             animation: legacyAnimation 2.5s ease-in infinite;
             backdrop-filter: blur(20px);
             width: 218px;
-            height: 100px;
+            height: 120px;
             text-transform: uppercase;
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 2px;

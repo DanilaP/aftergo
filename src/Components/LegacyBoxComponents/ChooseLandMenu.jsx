@@ -31,12 +31,13 @@ function ChooseLandMenu() {
         store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/LegacyBox");
     }
+    //<div className="arrow_box">
+    //<div onClick={toPrev} className="arrow_example_1"></div>
+    //</div>
   return (
     <div className="choose__land__modal__box">
         <div className="header">
-            <div className="arrow_box">
-                <div onClick={toPrev} className="arrow_example_1"></div>
-            </div>
+
         </div>
         <div className="main__menu">
             <button id = "block_a" onClick={GoToLegacyBox}>MY LEGACY BOX</button>

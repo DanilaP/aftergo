@@ -26,7 +26,9 @@ const initialState = {
     changeLegacyBoxName: false,
     selectedTypeOfAccount: {},
     selectedRoom: {},
-    selectedMapAreaNumber: 1
+    selectedMapAreaNumber: 1,
+    imageSliderShown: false,
+    videoShown: false
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -52,8 +54,10 @@ function reducer(state = initialState, action) {
         case "CHANGEFOLDERNAME": return {changeFolderName: action.payload};
         case "CHANGELEGACYBOXNAME": return {changeLegacyBoxName: action.payload};
         case "SET_SELECTED_TYPE_OF_ACCOUNT": return { ...state, selectedTypeOfAccount: action.payload };
-        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload }
-        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload }
+        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload };
+        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload };
+        case "IMAGESLIDERSHOWN": return {...state, imageSliderShown: action.payload};
+        case "VIDEOSHOWN": return {...state, videoShown: action.payload};
         default: return state;
     }
 }
