@@ -26,7 +26,7 @@ const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, 
                         </div>
                         <div className='legacyBox__info-main-block-areaAndMap-selectedMap'>
                             <div className='defaultTitle'>selected area</div>
-                            <div className='whiteTitle'>{typeOfAccount.name}</div>
+                            <div className='whiteTitle'>{typeOfAccount.type}</div>
                         </div> 
                     </div>
                     <div className='legacyBox__info-main-block-settings'>

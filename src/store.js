@@ -27,6 +27,7 @@ const initialState = {
     selectedTypeOfAccount: {},
     selectedRoom: {},
     selectedMapAreaNumber: 1,
+    allPrivelegiusForActiveTariff: [],
     imageSliderShown: false,
     videoShown: false
 }
@@ -57,6 +58,7 @@ function reducer(state = initialState, action) {
         case "SET_SELECTED_TYPE_OF_ACCOUNT": return { ...state, selectedTypeOfAccount: action.payload };
         case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload };
         case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload };
+        case "SET_ALL_PREVELEGIOS_FOR_ACTIVE_TARIFF": return { ...state, allPrivelegiusForActiveTariff: action.payload };
         case "IMAGESLIDERSHOWN": return {...state, imageSliderShown: action.payload};
         case "VIDEOSHOWN": return {...state, videoShown: action.payload};
         default: return state;

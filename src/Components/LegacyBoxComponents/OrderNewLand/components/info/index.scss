@@ -22,7 +22,7 @@
         &-default {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;
@@ -38,7 +38,7 @@
         &-active {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;
@@ -54,7 +54,7 @@
         &-inactive {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;

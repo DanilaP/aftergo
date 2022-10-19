@@ -17,11 +17,11 @@ export default function ChooseLand() {
         history('/ChooseTombStone')
     }
     useEffect(() => {
-        if (!typeOfAccount?.name) history('/OrderNewLand');
+        if (!typeOfAccount?.type) history('/OrderNewLand');
     }, [])
     return (
         <div className="choose__land__modal__boxs">
-            <InfoBlock text={typeOfAccount?.name} />
+            <InfoBlock text={typeOfAccount?.type} />
             <SelectRoomImg />
             <SelectedLegacyMap numberOfMap={numberOfMap}/>
             <SelectAreaInfo freePlaces={5} />
