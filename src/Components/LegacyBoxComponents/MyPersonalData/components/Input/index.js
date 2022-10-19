@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import { useRef, useState } from 'react';
 import './index.scss';
 
 export const Input = ({
@@ -8,8 +7,10 @@ export const Input = ({
     name
 }) => {
     const ref = useRef();
-
+    const [touched, setTouched] = useState(false);
     return (
-        <input ref={ref} name={name} className="input" placeholder={placeholder} onChange={() => onChange(ref.current)} />
+        <div className={ref.current?.value.length === 0 && touched ? 'input__error' : ''} onClick={() => setTouched(true)} >
+            <input ref={ref} name={name} className="input" placeholder={placeholder} onChange={() => onChange(ref.current)} />
+        </div>
     )
 }

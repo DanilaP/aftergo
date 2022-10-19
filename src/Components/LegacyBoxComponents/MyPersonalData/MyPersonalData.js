@@ -2,27 +2,24 @@ import { CheckSettings } from './components/CheckSettings';
 import { Input } from './components/Input';
 import { Message } from './components/Message';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
+import { MyPersonalDefault } from './constants';
 import './MyPersonalData.scss';
 import { useState } from 'react';
 
 export default function MyPersonalData() {
 
     const [isValidForm, setIsValidForm] = useState(false);
-    const [data, setData] = useState([]);
+    const [data, setData] = useState(MyPersonalDefault);
 
     const formChange = (e) => {
-        const newData = [...data, { name: e.name, value: e.value }];
+        const newData = {...data, [e.name]: { name: e.name, value: e.value, error: e.value.length === 0 }};
         setData(newData);
-        if (
-            newData[0].value.length === 0 ||
-            newData[1].value.length === 0 ||
-            newData[2].value.length === 0 ||
-            newData[3].value.length === 0
-        ) {
-            setIsValidForm(false);
-        } else {
-            setIsValidForm(true);
-        }
+        setIsValidForm(true);
+        Object.keys(newData).map(el => {
+            if (newData[el].error) {
+                setIsValidForm(false);
+            }
+        })
     }
     return (
         <div className='myPersonalData'>
