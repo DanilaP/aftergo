@@ -65,7 +65,7 @@ function LegacyBox() {
         setLoaderShown(true);
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
         .then((response) => {
-            setLegacyBoxName(response.data[0].name);
+            setLegacyBoxName(response.data.name);
             //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
@@ -295,7 +295,7 @@ function LegacyBox() {
                             <div>
                                 <div className='file'>
                                     <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
-                                    <img onDoubleClick={() => showVideo(userFiles[id])} src = {userFiles[id].image}/>
+                                    <img className='video__image' onDoubleClick={() => showVideo(userFiles[id])}/>
                                     <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
                                 </div>
                             </div>

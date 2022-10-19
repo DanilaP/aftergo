@@ -98,6 +98,13 @@
                 background: rgba(255, 255, 255, 0.05);
                 text-align: center;
 
+                & .video__image {
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-bottom: 50px;
+                }
                 &:hover {
                     width: 218px;
                     height: 218px;
@@ -106,6 +113,12 @@
 
                     & .delete__btn {
                         opacity: 1;
+                    }
+                    & .video__image {
+                        width: 100px;
+                        height: 100px;
+                        margin: 0 auto;
+                        margin-bottom: 50px;
                     }
                     & img {
                         width: 218px;
