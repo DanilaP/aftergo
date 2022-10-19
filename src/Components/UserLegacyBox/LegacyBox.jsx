@@ -295,7 +295,7 @@ function LegacyBox() {
                             <div>
                                 <div className='file'>
                                     <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
-                                    <img className='video__image' onDoubleClick={() => showVideo(userFiles[id])} src = {video}/>
+                                    <img className='video__image' onDoubleClick={() => showVideo(userFiles[id])}/>
                                     <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
                                 </div>
                             </div>
