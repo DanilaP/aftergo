@@ -3,7 +3,7 @@ import { MoreInfo } from '../../../OrderNewLand/components/moreInfo';
 import { LEGACY_BOX_FORM_OPTIONS } from '../../constants';
 import './index.scss';
 
-const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, typeOfAccount }) => {
+const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, typeOfAccount, onSettingsChange }) => {
  
     return (
         <div className='legacyBox__info'>
@@ -32,8 +32,8 @@ const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, 
                     <div className='legacyBox__info-main-block-settings'>
                         <div className='legacyBox__info-main-block-settings-options'>
                             { LEGACY_BOX_FORM_OPTIONS.map( el => (
-                                <div className='checkbox__block'>
-                                    <input type="checkbox"/><span>{el.text}</span>
+                                <div className='checkbox__block' onChange={(e) => onSettingsChange(e)}>
+                                    <input type="checkbox" name={el.value} /><span>{el.text}</span>
                                 </div>
                             )) }
                         </div>

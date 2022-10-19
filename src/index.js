@@ -35,6 +35,7 @@ import LegacyBox from './Components/UserLegacyBox/LegacyBox';
 import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
 import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
 import ChooseLand from './Components/LegacyBoxComponents/ChooseLand/ChooseLand';
+import MyPersonalData from './Components/LegacyBoxComponents/MyPersonalData/MyPersonalData';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -73,6 +74,7 @@ root.render(
           <Route path='/DeleteFileModalBox' element={<DeleteFileModalBox/> }/>
           <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
           <Route path='/ChooseLand' element={<ChooseLand /> }/>
+          <Route path='/MyPersonalData' element={<MyPersonalData /> }/>
         </Routes>
       </BrowserRouter>
     </Provider>
