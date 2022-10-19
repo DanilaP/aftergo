@@ -42,7 +42,7 @@
             border: 1px solid #FFFFFF;
             backdrop-filter: blur(60px);
             position: absolute;
-            margin-top: -515px;
+            margin-top: -565px;
             margin-left: 175px;
             border-radius: 0px;
             
@@ -352,9 +352,21 @@
         }
         & .navigate__buttons {
             text-align: center;
+            display: grid;
+            grid-template-columns: 72px 120px 120px;
+            gap: 20px;
+            margin-left: 42px;
 
+            & img {
+                width: 72px;
+                height: 72px;
+                border: 1px solid #1CF1FF;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
             & button {
-                width: 140px;
+                width: 120px;
                 height: 72px;
                 color: #1CF1FF;
                 border: 1px solid #1CF1FF;
@@ -377,7 +389,7 @@
             margin-top: 280px;
 
             & .legacy__box__name {
-                margin-top: -275px;
+                margin-top: -320px;
             }
         }
         & .legacy__box__main {
@@ -406,6 +418,11 @@
                 margin-left: 40px;
                 & button {
                     height: 50px;
+                }
+                & img {
+                    height: 50px;
+                    width: 50px;
+                    margin-left: 20px;
                 }
             }
             & .info__box {

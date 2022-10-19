@@ -270,7 +270,6 @@ function LegacyBox() {
             <div onClick={createNewLegacyBoxName} className="legacy__box__name">{legacyBoxName}</div>
             <div onClick={goBackToFolder}>Back to folder</div>
             <div className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
-            <div className="aboutUs__button"><img width={"80px"} height = {"80px"} src = {shareImage}/></div>
             <div className="support__button"><img width={"80px"} height = {"80px"} src = {aboutUsImage}/></div>
             <div className="support__button"><img width={"80px"} height = {"80px"} src = {supportImage}/></div>
         </div>
@@ -296,7 +295,7 @@ function LegacyBox() {
                             <div>
                                 <div className='file'>
                                     <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
-                                    <img disabled = {true} onDoubleClick={() => showVideo(userFiles[id])} src = {userFiles[id].image}/>
+                                    <img onDoubleClick={() => showVideo(userFiles[id])} src = {userFiles[id].image}/>
                                     <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
                                 </div>
                             </div>
@@ -344,6 +343,7 @@ function LegacyBox() {
                 </div>
             </div>
             <div className="navigate__buttons">
+                <img src = {shareImage}/>
                 <button>VISIT CEMETRY</button>
                 <button>ORDER NEW LAND</button>
             </div>
