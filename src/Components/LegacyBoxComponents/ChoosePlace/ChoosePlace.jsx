@@ -23,12 +23,12 @@ function ChoosePlace() {
     }
 
     useEffect(() => {
-      if (!typeOfAccount?.name) history('/OrderNewLand');
+      if (!typeOfAccount?.type) history('/OrderNewLand');
     }, [])
 
     return (
       <div className="choose__place__modal__box">
-        <InfoBlock text={typeOfAccount?.name} />
+        <InfoBlock text={typeOfAccount?.type} />
         <SelectRoomImg />
         <ChooseMapAndArea onChange={onChangeMapArea} number={NUMBER_OF_MAP_FOR_SLIDER} />
         <SelectAreaInfo freePlaces={5}/>
