@@ -3,14 +3,14 @@ import * as BABYLON from '@babylonjs/core';
 import '@babylonjs/loaders';
 import '@babylonjs/materials';
 import { SkyMaterial } from "@babylonjs/materials";
-import { WaterMaterial } from "@babylonjs/materials";
-
-const ops = {};
-ops.width = window.innerWidth;
-ops.height = window.innerHeight;
 
 const Room = props => {
     const canvasRef = React.useRef(null);
+    const ops = {};
+    ops.width = props.width ?? window.innerWidth;
+    ops.height = props.height ?? window.innerHeight;
+    const path = props.path ?? './models/test/';
+    const name = props.name ?? 'scene.gltf';
 
     React.useEffect(() => {
        const canvas = canvasRef.current;
@@ -38,7 +38,7 @@ const Room = props => {
             skySphere.material.useSunPosition = true;
             skySphere.material.sunPosition = new BABYLON.Vector3(-90, 5, -50);
 
-            BABYLON.SceneLoader.ImportMesh("", "./models/test/", "scene.gltf", scene);
+            BABYLON.SceneLoader.ImportMesh("", path, name, scene);
 
            return scene
        }
@@ -61,7 +61,6 @@ const Room = props => {
         };
 
     }, []);
-
 
     return (
         <canvas

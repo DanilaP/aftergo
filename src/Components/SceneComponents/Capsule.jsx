@@ -17,7 +17,6 @@ const Capsule = props => {
     const [sub1State, setSub1State] = React.useState(true);
     const [sub2State, setSub2State] = React.useState(false);
     const [btnState, setBtnState] = React.useState(false);
-    const [mapState, setMapState] = React.useState(false);
     const [modalState, setModalState] = React.useState(false);
     const [count, setCount] = React.useState(0);
 
@@ -47,6 +46,8 @@ const Capsule = props => {
            const light = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(0, -1, 5), Math.PI / 2, 10, scene);
            light.position = new BABYLON.Vector3(0, 4, -25);
            light.intensity = 300;
+           light.diffuse = new BABYLON.Color3(0.93, 0.8, 0.46);
+           light.specular = new BABYLON.Color3(1, 0.77, 0);
 
            const camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 1.7, 0), scene);
            camera.attachControl(canvas, true);
@@ -62,8 +63,6 @@ const Capsule = props => {
            camera.keysLeft.push(65);
            camera.keysRight.push(68);
            camera.rotation.set(0, Math.PI, 0);
-           
-
 
            const envTex = BABYLON.CubeTexture.CreateFromPrefilteredData('./textures/ev3.env', scene);
            envTex.rotationY = -40.22;
@@ -79,7 +78,7 @@ const Capsule = props => {
            const shadowMap = shadowGenerator.getShadowMap();
 
            const waterMaterial = new WaterMaterial("waterMaterial", scene, new BABYLON.Vector2(512, 512));
-           waterMaterial.bumpTexture = new BABYLON.Texture("//www.babylonjs.com/assets/waterbump.png", scene);
+           waterMaterial.bumpTexture = new BABYLON.Texture("./textures/waterbump.png", scene);
            waterMaterial.windForce = -5;
            waterMaterial.waveHeight = 0.05;
            waterMaterial.bumpHeight = 0.1;
@@ -92,13 +91,14 @@ const Capsule = props => {
            const waterMesh = BABYLON.Mesh.CreateGround("waterMesh", 512, 512, 32, scene, false);
            waterMesh.material = waterMaterial;
            waterMesh.renderingGroupId = 0;
-           waterMesh.position.y = -4;
+           waterMesh.position.y = -3;
            waterMesh.onBeforeRenderObservable.add(() => {
                engine.setStencilMask(0x00);
                engine.setStencilFunction(BABYLON.Engine.NOTEQUAL);
                engine.setStencilFunctionReference(1);
            });
            waterMaterial.addToRenderList(skySphere);
+           localStorage.getItem('map') ? waterMesh.isVisible = false : waterMesh.isVisible = true;
 
            const nodeMat_room = new BABYLON.NodeMaterial("nodeMat_room", scene);
            nodeMat_room.loadAsync("./textures/cp1.json").then(() => {
@@ -260,48 +260,57 @@ const Capsule = props => {
                }
            });
 
+           BABYLON.SceneLoader.ImportMesh("","./models/", "map_low.glb", undefined, (meshes) => {
+                // const ease = new BABYLON.CubicEase();
+                // ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+                // const position = new BABYLON.Vector3(meshes[0].position.x, -3, meshes[0].position.z);
+                // if (mapState) BABYLON.Animation.CreateAndStartAnimation("transition", meshes[0], "position", 10, 35, meshes[0].position, position, 0, ease);
+                meshes[0].position.y = -15;
+                meshes.forEach(mesh => {
+                    localStorage.getItem('map') ? mesh.isVisible = true : mesh.isVisible = false;
+                });
+            });
+            BABYLON.SceneLoader.ImportMesh("","./models/", "map_high.glb", undefined, (meshes) => {
+                // const ease = new BABYLON.CubicEase();
+                // ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
+                // const position = new BABYLON.Vector3(meshes[0].position.x, -3, meshes[0].position.z);
+                // if (mapState) BABYLON.Animation.CreateAndStartAnimation("transition", meshes[0], "position", 10, 35, meshes[0].position, position, 0, ease);
+                meshes[0].position.y = -15;
+                meshes.forEach(mesh => {
+                    localStorage.getItem('map') ? mesh.isVisible = true : mesh.isVisible = false;
+                });
+            });
+
            return scene
        }
 
        const scene = createScene();
+       const resize = () => {
+          engine.resize();
+       }
+
        engine.runRenderLoop(() => {
            scene.render();
        });
 
-       window.addEventListener('resize', () => {
-           engine.resize();
-       });
+       window.addEventListener('resize', resize);
 
         return () => {
             engine.dispose();
 
             if (window) {
-                window.removeEventListener("resize", window);
+                window.removeEventListener("resize", resize);
             }
         };
 
     }, []);
-
-    React.useEffect(() => {
-        BABYLON.SceneLoader.ImportMesh("","./models/", "park.glb", undefined, (meshes) => {
-            meshes[0].position.y = -20;
-            meshes[0].position.z = -40;
-            meshes[0].rotation.x = 25;
-            meshes[0].scaling.set(10, 10, 10);
-            meshes[0].name = 'hiddenMap';
-            const ease = new BABYLON.CubicEase();
-            ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-            const position = new BABYLON.Vector3(meshes[0].position.x, -3, meshes[0].position.z);
-            if (mapState) BABYLON.Animation.CreateAndStartAnimation("transition", meshes[0], "position", 10, 35, meshes[0].position, position, 0, ease);
-        });
-    }, [mapState]);
 
     const clickHandle = () => {
         setCount(count + 1);
         switch(count) {
             case 0: return setSub1State(false) & setSub2State(true);
             case 1: return setSub2State(false) & setBtnState(true);
-            case 2: return setBtnState(false) & setMapState(true);
+            case 2: return setBtnState(false);
             default: return null;
         }
     }

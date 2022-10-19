@@ -5,6 +5,7 @@ function ContinueButton() {
   const history = useNavigate();
   const goNext = () => {
     history("/FirstEnterMenu");
+    localStorage.setItem('map', 'active');
   }
   return (
     <div className="continueButton">
