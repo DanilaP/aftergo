@@ -24,9 +24,7 @@ function Share({func, id, lvl}) {
     })
   }
   const removeFriend = async (idElem) => {
-    let array = [];
-    array = [...array, friendsArray[idElem]];
-    $api.delete('https://aftergo-api-dev.azurewebsites.net/api/lands/' + id + "/access", array)
+    await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/lands/' + id + '/access', {data: [{email: friendsArray[idElem].email}]})
     .then((response) => {
       console.log(response)
       setFriendsArray(response.data);
@@ -81,3 +79,5 @@ function Share({func, id, lvl}) {
 }
 
 export default Share;
+
+
