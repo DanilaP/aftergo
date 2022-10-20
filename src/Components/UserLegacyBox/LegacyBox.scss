@@ -11,7 +11,7 @@
     & .mini__menu {
         display: flex;
         flex-direction: column;
-        margin-top: 510px;
+        margin-top: 610px;
         margin-right: 52px;
 
         & div {
@@ -42,7 +42,7 @@
             border: 1px solid #FFFFFF;
             backdrop-filter: blur(60px);
             position: absolute;
-            margin-top: -565px;
+            margin-top: -615px;
             margin-left: 175px;
             border-radius: 0px;
             
@@ -365,26 +365,27 @@
         }
         & .navigate__buttons {
             text-align: center;
-            display: grid;
-            grid-template-columns: 72px 120px 120px;
-            gap: 20px;
+            display: flex;
             margin-left: 42px;
+            gap: 20px;
 
             & img {
                 width: 72px;
-                height: 72px;
+                height: 70px;
                 border: 1px solid #1CF1FF;
+                margin-left: -9px;
+
                 &:hover {
                     cursor: pointer;
                 }
             }
             & button {
-                width: 120px;
+                width: 139px;
                 height: 72px;
                 color: #1CF1FF;
                 border: 1px solid #1CF1FF;
                 background: rgba(0, 0, 0, 0.2);
-                margin-right: 16px;
+                margin-left: -10px;
 
                 &:hover {
                     cursor: pointer;
@@ -395,7 +396,6 @@
         }
     }
 }
-
 @media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .mini__menu {
@@ -403,6 +403,7 @@
 
             & .legacy__box__name {
                 margin-top: -320px;
+                margin-left: 165px;
             }
         }
         & .legacy__box__main {
@@ -430,12 +431,13 @@
             & .navigate__buttons {
                 margin-left: 40px;
                 & button {
+                    width: 150px;
                     height: 50px;
                 }
                 & img {
-                    height: 50px;
+                    height: 48px;
                     width: 50px;
-                    margin-left: 20px;
+                    margin-left: -7px;
                 }
             }
             & .info__box {
@@ -461,7 +463,7 @@
         }
     }
 }
-@media screen and (max-width: 1510px) {
+@media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .legacy__box__main {
             width: 1162px;

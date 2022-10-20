@@ -22,6 +22,7 @@ import ImageSlider from './ImageSlider';
 import video from '../../Icons/video.png';
 import VideoPlayer from './VideoPlayer';
 import Loader from '../Loader/Loader';
+import Share from './Share';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -60,13 +61,17 @@ function LegacyBox() {
     const [userVideo, setUserVideo] = useState({});
     //Loader//
     const [loaderShown, setLoaderShown] = useState(false);
+    //Share//
+    const [shareShown, setShareShown] = useState(false);
+    const [landLevel, setLandLevel] = useState();
 
     useEffect(() => {
         setLoaderShown(true);
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
         .then((response) => {
             setLegacyBoxName(response.data.name);
-            //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
+            setLandLevel(response.data.level);
+            //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data.folderId)
             $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
                 console.log(response);
@@ -107,6 +112,9 @@ function LegacyBox() {
         setLoaderShown(false);
     }
     const goBackToFolder = async () => {
+        if (fileHistory.length == 1) {
+            return
+        }
         setLoaderShown(true);
         let newHistory = fileHistory.slice(0, -1);
         setFileHistory(newHistory);
@@ -255,8 +263,15 @@ function LegacyBox() {
         store.dispatch({type: "VIDEOSHOWN", payload: true});
         setUserVideo(video);
     }
+    const goToShare = () => {
+        setShareShown(true);
+    }
+    const hideShare = () => {
+        setShareShown(false);
+    }
   return (
     <div>
+        {shareShown ? <Share lvl = {landLevel} id = {landId} func = {hideShare} /> : null }
         {loaderShown ? <Loader /> : null}
         {isVideoShown ? <VideoPlayer video = {userVideo} /> : null}
         {imageSliderShown ? <ImageSlider image = {imageForOurSlider} /> : null}
@@ -343,7 +358,7 @@ function LegacyBox() {
                 </div>
             </div>
             <div className="navigate__buttons">
-                <img src = {shareImage}/>
+                <img onClick={goToShare} src = {shareImage}/>
                 <button>VISIT CEMETRY</button>
                 <button>ORDER NEW LAND</button>
             </div>
