@@ -5,11 +5,12 @@ import { useState } from 'react';
 import { getAllTombstonesInfo } from '../../../Api/request';
 import customStone from '../../../Icons/customStone.png';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 function ChooseTombstone() {
     const history = useNavigate();
+    const dispatch = useDispatch();
     const [numberOfTomb, setNumberOfTomb] = useState(1);
     const [tombImage, setTombImage] = useState(tombstone);
     const lastRoute = useSelector(store => store.lastRoute);
@@ -18,33 +19,29 @@ function ChooseTombstone() {
     ]);
 
     const continueToNext = () => {
-        if (numberOfTomb == 6) {
-            store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
-            history("/CustomTombstoneDesign");
-        }
-        else {
-            store.dispatch({type: "LASTROUTE", payload: "/ChooseTombstone"});
-            history("/LegacyBoxSettingFULL");
-        }
+        dispatch({ type: "SET_SELECTED_TOMBSTONE", payload: imagesMassive[numberOfTomb - 1] })
+        history("/CustomTombstoneDesign");
     }
     const toPrev = () => {
         history(lastRoute);
     }
     useEffect(() => {
-        getAllTombstonesInfo();
+        getAllTombstonesInfo().then(res => {
+            setImagesMassive([...res.data, ...res.data]);
+        });
         store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
     }, [])
     const chooseTomb = (vector) => {
-        if (vector == "prev") {
+        if (vector === "prev") {
             if (numberOfTomb === 1) {
-                setNumberOfTomb(6);
+                setNumberOfTomb(imagesMassive.length);
             }
             else {
-                setNumberOfTomb(numberOfTomb-1);
+                setNumberOfTomb(imagesMassive.length-1);
             }
         }
-        else if (vector == "next") {
-            if (numberOfTomb === 6) {
+        else if (vector === "next") {
+            if (numberOfTomb === imagesMassive.length) {
                 setNumberOfTomb(1);
             }
             else {
@@ -67,14 +64,14 @@ function ChooseTombstone() {
                         {`<`}
                     </button>
                     <div className="slider__image">
-                        <img src = {tombImage} />
+                        <img src = {imagesMassive[numberOfTomb - 1]?.image} />
                     </div>
                     <button className='second__btn' onClick={() => chooseTomb("next")}>
                         {`>`}
                     </button>
                     <div className='number__of__tombstone'>
                         <div>MOON</div>
-                        <div className='number'>{numberOfTomb} OF 6</div>
+                        <div className='number'>{numberOfTomb} OF {imagesMassive.length}</div>
                     </div>
                 </div>
             </div>

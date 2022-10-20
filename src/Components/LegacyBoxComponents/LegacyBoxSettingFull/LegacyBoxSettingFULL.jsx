@@ -12,6 +12,8 @@ function LegacyBoxSettingFULL() {
   const selectedRoom = useSelector(store => store.selectedRoom);
   const selectedTypeOfAccount = useSelector(store => store.selectedTypeOfAccount);
   const selectedMapAreaNumber = useSelector(store => store.selectedMapAreaNumber);
+  const selectedTombStone = useSelector(store => store.selectedTombStone);
+
   const [forFriend, setForFriend] = useState(false);
 
   const onSettingsChange = (checkbox) => {
@@ -22,13 +24,14 @@ function LegacyBoxSettingFULL() {
   const goContinue = () => {
     if (!forFriend) history('/MyPersonalData');
   }
+
   return (
     <div className='legacy__box__form'>
         <div className='legacy__box__form-info'>
           <Info 
-            mainPhoto={selectedRoom.img}
-            tombStonePhoto={selectedRoom.img}
-            mapPhoto={selectedRoom.img}
+            mainPhoto={selectedRoom.image}
+            tombStonePhoto={selectedTombStone.image}
+            mapPhoto={selectedRoom.image}
             selectedRoom={selectedTypeOfAccount}
             numberOfMap={selectedMapAreaNumber}
             typeOfAccount={selectedTypeOfAccount}
@@ -36,7 +39,7 @@ function LegacyBoxSettingFULL() {
           />
         </div>
         <div className='legacy__box__form-payment'>
-          <VariableTariffs />
+          <VariableTariffs selectedTypeOfAccount={selectedTypeOfAccount} />
         </div>
         <div className='legacy__box__form-action'>
           <button onClick={goContinue}>Continue</button>

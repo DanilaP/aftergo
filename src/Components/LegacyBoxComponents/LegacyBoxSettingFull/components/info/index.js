@@ -3,7 +3,7 @@ import { MoreInfo } from '../../../OrderNewLand/components/moreInfo';
 import { LEGACY_BOX_FORM_OPTIONS } from '../../constants';
 import './index.scss';
 
-const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, typeOfAccount, onSettingsChange }) => {
+const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, numberOfMap, typeOfAccount, onSettingsChange }) => {
  
     return (
         <div className='legacyBox__info'>
@@ -17,7 +17,7 @@ const Info = ({ mainPhoto, tombStonePhoto, mapPhoto, selectedRoom, numberOfMap, 
                 </div>
             </div>
             <div className='legacyBox__info-main'>
-                <MoreInfo moreInfo={PRIVELEGES_PRICES[selectedRoom.id - 1]} />
+                <MoreInfo moreInfo={typeOfAccount} />
                 <div className='legacyBox__info-main-block'>
                     <div className='legacyBox__info-main-block-areaAndMap'>
                         <div className='legacyBox__info-main-block-areaAndMap-selectedArea'>

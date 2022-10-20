@@ -1,7 +1,6 @@
 import './index.scss';
 
 export const Info = ({ info }) => {
-    console.log(info);
     return (
         <div className='info__legacyRoom'>
             {info?.data?.map(el => {
