@@ -1,0 +1,18 @@
+.goBackButton {
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 24px;
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.17);
+}

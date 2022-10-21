@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 import Info from './components/info';
 import VariableTariffs from './components/variable-tariffs';
 import './LegacyBoxSettingFULL.scss';
@@ -13,7 +14,7 @@ function LegacyBoxSettingFULL() {
   const selectedTypeOfAccount = useSelector(store => store.selectedTypeOfAccount);
   const selectedMapAreaNumber = useSelector(store => store.selectedMapAreaNumber);
   const selectedTombStone = useSelector(store => store.selectedTombStone);
-
+  const dispatch = useDispatch();
   const [forFriend, setForFriend] = useState(false);
 
   const onSettingsChange = (checkbox) => {
@@ -25,13 +26,17 @@ function LegacyBoxSettingFULL() {
     if (!forFriend) history('/MyPersonalData');
   }
 
+  useEffect(() => {
+    dispatch({ type: "LASTROUTEMENU", payload: '/ChooseTombStone' });
+  }, [])
   return (
     <div className='legacy__box__form'>
         <div className='legacy__box__form-info'>
+          <GoBackButton />
           <Info 
-            mainPhoto={selectedRoom.image}
-            tombStonePhoto={selectedTombStone.image}
-            mapPhoto={selectedRoom.image}
+            mainPhoto={selectedRoom?.image}
+            tombStonePhoto={selectedTombStone?.image}
+            mapPhoto={selectedRoom?.image}
             selectedRoom={selectedTypeOfAccount}
             numberOfMap={selectedMapAreaNumber}
             typeOfAccount={selectedTypeOfAccount}

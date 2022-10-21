@@ -4,11 +4,14 @@ import { Message } from './components/Message';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
 import { MyPersonalDefault } from './constants';
 import './MyPersonalData.scss';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 
 export default function MyPersonalData() {
 
     const [isValidForm, setIsValidForm] = useState(false);
+    const dispatch = useDispatch();
     const [data, setData] = useState(MyPersonalDefault);
 
     const formChange = (e) => {
@@ -21,8 +24,12 @@ export default function MyPersonalData() {
             }
         })
     }
+    useEffect(() => {
+        dispatch({ type: "LASTROUTEMENU", payload: '/LegacyBoxSettingFULL' });
+    }, [])
     return (
         <div className='myPersonalData'>
+            <GoBackButton />
             <div className='myPersonalData__content'>
                 <div className='myPersonalData__content__header'>
                     Your personal data

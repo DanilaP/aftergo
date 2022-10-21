@@ -4,6 +4,7 @@ import tombstone from '../../../Icons/tombstoneExample.png';
 import { useState } from 'react';
 import { getAllTombstonesInfo } from '../../../Api/request';
 import customStone from '../../../Icons/customStone.png';
+import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
@@ -19,7 +20,8 @@ function ChooseTombstone() {
     ]);
 
     const continueToNext = () => {
-        dispatch({ type: "SET_SELECTED_TOMBSTONE", payload: imagesMassive[numberOfTomb - 1] })
+        dispatch({ type: "SET_SELECTED_TOMBSTONE", payload: imagesMassive[numberOfTomb - 1] });
+        dispatch({ type: "LASTROUTEMENU", payload: '/ChooseTombStone' });
         history("/CustomTombstoneDesign");
     }
     const toPrev = () => {
@@ -29,7 +31,7 @@ function ChooseTombstone() {
         getAllTombstonesInfo().then(res => {
             setImagesMassive([...res.data, ...res.data]);
         });
-        store.dispatch({type: "LASTROUTE", payload: "/ChoosePlace"});
+        dispatch({ type: "LASTROUTEMENU", payload: '/ChooseLand' });
     }, [])
     const chooseTomb = (vector) => {
         if (vector === "prev") {
@@ -52,9 +54,7 @@ function ChooseTombstone() {
   return (
     <div className="choose__tombstone__modal__box">
         <div className="header">
-            <div className="arrow_box">
-                <div onClick={toPrev} className="arrow_example_1"></div>
-            </div>
+            <GoBackButton />
         </div>
         <div className="choose__tombstone__slider">
             <div className="slider__images">
