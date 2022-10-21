@@ -1,3 +1,8 @@
+.scale__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .user__legacy__box {
     width: 100vw;
     height: 100vh;
@@ -105,10 +110,23 @@
                     margin: 0 auto;
                     margin-bottom: 50px;
                 }
+                & .txt__image {
+                    width: 120px;
+                    height: 120px;
+                    margin: 0 auto;
+                    margin-bottom: 40px;
+
+                    &:hover {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                        margin-bottom: 40px;
+                    }
+                }
                 &:hover {
-                    width: 218px;
-                    height: 218px;
-                    border: 1px solid white;
+                    width: 220px;
+                    height: 220px;
+                    //border: 1px solid white;
                     cursor: pointer;
 
                     & .delete__btn {
@@ -120,9 +138,15 @@
                         margin: 0 auto;
                         margin-bottom: 50px;
                     }
+                    & .txt__image {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                        margin-bottom: 40px;
+                    }
                     & img {
-                        width: 218px;
-                        height: 218px;
+                        width: 220px;
+                        height: 220px;
                         margin-top: -30px;
                         margin-left: 0.5px;
                     }
@@ -158,9 +182,9 @@
 
 
                 &:hover {
-                    width: 218px;
-                    height: 218px;
-                    border: 1px solid white;
+                    width: 220px;
+                    height: 220px;
+                    //border: 1px solid white;
                     cursor: pointer;
 
                     & .delete__btn {
@@ -355,7 +379,8 @@
                 margin-right: 16px;
                 border: 1px solid #1CF1FF;
                 color: #1CF1FF;
-
+                font-family: 'Inter';
+                
                 &:hover {
                     cursor: pointer;
                     background-color: #1CF1FF;
@@ -369,12 +394,20 @@
             margin-left: 42px;
             gap: 20px;
 
-            & img {
+            & div {
                 width: 72px;
                 height: 70px;
                 border: 1px solid #1CF1FF;
                 margin-left: -9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Inter';
 
+                & img {
+                    height: 40px;
+                    width: 40px;
+                }
                 &:hover {
                     cursor: pointer;
                 }
@@ -386,6 +419,7 @@
                 border: 1px solid #1CF1FF;
                 background: rgba(0, 0, 0, 0.2);
                 margin-left: -10px;
+                font-family: 'Inter';
 
                 &:hover {
                     cursor: pointer;
@@ -396,6 +430,15 @@
         }
     }
 }
+@media screen and (max-width: 1670px) {
+    .scale__box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.75);
+    }
+}
+/*
 @media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .mini__menu {
@@ -504,3 +547,4 @@
         }
     }
 }
+*/

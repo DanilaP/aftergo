@@ -8,7 +8,7 @@ import legacy__room from '../../Icons/legacy__room__4.png';
 import map from '../../Icons/map.png';
 import tomb from '../../Icons/tombstoneExample.png';
 import supportImage from '../../Icons/Support.png';
-import shareImage from '../../Icons/Share.png';
+import shareImage from '../../Icons/share.png';
 import aboutUsImage from '../../Icons/AboutUs.png';
 import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';
@@ -23,6 +23,10 @@ import video from '../../Icons/video.png';
 import VideoPlayer from './VideoPlayer';
 import Loader from '../Loader/Loader';
 import Share from './Share';
+import txt from '../../Icons/txt.png';
+import word from '../../Icons/word.png';
+import pdf from '../../Icons/pdf.png';
+import excel from '../../Icons/excel.png';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -69,10 +73,10 @@ function LegacyBox() {
         setLoaderShown(true);
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/lands/mine')
         .then((response) => {
-            setLegacyBoxName(response.data.name);
+            setLegacyBoxName(response.data[0].name);
             setLandLevel(response.data.level);
-            //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data.folderId)
-            $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
+            $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/'+ response.data[0].folderId)
+            //$api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/93effff5-71a3-4b20-b20d-1277ea116552')
             .then((response) => {
                 console.log(response);
                 setLandId(response.data.landId);
@@ -280,7 +284,9 @@ function LegacyBox() {
         {changeFolderName ? <ChangeNameOfFolders func = {getNewFolderName} object = {changedFolder} /> : null }
         {changeFileName ? <ChangeNameOfFiles func = {getNewFileName} object = {changedFile} /> : null}
         {modalShow ? <CreateFolderBox func = {getData} object = {{name: "", landId: landId, folderId: ourFolderId}} isShown = {modalShow} /> : null }
+
     <div className="user__legacy__box">
+    <div className="scale__box">
         <div className="mini__menu">
             <div onClick={createNewLegacyBoxName} className="legacy__box__name">{legacyBoxName}</div>
             <div onClick={goBackToFolder}>Back to folder</div>
@@ -316,7 +322,19 @@ function LegacyBox() {
                             </div>
                         )
                     }
-                })}
+                    else if ((el.format.split("/").pop()) == ("plain")) {
+                        return (
+                            <div>
+                                <div className='file'>
+                                    <div onClick={() => deleteFiles(id)} className='delete__btn'>+</div>
+                                    <img className='txt__image' onDoubleClick={() => showImages(userFiles[id])} src = {txt} /> 
+                                    <span onDoubleClick={() => createNewFileName(id)}>{userFiles[id].title}</span>
+                                </div>
+                            </div>
+                        )
+                    }
+                }
+                )}
                 {userFolders.map((el, id) => {
                     return (
                         <div className='file__folder'>
@@ -358,11 +376,12 @@ function LegacyBox() {
                 </div>
             </div>
             <div className="navigate__buttons">
-                <img onClick={goToShare} src = {shareImage}/>
+                <div onClick={goToShare}><img src = {shareImage}/></div>
                 <button>VISIT CEMETRY</button>
                 <button>ORDER NEW LAND</button>
             </div>
         </div>
+    </div>
     </div>
     </div>
   );
