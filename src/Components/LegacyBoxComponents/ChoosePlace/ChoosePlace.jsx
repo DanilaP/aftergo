@@ -25,6 +25,7 @@ function ChoosePlace() {
     }
 
     useEffect(() => {
+      dispatch({ type: "LASTROUTEMENU", payload: '/OrderNewLand' });
       if (!typeOfAccount?.type) {
         history('/OrderNewLand');
       }

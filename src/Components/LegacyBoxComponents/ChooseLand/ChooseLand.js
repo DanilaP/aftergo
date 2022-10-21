@@ -21,6 +21,7 @@ export default function ChooseLand() {
         history('/ChooseTombStone')
     }
     useEffect(() => {
+        dispatch({ type: "LASTROUTEMENU", payload: '/ChoosePlace' });
         if (!typeOfAccount?.type) history('/OrderNewLand');
     }, [])
     return (
