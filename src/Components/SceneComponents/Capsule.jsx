@@ -7,6 +7,7 @@ import { WaterMaterial } from "@babylonjs/materials";
 import ContinueButton from "../FirstEnterComponents/ContinueButton";
 import FirstSubtitleComponent from "../FirstEnterComponents/FirstSubtitleComponent";
 import SecondSubtitleComponent from "../FirstEnterComponents/SecondSubtitleComponent";
+import FirstEnterMenu from "../FirstEnterComponents/FirstEnterMenu";
 
 const ops = {};
 ops.width = window.innerWidth;
@@ -18,6 +19,7 @@ const Capsule = props => {
     const [sub2State, setSub2State] = React.useState(false);
     const [btnState, setBtnState] = React.useState(false);
     const [modalState, setModalState] = React.useState(false);
+    const [menuState, setMenuState] = React.useState(false);
     const [count, setCount] = React.useState(0);
 
     React.useEffect(() => {
@@ -38,16 +40,31 @@ const Capsule = props => {
            }
            const skySphere = BABYLON.MeshBuilder.CreateSphere("sphere", skyOptions, scene);
            skySphere.material = new SkyMaterial('sky', scene);
-           skySphere.material.inclination = 0.3;
-           skySphere.material.turbidity = 15;
+        //    skySphere.material.inclination = 0.3;
+        //    skySphere.material.turbidity = 15;
+           skySphere.material.inclination = 1.6;
+           skySphere.material.turbidity = 18;
            skySphere.material.useSunPosition = true;
-           skySphere.material.sunPosition = new BABYLON.Vector3(0, 5, -50);
+        //    skySphere.material.sunPosition = new BABYLON.Vector3(0, 5, -50);
+           skySphere.material.sunPosition = new BABYLON.Vector3(0, 8, -50);
 
            const light = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(0, -1, 5), Math.PI / 2, 10, scene);
            light.position = new BABYLON.Vector3(0, 4, -25);
            light.intensity = 300;
            light.diffuse = new BABYLON.Color3(0.93, 0.8, 0.46);
            light.specular = new BABYLON.Color3(1, 0.77, 0);
+
+           const light2 = new BABYLON.SpotLight("spotLight2", new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(40, 0, 25), Math.PI / 2, 10, scene);
+           light2.position = new BABYLON.Vector3(0, 1, -225);
+           light2.intensity = 1000;
+           light2.diffuse = new BABYLON.Color3(0.93, 0.8, 0.46);
+           light2.specular = new BABYLON.Color3(1, 0.77, 0);
+
+           const light3 = new BABYLON.SpotLight("spotLight3", new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(-70, -1, 45), Math.PI / 2, 10, scene);
+           light3.position = new BABYLON.Vector3(0, 15, -125);
+           light3.intensity = 800;
+           light3.diffuse = new BABYLON.Color3(0.93, 0.8, 0.46);
+           light3.specular = new BABYLON.Color3(1, 0.77, 0);
 
            const camera = new BABYLON.FreeCamera("camera", new BABYLON.Vector3(0, 1.7, 0), scene);
            camera.attachControl(canvas, true);
@@ -98,7 +115,6 @@ const Capsule = props => {
                engine.setStencilFunctionReference(1);
            });
            waterMaterial.addToRenderList(skySphere);
-           localStorage.getItem('map') ? waterMesh.isVisible = false : waterMesh.isVisible = true;
 
            const nodeMat_room = new BABYLON.NodeMaterial("nodeMat_room", scene);
            nodeMat_room.loadAsync("./textures/cp1.json").then(() => {
@@ -147,6 +163,9 @@ const Capsule = props => {
             //    shadowGenerator.addShadowCaster(meshes[0]);
                shadowMap.renderList.push(meshes[0]);
                meshes[0].receiveShadows = true;
+               meshes.forEach(mesh => {
+                mesh.checkCollisions = true;
+               });
            });
 
            const nodeMat_ground = new BABYLON.NodeMaterial("nodeMat_ground", scene);
@@ -164,7 +183,7 @@ const Capsule = props => {
                });
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "tv.glb", scene);
+           BABYLON.SceneLoader.ImportMesh("", "./models/", "TV.glb", scene);
 
            const nodeMat_walls = new BABYLON.NodeMaterial("nodeMat_walls", scene);
            nodeMat_walls.loadAsync("./textures/nm12.json").then(() => {
@@ -260,27 +279,6 @@ const Capsule = props => {
                }
            });
 
-           BABYLON.SceneLoader.ImportMesh("","./models/", "map_low.glb", undefined, (meshes) => {
-                // const ease = new BABYLON.CubicEase();
-                // ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-                // const position = new BABYLON.Vector3(meshes[0].position.x, -3, meshes[0].position.z);
-                // if (mapState) BABYLON.Animation.CreateAndStartAnimation("transition", meshes[0], "position", 10, 35, meshes[0].position, position, 0, ease);
-                meshes[0].position.y = -15;
-                meshes.forEach(mesh => {
-                    localStorage.getItem('map') ? mesh.isVisible = true : mesh.isVisible = false;
-                });
-            });
-            BABYLON.SceneLoader.ImportMesh("","./models/", "map_high.glb", undefined, (meshes) => {
-                // const ease = new BABYLON.CubicEase();
-                // ease.setEasingMode(BABYLON.EasingFunction.EASINGMODE_EASEOUT);
-                // const position = new BABYLON.Vector3(meshes[0].position.x, -3, meshes[0].position.z);
-                // if (mapState) BABYLON.Animation.CreateAndStartAnimation("transition", meshes[0], "position", 10, 35, meshes[0].position, position, 0, ease);
-                meshes[0].position.y = -15;
-                meshes.forEach(mesh => {
-                    localStorage.getItem('map') ? mesh.isVisible = true : mesh.isVisible = false;
-                });
-            });
-
            return scene
        }
 
@@ -310,7 +308,7 @@ const Capsule = props => {
         switch(count) {
             case 0: return setSub1State(false) & setSub2State(true);
             case 1: return setSub2State(false) & setBtnState(true);
-            case 2: return setBtnState(false);
+            case 2: return setBtnState(false) & setMenuState(true);
             default: return null;
         }
     }
@@ -327,6 +325,7 @@ const Capsule = props => {
                     {sub1State ? <FirstSubtitleComponent/> : null}
                     {sub2State ? <SecondSubtitleComponent/> : null}
                     {btnState ? <ContinueButton/> : null}
+                    {menuState ? <FirstEnterMenu/> : null}
                 </div> : null
             }
         </>

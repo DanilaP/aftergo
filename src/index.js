@@ -35,6 +35,7 @@ import LegacyBox from './Components/UserLegacyBox/LegacyBox';
 import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
 import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
 import ChooseLand from './Components/LegacyBoxComponents/ChooseLand/ChooseLand';
+import Park from './Components/SceneComponents/Park';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,6 +45,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App/>}/>
           <Route path="/FirstWindow" element={<FirstWindow/> }/>
+          <Route path="/Park" element={<Park/> }/>
           <Route path="/SecondWindow" element={<SecondWindow/>}/>
           <Route path="/LogInFirst" element={<LogInFirst/>}/>
           <Route path="/RegistrationForGift" element={<RegistrationForGift/>}/>
