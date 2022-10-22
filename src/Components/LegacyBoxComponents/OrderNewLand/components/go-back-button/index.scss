@@ -16,4 +16,22 @@
     left: 20px;
     color: white;
     background-color: rgba(255, 255, 255, 0.17);
+    &__content {
+        width: 10px;
+        height: 10px;
+        border-top: 2px solid white !important;
+        border-right: 2px solid white !important;
+        transform: rotate(-135deg);
+        display: inline-block;
+        margin-left: 5px;
+        transition: 0.15s;
+
+        &:hover {
+            cursor: pointer;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+            border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+        }
+    }
 }

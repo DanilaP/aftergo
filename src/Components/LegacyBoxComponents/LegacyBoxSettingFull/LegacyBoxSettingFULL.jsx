@@ -39,7 +39,7 @@ function LegacyBoxSettingFULL() {
           <GoBackButton />
           <Info 
             mainPhoto={selectedRoom?.image}
-            tombStonePhoto={selectedTombStone?.image}
+            tombStonePhoto={selectedTombStone}
             mapPhoto={selectedRoom?.image}
             selectedRoom={selectedTypeOfAccount}
             numberOfMap={selectedMapAreaNumber}

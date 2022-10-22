@@ -4,7 +4,7 @@ export const ChangeScene = ({scenes, onChooseScene}) => {
 
     useEffect(() => {
         onChooseScene(scenes[0]);
-    }, [])
+    }, [scenes])
     return (
         <div className='changeScenes'>
             {

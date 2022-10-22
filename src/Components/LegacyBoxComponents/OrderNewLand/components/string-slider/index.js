@@ -14,7 +14,7 @@ export const StringSlider = ({array, onChange}) => {
     }
     useEffect(() => {
         onChange(array[currStep], currStep);
-    }, [currStep]);
+    }, [currStep, array]);
 
     return (
         <div className='string__slider'>

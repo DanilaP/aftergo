@@ -14,7 +14,7 @@ export const GoBackButton = () => {
     }
     return (
         <div className="goBackButton" onClick={goBack}>
-            <div className='goBackButton__content'>{`<`}</div>
+            <div className='goBackButton__content'></div>
         </div>
     )
 }
