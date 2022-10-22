@@ -5,8 +5,8 @@ import '@babylonjs/materials';
 import { SkyMaterial } from "@babylonjs/materials";
 
 const Room = props => {
-    ops.width = props.innerWidth;
-    ops.height = props.innerHeight;
+    //ops.width = props.innerWidth;
+    //ops.height = props.innerHeight;
     const canvasRef = React.useRef(null);
     const ops = {};
     ops.width = props.width ?? window.innerWidth;
