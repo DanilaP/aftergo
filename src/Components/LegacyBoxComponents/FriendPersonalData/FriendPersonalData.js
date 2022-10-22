@@ -32,7 +32,7 @@ export default function FriendPersonalData() {
             <GoBackButton />
             <div className='friendPersonalData__content'>
                 <div className='friendPersonalData__content__header'>
-                    Your personal data
+                    Friend personal data
                     <div className='friendPersonalData__content__header-subHeader'>
                     Enter personal friend details to enable him to create an account. We will send him a unique link by email
                     </div>
