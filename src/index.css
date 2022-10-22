@@ -14,12 +14,12 @@ body {
   width: 1px;               /* ширина scrollbar */
 }
 ::-webkit-scrollbar-track {
-  background: rgb(78, 78, 78);       /* цвет дорожки */
+  background: transparent      /* цвет дорожки */
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(78, 78, 78);    /* цвет плашки */
+  background-color: transparent;    /* цвет плашки */
   border-radius: 20px;       /* закругления плашки */
-  border: 1px solid rgb(75, 240, 255);  /* padding вокруг плашки */
+  border: transparent  /* padding вокруг плашки */
 }
 
 canvas {

@@ -1,0 +1,103 @@
+.legacyBox__info {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    height: 100%;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-transform: uppercase;
+    &-photos {
+        display: grid;
+        grid-template-columns: 60% 40%;
+        &-mainPhoto {
+            img {
+                width: 100%;
+                height: 280px;
+            }
+        }
+        &-anotherPhoto {
+            display: grid;
+            grid-template-rows: 48.2% 48.1%;
+            grid-row-gap: 10px;
+            padding-left: 10px;
+            img {
+                width: 100%;
+                height: 133px;
+            }
+        }
+    }
+    &-main {
+        padding-left: 16px;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 32% 66%;
+        &-block {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 45% 55%;
+            &-areaAndMap {
+                display: grid;
+                grid-template-columns: 49.1% 49.2%;
+                grid-column-gap: 10px;
+                font-size: 16px;
+                .defaultTitle {
+                    color: grey;
+                }
+                .whiteTitle {
+                    color: white;
+                }
+                &-selectedArea {
+                    padding-top: 16px;
+                    background: rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 2px;
+                    text-align: center;
+                    align-items: center;
+                }
+                &-selectedMap {
+                    padding-top: 16px;
+                    background: rgba(0, 0, 0, 0.2);
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    border-radius: 2px;
+                    text-align: center;
+                }
+            }
+            &-settings {
+                display: grid;
+                grid-template-columns: 30% 70%;
+                &-options {
+                    display: grid;
+                    align-items: center;
+                    margin-top: 6px;
+                    font-size: 13px;
+                    .checkbox__block {
+                        display: grid;
+                        grid-template-columns: 1fr 5fr;
+                        color: white;
+                        text-transform: none;
+                        font-weight: 100;
+                    }
+                    input[type='checkbox'] {
+                        border: none;
+                        outline: none;
+                        background: grey;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                &-price {
+                    font-size: 32px;
+                    display: grid;
+                    align-items: center;
+                    background: rgba(255, 255, 255, 0.04);
+                    margin-top: 10px;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                    text-align: center;
+                    color: white;
+                }
+            }
+        }
+    }
+}

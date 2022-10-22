@@ -21,6 +21,10 @@ function FirstEnterMenu() {
     store.dispatch({type: "LASTROUTE", payload: "/FirstEnterMenu"});
     history("/Support");
   }
+  const goToAboutUs = () => {
+    store.dispatch({type: "ABOUTUSBACKTOFIRST", payload: true});
+    history("/AboutUs");
+}
   return (
     <div className="firstEnterMenu">
        <div className="head__content">
@@ -35,7 +39,7 @@ function FirstEnterMenu() {
             <div onClick={() => goToAnotherRoute("legacy__map")} id = "legacy__map__button">metaverse Legacy map</div>
             <div onClick={goToGift} className="menu__item">gift to friend</div>
             <div onClick={() => goToAnotherRoute("log__in")} className="menu__item">Log in</div>
-            <div onClick={() => goToAnotherRoute("about__us")} className="menu__item">about us</div>
+            <div onClick={goToAboutUs} className="menu__item">about us</div>
             <div onClick={goToSupport} className="menu__item">support</div>
             <div onClick={() => goToAnotherRoute("return__to__the__world")} className="menu__item">return to the world</div>
        </div>

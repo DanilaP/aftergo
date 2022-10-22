@@ -1,21 +1,26 @@
 import './index.scss';
 
-export const Info = ({info}) => {
-
+export const Info = ({ info }) => {
     return (
         <div className='info__legacyRoom'>
-            {Object.keys(info).map(el => (
-                <div className={`info__legacyRoom-item-${info[el].className}`} key={info[el].text}>
-                    <div className='info__legacyRoom-item__title'>{info[el].text}</div>
-                    {
+            {info?.data?.map(el => {
+                let CLASS__NAME = '';
+                if (!el.highlight) CLASS__NAME = 'default';
+                if (el.highlight && el.available) CLASS__NAME = 'active';
+                if (el.highlight && !el.available) CLASS__NAME = 'inactive';
+                return (
+                    <div className={`info__legacyRoom-item-${CLASS__NAME}`} key={el.key}>
+                    <div className='info__legacyRoom-item__title'>{el.key}</div>
+                    {/*
                         typeof info[el].value === 'boolean' 
                         ?
                         <div className='info__legacyRoom-item__value'>{info[el].value ? 'AVAILABLE': 'NOT AVAILABLE'}</div>
-                        :
-                        <div className='info__legacyRoom-item__value'>{info[el].value}</div>
+                        :*/
+                        <div className='info__legacyRoom-item__value'>{el.value}</div>
                     }
-                </div>
-            ))}
+                    </div>
+                )
+            })}
         </div>
     )
 }

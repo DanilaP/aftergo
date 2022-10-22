@@ -5,24 +5,33 @@ import { useSelector } from "react-redux";
 import store from '../../store';
 import $api from '../Axios';
 
-function DeleteFileModalBox({}) {
-  const id = useSelector((store) => store.deleteFileId);
+function DeleteFileModalBox({object, deletedType, funcForFiles, funcForFolders}) {
   const goToPrev = () => {
     store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: false});
   }
-  const deleteFile = () => {
-    $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + id)
+  const deleteFile = async () => {
+   if (deletedType === "folders") {
+      await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/folders/' + object)
       .then((response) => {
           console.log(response);
-          store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: false});
+          funcForFolders(object);
       })
       .catch((error) => {
           console.log(error);
       })
+   }
+   else {
+      await $api.delete('https://aftergo-api-dev.azurewebsites.net/api/files/' + object)
+      .then((response) => {
+          console.log(response)
+          funcForFiles(object);
+      })
+      .catch((error) => {
+          console.log(error);
+      })
+   }
+   store.dispatch({type: "DELETEFOLDERFILEMODALBOX", payload: false});
   }
-  useEffect(() => {
-    console.log(store.deleteFileId);
-  })
   return (
     <div className="DeleteFileModalBox">
         <div className="delete__box">

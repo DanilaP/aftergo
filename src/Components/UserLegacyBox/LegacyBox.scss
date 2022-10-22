@@ -1,3 +1,8 @@
+.scale__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .user__legacy__box {
     width: 100vw;
     height: 100vh;
@@ -11,7 +16,7 @@
     & .mini__menu {
         display: flex;
         flex-direction: column;
-        margin-top: 510px;
+        margin-top: 610px;
         margin-right: 52px;
 
         & div {
@@ -33,6 +38,24 @@
                 border: 1px solid #5CFFEB;
                 height: 78px;
                 width: 78px;
+            }
+        }
+        & .legacy__box__name {
+            width: 166px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid #FFFFFF;
+            backdrop-filter: blur(60px);
+            position: absolute;
+            margin-top: -615px;
+            margin-left: 175px;
+            border-radius: 0px;
+            
+            &:hover {   
+                width: 166px;
+                height: 40px;
+                cursor: pointer;
+                color: #1CF1FF;
             }
         }
     }
@@ -80,18 +103,52 @@
                 background: rgba(255, 255, 255, 0.05);
                 text-align: center;
 
+                & .video__image {
+                    width: 100px;
+                    height: 100px;
+                    text-align: center;
+                    margin: 0 auto;
+                    margin-bottom: 50px;
+                }
+                & .txt__image {
+                    width: 120px;
+                    height: 120px;
+                    margin: 0 auto;
+                    margin-bottom: 40px;
+
+                    &:hover {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                        margin-bottom: 40px;
+                    }
+                }
                 &:hover {
-                    width: 218px;
-                    height: 218px;
-                    border: 1px solid white;
+                    width: 220px;
+                    height: 220px;
+                    //border: 1px solid white;
                     cursor: pointer;
 
                     & .delete__btn {
                         opacity: 1;
                     }
+                    & .video__image {
+                        width: 100px;
+                        height: 100px;
+                        margin: 0 auto;
+                        margin-bottom: 50px;
+                    }
+                    & .txt__image {
+                        width: 120px;
+                        height: 120px;
+                        margin: 0 auto;
+                        margin-bottom: 40px;
+                    }
                     & img {
-                        width: 218px;
-                        height: 218px;
+                        width: 220px;
+                        height: 220px;
+                        margin-top: -30px;
+                        margin-left: 0.5px;
                     }
                     & .delete__btn {
                         margin-left: 180px;
@@ -125,9 +182,9 @@
 
 
                 &:hover {
-                    width: 218px;
-                    height: 218px;
-                    border: 1px solid white;
+                    width: 220px;
+                    height: 220px;
+                    //border: 1px solid white;
                     cursor: pointer;
 
                     & .delete__btn {
@@ -167,9 +224,14 @@
                 margin-top: -30px;
                 font-family: 'Inter';
                 z-index: 99999;
+
+                &:hover {
+                    cursor: pointer;
+                    color: #1CF1FF;
+                }
             }
             & img {
-                opacity: 0.5;
+                //opacity: 0.5;
                 width: 220px;
                 height: 220px;
                 margin-top: -30px;
@@ -317,7 +379,8 @@
                 margin-right: 16px;
                 border: 1px solid #1CF1FF;
                 color: #1CF1FF;
-
+                font-family: 'Inter';
+                
                 &:hover {
                     cursor: pointer;
                     background-color: #1CF1FF;
@@ -327,14 +390,36 @@
         }
         & .navigate__buttons {
             text-align: center;
+            display: flex;
+            margin-left: 42px;
+            gap: 20px;
 
+            & div {
+                width: 72px;
+                height: 70px;
+                border: 1px solid #1CF1FF;
+                margin-left: -9px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: 'Inter';
+
+                & img {
+                    height: 40px;
+                    width: 40px;
+                }
+                &:hover {
+                    cursor: pointer;
+                }
+            }
             & button {
-                width: 140px;
+                width: 139px;
                 height: 72px;
                 color: #1CF1FF;
                 border: 1px solid #1CF1FF;
                 background: rgba(0, 0, 0, 0.2);
-                margin-right: 16px;
+                margin-left: -10px;
+                font-family: 'Inter';
 
                 &:hover {
                     cursor: pointer;
@@ -345,11 +430,24 @@
         }
     }
 }
-
+@media screen and (max-width: 1670px) {
+    .scale__box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0.75);
+    }
+}
+/*
 @media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .mini__menu {
             margin-top: 280px;
+
+            & .legacy__box__name {
+                margin-top: -320px;
+                margin-left: 165px;
+            }
         }
         & .legacy__box__main {
             width: 1280px;
@@ -376,7 +474,13 @@
             & .navigate__buttons {
                 margin-left: 40px;
                 & button {
+                    width: 150px;
                     height: 50px;
+                }
+                & img {
+                    height: 48px;
+                    width: 50px;
+                    margin-left: -7px;
                 }
             }
             & .info__box {
@@ -402,10 +506,45 @@
         }
     }
 }
-@media screen and (max-width: 1510px) {
+@media screen and (max-width: 1670px) {
     .user__legacy__box {
         & .legacy__box__main {
-
+            width: 1162px;
+            & .file__box {
+                width: 700px;
+                gap: 10px;
+            }
+            & .redaction__buttons {
+                & .new__folder {
+                    margin-left: 600px;
+                }
+            }
         }
     }
 }
+@media screen and (max-width: 1393px) {
+    .user__legacy__box {
+        & .legacy__box__main {
+            width: 962px;
+            & .file__box {
+                grid-template-columns: repeat(2, 1fr);
+                width: 500px;
+                margin: 0 auto;
+            }
+            & .redaction__buttons {
+                & .new__folder {
+                    margin-left: 400px;
+                }
+                & button {
+                    width: 200px;
+                }
+                & .upload__files {
+                    & input {
+                        width: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+*/

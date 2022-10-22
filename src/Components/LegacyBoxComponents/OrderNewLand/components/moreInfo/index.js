@@ -3,7 +3,7 @@ import './index.scss';
 export const MoreInfo = ({moreInfo}) => {
     return (
         <div className='moreInfo__legacyRoom'>
-            {moreInfo.name}<span className='moreInfo__legacyRoom-price'>{moreInfo.price}</span>{moreInfo.description}
+            {moreInfo?.type}<span className='moreInfo__legacyRoom-price'>{moreInfo?.price}$</span>recurring fee (Q/A/20y)
         </div>
     )
 }

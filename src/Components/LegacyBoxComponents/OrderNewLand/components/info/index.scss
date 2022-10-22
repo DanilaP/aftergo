@@ -14,6 +14,7 @@
     padding: 20px;
     background-color: #1C1C1C;
     margin-top: 20px;
+    margin-bottom: 16px;
     &-item {
         &__value {
            text-align: right;
@@ -21,11 +22,12 @@
         &-default {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;
-            margin-bottom: 8px;
+            margin-top: 4px;
+            margin-bottom: 4px;
             font-size: 12px;
             line-height: 15px;
             text-transform: uppercase;
@@ -37,11 +39,12 @@
         &-active {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;
-            margin-bottom: 8px;
+            margin-top: 4px;
+            margin-bottom: 4px;
             font-size: 12px;
             line-height: 15px;
             text-transform: uppercase;
@@ -53,11 +56,12 @@
         &-inactive {
             animation: identifier 1s;
             display: grid;
-            grid-template-columns: 65% 35%;
+            grid-template-columns: 60% 40%;
             align-items: center;
             width: 97%;
             height: 27px;
-            margin-bottom: 8px;
+            margin-top: 4px;
+            margin-bottom: 4px;
             font-size: 12px;
             line-height: 15px;
             text-transform: uppercase;

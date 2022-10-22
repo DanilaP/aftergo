@@ -21,33 +21,54 @@ const initialState = {
         folderId: "",
         landId: ""
     },
+    changeFileName: false,
+    changeFolderName: false,
+    changeLegacyBoxName: false,
     selectedTypeOfAccount: {},
     selectedRoom: {},
-    selectedMapAreaNumber: 1
+    selectedMapAreaNumber: 1,
+    selectedTombStone: {},
+    allPrivelegiusForActiveTariff: [],
+    imageSliderShown: false,
+    videoShown: false,
+    aboutUsBackToFirstMenu: false,
+    aboutUsBackToSecondMenu: false,
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
-        case "USERDATA": return {userData: action.value};
-        case "CHOOSEROUTER": return {router: action.value};
-        case "SETUSERIMAGE": return {userImage: action.payload};
-        case "LASTROUTEMENU": return {lastRouteMenu: action.payload};
+        case "USERDATA": return { ...state, userData: action.value};
+        case "CHOOSEROUTER": return { ...state, router: action.value};
+        case "SETUSERIMAGE": return { ...state, userImage: action.payload};
+        case "LASTROUTEMENU": return { ...state, lastRouteMenu: action.payload};
         //First user enter to site//
-        case "SHOWFIRSTDIALOG": return {firstDialog: action.payload};
-        case "SHOWSECONDDIALOG": return {secondDialog: action.payload};
-        case "SHOWBUTTON": return {showButton: action.payload};
-        case "LASTROUTE": return {lastRoute: action.payload};
-        case "SHOWFIRSTSUB": return {isActiveFirstSub: action.payload};
-        case "SHOWSECONDSUB": return {isActiveSecondSub: action.payload};
-        case "SHOWFIRSTBUTTON": return {isActiveFirstModal: action.payload};
+        case "SHOWFIRSTDIALOG": return { ...state, firstDialog: action.payload};
+        case "SHOWSECONDDIALOG": return { ...state, secondDialog: action.payload};
+        case "SHOWBUTTON": return { ...state, showButton: action.payload};
+        case "LASTROUTE": return { ...state, lastRoute: action.payload};
+        case "SHOWFIRSTSUB": return { ...state, isActiveFirstSub: action.payload};
+        case "SHOWSECONDSUB": return { ...state, isActiveSecondSub: action.payload};
+        case "SHOWFIRSTBUTTON": return { ...state, isActiveFirstModal: action.payload};
 
         //LegacyBoxStates//
-        case "CREATEFOLDERSHOWN": return {isCreateFolderShown: action.payload};
-        case "DELETEFOLDERFILEMODALBOX": return {isDeleteFileShown: action.payload};
-        case "DELETEDFILEID": return {deleteFileId: action.payload};
-        case "NEWFOLDER": return {newFolder: action.payload};
+        case "CREATEFOLDERSHOWN": return { ...state, isCreateFolderShown: action.payload};
+        case "DELETEFOLDERFILEMODALBOX": return { ...state, isDeleteFileShown: action.payload};
+        case "DELETEDFILEID": return { ...state, deleteFileId: action.payload};
+        case "NEWFOLDER": return { ...state, newFolder: action.payload};
+
+        case "CHANGEFILENAME": return {changeFileName: action.payload};
+        case "CHANGEFOLDERNAME": return {changeFolderName: action.payload};
+        case "CHANGELEGACYBOXNAME": return {changeLegacyBoxName: action.payload};
         case "SET_SELECTED_TYPE_OF_ACCOUNT": return { ...state, selectedTypeOfAccount: action.payload };
-        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload }
-        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload }
+        case "SET_SELECTED_ROOM": return { ...state, selectedRoom: action.payload };
+        case "SET_SELECTED_MAP_AREA_NUMBER": return { ...state, selectedMapAreaNumber: action.payload };
+        case "SET_SELECTED_TOMBSTONE": return { ...state, selectedTombStone: action.payload };
+        case "SET_ALL_PREVELEGIOS_FOR_ACTIVE_TARIFF": return { ...state, allPrivelegiusForActiveTariff: action.payload };
+        case "IMAGESLIDERSHOWN": return {...state, imageSliderShown: action.payload};
+        case "VIDEOSHOWN": return {...state, videoShown: action.payload};
+
+        //about us//
+        case "ABOUTUSBACKTOFIRST": return {...state, aboutUsBackToFirstMenu: action.payload};
+        case "ABOUTUSBACKTOSECOND": return {...state, aboutUsBackToSecondMenu: action.payload};
         default: return state;
     }
 }

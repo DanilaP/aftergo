@@ -1,0 +1,51 @@
+.myPersonalData {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(30px);
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    color: white;
+    &__content {
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+        width: 1232px;
+        height: 594px;
+        background: rgba(0, 0, 0, 0.2);
+        &__header {
+            text-align: center;
+            font-size: 24px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            &-subHeader {
+                text-transform: none;
+                margin-top: 12px;
+                width: 300px;
+                letter-spacing: 0em;
+                font-size: 14px;
+            }
+        }
+        &__form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-column-gap: 25px;
+        }
+        &__groupInputs {
+            display: grid;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-row-gap: 25px;
+        }
+    }
+    &__action {
+        width: 50%;
+    }
+}

@@ -1,0 +1,21 @@
+.checkSettings {
+    display: grid;
+    grid-template-columns: 10% 90%;
+    align-items: center;
+    font-size: 13px;
+    &__values {
+        span {
+            margin-bottom: 5px;
+        }
+        display: grid;
+        align-items: center;
+    }
+    &__values:last-child {
+        margin-top: 5px;
+    }
+    input[type='checkbox'] {
+        width: 20px;
+        height: 20px;
+        margin-bottom: 10px;
+    }
+}
