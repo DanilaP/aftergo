@@ -3,12 +3,12 @@ import { Input } from './components/Input';
 import { Message } from './components/Message';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
 import { MyPersonalDefault } from './constants';
-import './MyPersonalData.scss';
+import './FriendPersonalData.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 
-export default function MyPersonalData() {
+export default function FriendPersonalData() {
 
     const [isValidForm, setIsValidForm] = useState(false);
     const dispatch = useDispatch();
@@ -28,28 +28,29 @@ export default function MyPersonalData() {
         dispatch({ type: "LASTROUTEMENU", payload: '/LegacyBoxSettingFULL' });
     }, [])
     return (
-        <div className='myPersonalData'>
+        <div className='friendPersonalData'>
             <GoBackButton />
-            <div className='myPersonalData__content'>
-                <div className='myPersonalData__content__header'>
-                    Your personal data
-                    <div className='myPersonalData__content__header-subHeader'>
-                        Enter your personal details to register your account and make a purchase
+            <div className='friendPersonalData__content'>
+                <div className='friendPersonalData__content__header'>
+                    Friend personal data
+                    <div className='friendPersonalData__content__header-subHeader'>
+                    Enter personal friend details to enable him to create an account. We will send him a unique link by email
                     </div>
                 </div>
-                <div className='myPersonalData__content__form'>
-                    <div className='myPersonalData__content__groupInputs'>
+                <div className='friendPersonalData__content__form'>
+                    <div className='friendPersonalData__content__groupInputs'>
                         <Input placeholder="Name" name="Name" onChange={formChange} />
                         <Input placeholder="Lastname" name="Lastname" onChange={formChange} />
-                        <Message text="Your account will be automatically registered after purchase. An email will be sent with your username and password" />
+                        <Input placeholder="Email" name="Email" onChange={formChange} />
+                        <Message text="This account will be automatically registered after purchase. An email will be sent with relevant username and password." />
                     </div>
-                    <div className='myPersonalData__content__groupInputs'>
-                        <Input placeholder="Date" name="Date" onChange={formChange} />
+                    <div className='friendPersonalData__content__groupInputs'>
                         <Input placeholder="Description" name="Description" onChange={formChange} />
+                        <Input placeholder="ConfirmEmail" name="ConfirmEmail" onChange={formChange} />
                         <CheckSettings />
                     </div>
                 </div>
-                <div className='myPersonalData__action'>
+                <div className='friendPersonalData__action'>
                     <BlueCustomBtn text="Continue" onClick={() => console.log()} disabled={!isValidForm} />
                 </div>
             </div>

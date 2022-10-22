@@ -8,6 +8,7 @@ import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
 import { SelectAreaInfo } from './components/selecet-area-info';
 import { SelectRoomImg } from './components/select-room-img';
 import { NUMBER_OF_MAP_FOR_SLIDER } from './components/constants';
+import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 
 function ChoosePlace() {
     const history = useNavigate();
@@ -16,6 +17,7 @@ function ChoosePlace() {
     const selectedRoom = useSelector(store => store.selectedRoom);
 
     const onContinue = () => {
+      dispatch({ type: "LASTROUTEMENU", payload: '/ChoosePlace' });
       history('/ChooseLand')
     }
     const onChangeMapArea = (number) => {
@@ -23,10 +25,15 @@ function ChoosePlace() {
     }
 
     useEffect(() => {
-      if (!typeOfAccount?.type) history('/OrderNewLand');
+      dispatch({ type: "LASTROUTEMENU", payload: '/OrderNewLand' });
+      if (!typeOfAccount?.type) {
+        history('/OrderNewLand');
+      }
     }, [])
 
     return (
+      <>
+      <GoBackButton />
       <div className="choose__place__modal__box">
         <InfoBlock text={typeOfAccount?.type} />
         <SelectRoomImg />
@@ -34,6 +41,7 @@ function ChoosePlace() {
         <SelectAreaInfo freePlaces={5}/>
         <BlueCustomBtn text="continue" disabled={false} onClick={onContinue} />
       </div>
+      </>
     );
 }
 

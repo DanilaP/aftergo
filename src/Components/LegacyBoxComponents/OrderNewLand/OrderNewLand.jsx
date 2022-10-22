@@ -1,7 +1,7 @@
 import './OrderNewLand.scss';
 import { useState } from 'react';
 import { StringSlider } from './components/string-slider';
-import { STRING_SLIDER_TYPES, PRIVELEGES_ALL_LEVELS, PRIVELEGES_PRICES, SCENES } from './components/constants';
+import { GoBackButton } from './components/go-back-button';
 import { Info } from './components/info';
 import { MoreInfo } from './components/moreInfo';
 import { BlueCustomBtn } from './components/blue-custom-btn';
@@ -32,6 +32,7 @@ function OrderNewLand() {
     if (selectedRoom.name === 'custom') {
       setIsCustomDesignModal(true);
     } else {
+      dispatch({ type: "LASTROUTEMENU", payload: '/OrderNewLand' });
       history('/ChoosePlace');
     }
   }
@@ -40,6 +41,7 @@ function OrderNewLand() {
   }
   const onCloseModal = () => {
     setIsCustomDesignModal(false);
+    dispatch({ type: "LASTROUTEMENU", payload: '/OrderNewLand' });
     history('/ChoosePlace');
   }
   const onChooseScene = (selectedRoom) => {
@@ -58,6 +60,7 @@ function OrderNewLand() {
   }, [])
   return (
     <div className='newLand'>
+      <GoBackButton />
         <div className='newLand__content'>
             <div className='newLand__content__info'>
                 <StringSlider array={allPrivelegiusForActiveTariff} onChange={onTypeChange} />

@@ -36,7 +36,11 @@ import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
 import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
 import ChooseLand from './Components/LegacyBoxComponents/ChooseLand/ChooseLand';
 import MyPersonalData from './Components/LegacyBoxComponents/MyPersonalData/MyPersonalData';
+<<<<<<< HEAD
 import AboutUs from './Components/LegacyBoxComponents/AboutUs';
+=======
+import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
+>>>>>>> 13fe938440e480ad327529b5111f702210c63afa
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -76,7 +80,11 @@ root.render(
           <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
           <Route path='/ChooseLand' element={<ChooseLand /> }/>
           <Route path='/MyPersonalData' element={<MyPersonalData /> }/>
+<<<<<<< HEAD
           <Route path='/AboutUs' element={<AboutUs /> }/>
+=======
+          <Route path='/FriendPersonalData' element={<FriendPersonalData /> }/>
+>>>>>>> 13fe938440e480ad327529b5111f702210c63afa
         </Routes>
       </BrowserRouter>
     </Provider>
