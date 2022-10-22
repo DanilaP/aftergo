@@ -29,11 +29,13 @@ function Support() {
         .catch((error) => {
             console.log(error);
         })
-    }   
+    }
+    
   return (
     <div className="support__modal__box">
         <div className="support__box">
             <div onClick={closeModal} className='close__btn'>
+                x
             </div>
             <div className="header__text">
                 SUPPORT

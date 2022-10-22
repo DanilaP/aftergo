@@ -31,6 +31,10 @@ function ChooseLandMenu() {
         store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
         history("/LegacyBox");
     }
+    const goToAboutUs = () => {
+        store.dispatch({type: "ABOUTUSBACKTOSECOND", payload: true});
+        history("/AboutUs");
+    }
     //<div className="arrow_box">
     //<div onClick={toPrev} className="arrow_example_1"></div>
     //</div>
@@ -44,7 +48,7 @@ function ChooseLandMenu() {
             <button id = "block_b" onClick={GoToOrderingNewLand}>ORDER MY LAND</button>
             <button id = "block_c" onClick={GoToOrderingNewLand}>GIFT TO FRIEND</button>
             <button id = "block_d" onClick={goToProfile}>PROFILE</button>
-            <button id = "block_e">ABOUT US</button>
+            <button id = "block_e" onClick={goToAboutUs}>ABOUT US</button>
             <button id = "block_f" onClick={goToSupport}>SUPPORT</button>
             <button id = "block_g" onClick={returnToTheWorld}>RETURN TO THE WORLD</button>
         </div>

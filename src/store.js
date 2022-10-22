@@ -30,7 +30,9 @@ const initialState = {
     selectedTombStone: {},
     allPrivelegiusForActiveTariff: [],
     imageSliderShown: false,
-    videoShown: false
+    videoShown: false,
+    aboutUsBackToFirstMenu: false,
+    aboutUsBackToSecondMenu: false,
 }
 function reducer(state = initialState, action) {
     switch(action.type) {
@@ -63,6 +65,10 @@ function reducer(state = initialState, action) {
         case "SET_ALL_PREVELEGIOS_FOR_ACTIVE_TARIFF": return { ...state, allPrivelegiusForActiveTariff: action.payload };
         case "IMAGESLIDERSHOWN": return {...state, imageSliderShown: action.payload};
         case "VIDEOSHOWN": return {...state, videoShown: action.payload};
+
+        //about us//
+        case "ABOUTUSBACKTOFIRST": return {...state, aboutUsBackToFirstMenu: action.payload};
+        case "ABOUTUSBACKTOSECOND": return {...state, aboutUsBackToSecondMenu: action.payload};
         default: return state;
     }
 }

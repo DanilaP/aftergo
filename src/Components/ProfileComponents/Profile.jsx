@@ -84,6 +84,9 @@ function Profile() {
         })
     }, [])
     useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/ChooseLandMenu"});
+    })
+    useEffect(() => {
         if (avatar) {
             let formData = new FormData();
             formData.append('file', avatar[0]);
@@ -104,7 +107,7 @@ function Profile() {
         <div className="profile__box">
             <div className="header__text">
                 <div className='text'>MY PROFILE</div>
-                <div onClick={closeModal} className='close__btn'/>
+                <div onClick={closeModal} className='close__btn'>x</div>
             </div>
             <div className="profile__info">
                 <div className="user__avatar__box">
