@@ -23,7 +23,11 @@ function LegacyBoxSettingFULL() {
     }
   }
   const goContinue = () => {
-    if (!forFriend) history('/MyPersonalData');
+    if (!forFriend) {
+      history('/MyPersonalData');
+    } else {
+      history('/FriendPersonalData');
+    }
   }
 
   useEffect(() => {
