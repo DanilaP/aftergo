@@ -68,3 +68,12 @@
         }
     }
 }
+@media screen and (max-width: 1490px) {
+    .newLand {
+        &__content {
+            grid-template-columns: 420px 660px;
+            width: 1096px;
+            height: 630px;
+        }
+    }
+}
