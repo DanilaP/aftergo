@@ -70,15 +70,17 @@
                 justify-content: center;
             }
             & .first__btn {
+                font-family:'Courier New', Courier, monospace;
                 margin-left: -900px;
                 cursor: pointer;
-                font-size: 26px;
+                font-size: 30px;
                 color: white;
             }
             & .second__btn {
+                font-family:'Courier New', Courier, monospace;
                 margin-left: 900px;
                 cursor: pointer;
-                font-size: 26px;
+                font-size: 30px;
                 color: white;
             }
             & .header {
