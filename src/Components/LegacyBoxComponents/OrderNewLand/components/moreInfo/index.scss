@@ -1,15 +1,32 @@
 .moreInfo__legacyRoom {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 80px;
-    background: rgba(0, 0, 0, 0.4);
-    text-align: center;
-    color: white;
-    &-price {
-        color: #1CF1FF;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background: rgba(0, 0, 0, 0.4);
+  text-align: center;
+  color: white;
+  &-price {
+    color: #1cf1ff;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .qa {
+    color: #ffffff66;
+  }
+}
+
+@media screen and (max-width: 1655px) {
+  .moreInfo__legacyRoom {
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 1490px) {
+  .moreInfo__legacyRoom {
+    height: 60px;
+    font-size: 15px;
+  }
 }
