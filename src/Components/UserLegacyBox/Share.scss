@@ -20,6 +20,7 @@
 
         & .big__text {
             margin-top: 64px;
+            letter-spacing: 0.12em;
             font-size: 24px;
             text-align: center;
         }
@@ -95,7 +96,7 @@
             border: 1px solid rgba(255, 255, 255, 0.14);
             border-radius: 2px;
             width: 547px;
-            height: 54px;
+            height: 64px;
             margin-top: 30px;
 
             & .avatar {
@@ -103,24 +104,29 @@
                 height: 30px;
                 border-radius: 50%;
                 background-color: white;
-                margin-right: 40px;
+                margin-right: 20px;
+                margin-left: -40px;
             }
             & .remove {
                 display: flex;
                 width: 100px;
                 margin-left: auto;
                 margin-right: 30px;
+
                 & .point {
-                    margin-left: -30px;
+                    font-size: 30px;
+                    margin-left: 0px;
                     width: 150px;
+                    color: rgba(255, 255, 255, 0.2);
                 }
                 &:hover {
                     cursor: pointer;
                     color: rgba(28, 241, 255, 0.9);
 
-                    & .point {
-                        color: white;
-                    }
+                    
+                }
+                & .txt {
+                    margin-top: 8px;
                 }
             }
         }

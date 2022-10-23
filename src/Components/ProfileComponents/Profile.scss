@@ -10,11 +10,14 @@
     & .input__file {
         & input {
             opacity: 0;
+            &:hover {
+                cursor: pointer;
+            }
         }
-        & span {
+        & div {
             text-decoration: underline;
-            margin-left: -250px;
-
+            margin-left: 70px;
+            margin-top: -20px;
             &:hover {
                 cursor: pointer;
             }
@@ -96,6 +99,9 @@
                     margin-top: 12px;
                     text-decoration: underline;
                     margin-bottom: 12px;
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
                 & .add__social__networks__button {
                     margin-top: 12px;

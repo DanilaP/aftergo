@@ -24,9 +24,15 @@ function Profile() {
     const [avatar, setAvatar] = useState();
     const dispatch = useDispatch();
     const lastRoute = useSelector(store => store.lastRoute);
+    const isToProfile = useSelector(store => store.fromProfileToLegacy);
 
     const closeModal = () => {
-        history(lastRoute);
+        if (isToProfile) {
+            history('/LegacyBox'); 
+        }
+        else {
+            history(lastRoute);
+        }
     }
     const setNetworkConnection = () => {
         store.dispatch({type: "LASTROUTE", payload: "/Profile"});
@@ -69,10 +75,15 @@ function Profile() {
         }
     }
     const stopEditing = () => {
-        setDisableInput(true);
-        setIsEditing(false);
-        setInputText("EDIT");
-        oldPasswordInput.current.value = "oldpassword";
+        if (isEditing) {
+            setDisableInput(true);
+            setIsEditing(false);
+            setInputText("EDIT");
+            oldPasswordInput.current.value = "oldpassword";
+        }
+        else {
+            history(lastRoute);
+        }
     }
     useEffect(() => {
         $api.get('https://aftergo-api-dev.azurewebsites.net/api/auth/me')
@@ -118,7 +129,7 @@ function Profile() {
                         {isEditing 
                         ? <div className='input__file'>
                             <input onChange={(e) => setAvatar(e.target.files)} type = "file" />
-                            <span>upload a photo</span>
+                            <div>upload a photo</div>
                         </div>
                         : <div className='flex__cont'>
                         <div className="add__social__networks__button">
@@ -126,7 +137,7 @@ function Profile() {
                                 +
                             </div>
                         </div>
-                        <div className="social__networks__text">
+                        <div  onClick={setNetworkConnection} className="social__networks__text">
                             add social networks to log in faster
                         </div>
                         </div>

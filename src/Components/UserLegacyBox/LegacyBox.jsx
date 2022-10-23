@@ -27,6 +27,8 @@ import txt from '../../Icons/txt.png';
 import word from '../../Icons/word.png';
 import pdf from '../../Icons/pdf.png';
 import excel from '../../Icons/excel.png';
+import pencil from '../../Icons/pencil__icon.png';
+import { useRef } from 'react';
 
 function LegacyBox() {
     const history = useNavigate();
@@ -68,6 +70,8 @@ function LegacyBox() {
     //Share//
     const [shareShown, setShareShown] = useState(false);
     const [landLevel, setLandLevel] = useState();
+    //Step back button//
+    const [inFolder, setInFolder] = useState(false);
 
     useEffect(() => {
         setLoaderShown(true);
@@ -102,6 +106,7 @@ function LegacyBox() {
 
 
     const goInsideFolder = async (folderId) => {
+        setInFolder(true);
         setLoaderShown(true);
         setOurFolderId(folderId); //меняем id папки в которой находимся и получаем ее данные
         await $api.get('https://aftergo-api-dev.azurewebsites.net/api/folders/' + folderId)
@@ -116,6 +121,9 @@ function LegacyBox() {
         setLoaderShown(false);
     }
     const goBackToFolder = async () => {
+        if (fileHistory.length-1 == 1) {
+            setInFolder(false);
+        }
         if (fileHistory.length == 1) {
             return
         }
@@ -273,6 +281,26 @@ function LegacyBox() {
     const hideShare = () => {
         setShareShown(false);
     }
+
+    const goToProfile = () => {
+        store.dispatch({type: "FROMPROFILETOLEGACYBOX", payload: true});
+        history("/Profile");
+    }
+    const goToBuying = () => {
+        history("/OrderNewLand");
+    }
+    const goToCemetry = () => {
+        history("/");
+    }
+    const goToAboutUs = () => {
+        history("/AboutUs");
+    }
+    const goToSupport = () => {
+        history("/Support");
+    }
+    useEffect(() => {
+        store.dispatch({type: "LASTROUTE", payload: "/LegacyBox"});
+    })
   return (
     <div>
         {shareShown ? <Share lvl = {landLevel} id = {landId} func = {hideShare} /> : null }
@@ -288,11 +316,14 @@ function LegacyBox() {
     <div className="user__legacy__box">
     <div className="scale__box">
         <div className="mini__menu">
-            <div onClick={createNewLegacyBoxName} className="legacy__box__name">{legacyBoxName}</div>
-            <div onClick={goBackToFolder}>Back to folder</div>
-            <div className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
-            <div className="support__button"><img width={"80px"} height = {"80px"} src = {aboutUsImage}/></div>
-            <div className="support__button"><img width={"80px"} height = {"80px"} src = {supportImage}/></div>
+            <div className="legacy__box__name">
+                <p>{legacyBoxName}</p>
+                <img onClick={createNewLegacyBoxName} className='change__name__image' src = {pencil}/>
+            </div>
+            <div className={inFolder ? "step__active" : "step__not__active"} onClick={goBackToFolder}>Step back</div>
+            <div onClick={goToProfile} className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
+            <div onClick={goToAboutUs} className="support__button"><img width={"80px"} height = {"80px"} src = {aboutUsImage}/></div>
+            <div onClick={goToSupport} className="support__button"><img width={"80px"} height = {"80px"} src = {supportImage}/></div>
         </div>
         <div className="legacy__box__main">
             <div className="file__box">
@@ -377,8 +408,8 @@ function LegacyBox() {
             </div>
             <div className="navigate__buttons">
                 <div onClick={goToShare}><img src = {shareImage}/></div>
-                <button>VISIT CEMETRY</button>
-                <button>ORDER NEW LAND</button>
+                <button onClick={goToCemetry}>VISIT CEMETRY</button>
+                <button onClick={goToBuying}>ORDER NEW LAND</button>
             </div>
         </div>
     </div>

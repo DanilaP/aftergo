@@ -3,6 +3,17 @@
     align-items: center;
     justify-content: center;
 }
+.step__active {
+    opacity: 1;
+}
+.step__not__active {
+    opacity: 0;
+    cursor: auto;
+
+    &:hover {
+        cursor: auto;
+    }
+}
 .user__legacy__box {
     width: 100vw;
     height: 100vh;
@@ -18,7 +29,7 @@
         flex-direction: column;
         margin-top: 610px;
         margin-right: 52px;
-
+        
         & div {
             display: flex;
             align-items: center;
@@ -50,12 +61,17 @@
             margin-top: -615px;
             margin-left: 175px;
             border-radius: 0px;
-            
-            &:hover {   
+            display: grid;
+            grid-template-columns: 140px 26px;
+
+            & .change__name__image {
+                width: 15px;
+                height: 15px;
+            }
+            &:hover {
                 width: 166px;
                 height: 40px;
-                cursor: pointer;
-                color: #1CF1FF;
+                border: 1px solid white;
             }
         }
     }
@@ -226,6 +242,7 @@
                 z-index: 99999;
 
                 &:hover {
+                    //border: 1px solid white;
                     cursor: pointer;
                     color: #1CF1FF;
                 }
@@ -380,6 +397,7 @@
                 border: 1px solid #1CF1FF;
                 color: #1CF1FF;
                 font-family: 'Inter';
+                font-style: normal;
                 
                 &:hover {
                     cursor: pointer;

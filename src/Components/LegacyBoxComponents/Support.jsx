@@ -51,7 +51,7 @@ function Support() {
                 <textarea onChange={(e) => setDescription(e.target.value)} placeholder='Description'></textarea>
             </div>
             <div className="buttons">
-                <button>CANCEL</button>
+                <button onClick={closeModal}>CANCEL</button>
                 <button onClick={sendMessageToSupport}>SEND</button>
             </div>
         </div>

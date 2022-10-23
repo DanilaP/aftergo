@@ -10,6 +10,7 @@ function AboutUs() {
   const history = useNavigate();
   const backToFirst = useSelector(store => store.aboutUsBackToFirstMenu);
   const backToSecond = useSelector(store => store.aboutUsBackToSecondMenu);
+  const lastRoute = useSelector(store => store.lastRoute);
 
   const goBack = () => {
     if (backToFirst) {
@@ -19,6 +20,9 @@ function AboutUs() {
     else if (backToSecond) {
         store.dispatch({type: "ABOUTUSBACKTOSECOND", payload: false});
         history("/ChooseLandMenu");
+    }
+    else {
+        history(lastRoute);
     }
   }
   return (
