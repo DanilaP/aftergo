@@ -3,6 +3,7 @@ import { Input } from './components/Input';
 import { Message } from './components/Message';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
 import { MyPersonalDefault } from './constants';
+import { Stepper } from '../LegacyBoxSettingFull/components/stepper';
 import './FriendPersonalData.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -30,6 +31,7 @@ export default function FriendPersonalData() {
     }, [])
     return (
         <div className='friendPersonalData'>
+            <Stepper allStep={3} currentStep={1} />
             <GoBackButton />
             <div className='friendPersonalData__content'>
                 <div className='friendPersonalData__content__header'>
