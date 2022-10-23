@@ -1,4 +1,4 @@
-.legacy__box__form {
+.legacyBoxContentSettings {
     height: 100vh;
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
@@ -6,45 +6,65 @@
     font-family: 'Inter';
     font-style: normal;
     display: grid;
-    grid-template-rows: 1fr 2fr 4fr;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-content: center;
     justify-items: center;
-    &-info {
-        width: 1184px;
-        height: 280px;
-        padding: 24px;
-        background: rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.2);
+    & .legacy__box__form {
         margin-top: 50px;
-    }
-    &-payment {
-        width: 1232px;
-        height: 400px;
-        background: rgba(0, 0, 0, 0.2);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 2px;
-        margin-top: 16px;
-    }
-    &-action {
-        margin-top: 40px;
-        button {
-            width: 450px;
-            height: 70px;
-            background: #1CF1FF;
+        &-info {
+            width: 1184px;
+            height: 280px;
+            padding: 24px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-top: 50px;
+        }
+        &-payment {
+            width: 1232px;
+            height: 400px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 2px;
-            border: none;
-            outline: none;
-            cursor: pointer;
+            margin-top: 16px;
+        }
+        &-action {
+            display: flex;
+            margin-top: 40px;
+            justify-content: center;
+            button {
+                width: 450px;
+                height: 70px;
+                background: #1CF1FF;
+                border-radius: 2px;
+                border: none;
+                outline: none;
+                cursor: pointer;
+            }
         }
     }
 }
-@media screen and (max-height: 950px) {
-    .legacy__box__form {
-        &-info {
-            margin-top: 15px;
+@media screen and (max-width: 1700px) {
+    .legacyBoxContentSettings {
+        & .legacy__box__form {
+            transform: scale(0.9);
         }
-        &-payment {
-            height: 270px;
+    }
+}
+@media screen and (max-height: 975px) {
+    .legacyBoxContentSettings {
+        & .legacy__box__form {
+            margin-top: 0px;
+            transform: scale(0.8);
+            &-info { 
+                margin-top: -30px;
+            }
+        }
+    }
+}
+@media screen and (max-height: 870px) {
+    .legacyBoxContentSettings {
+        & .legacy__box__form {
+            transform: scale(0.75);
         }
     }
 }

@@ -1,79 +1,169 @@
+.newLand__content__description {
+  font-family: "Inter";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 636px;
+  height: 52px;
+  background: #323232;
+  color: #fff;
+  font-size: 20px;
+  line-height: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .newLand {
-    width: 100vw;
-    height: 100vh;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  text-transform: uppercase;
+
+  .buttonBack {
+    left: 20px;
+    top: 20px;
+  }
+  &__content {
+    position: relative;
     display: grid;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 24px;
-    text-transform: uppercase;
-    &__content {
-        display: grid;
-        grid-template-columns: 520px 1060px;
-        grid-column-gap: 16px;
-        padding: 20px;
-        width: 1596px;
-        height: 830px;
-        background: #323232;
-        border: 1px solid rgba(255, 255, 255, 0.14);
-        &__three-room {
-            background-size: cover;
-            &-scene {
-                margin-top: -600px;
-            }
-            &-selectBtn {
-                width: 40%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                margin-top: 150px;
-                margin-left: 35%;
-            }
-        }
+    grid-template-columns: 520px 1060px;
+    grid-column-gap: 16px;
+    padding: 20px;
+    width: 1596px;
+    height: 830px;
+    background: #323232;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    &__description {
+      position: absolute;
+      top: -55px;
+      left: -1px;
+      border-radius: 2px;
     }
+
+    &__three-room {
+      position: relative;
+      background-size: cover;
+      &__title {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.2);
+        align-items: center;
+        width: 377px;
+        height: 48px;
+        top: 25px;
+        left: 50%;
+        color: #fff;
+        font-family: "Inter";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 24px;
+        transform: translateX(-50%);
+        padding: 12px, 24px;
+        box-shadow: 0px 0px 86px rgba(255, 255, 255, 0.2);
+      }
+      &-scene {
+        margin-top: -600px;
+      }
+      &-selectBtn {
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 150px;
+        margin-left: 35%;
+        z-index: 1;
+      }
+    }
+  }
 }
 .room__canvas {
-    position: inherit;
-    width: 100%;
-    height: 830px;
+  position: inherit;
+  width: 100%;
+  height: 830px;
 }
 @media screen and (max-width: 1655px) {
-    .room__canvas {
+  .room__canvas {
+    height: 630px;
+  }
+  .newLand {
+    &__content {
+      width: 1296px;
+      height: 630px;
+      grid-template-columns: 420px 860px;
+    }
+  }
+}
+@media screen and (max-width: 1655px) {
+  .newLand {
+    &__content {
+      &__three-room {
         height: 630px;
-    }
-    .newLand {
-        &__content {
-            width: 1296px;
-            height: 630px;
-            grid-template-columns: 420px 860px;
+        &-scene {
+          margin-top: -500px;
         }
-    }
-}
-@media screen and (max-width: 1655px) {
-    .newLand {
-        &__content {
-            &__three-room { 
-                height: 630px;
-                &-scene {
-                    margin-top: -500px;
-                }
-                &-selectBtn {
-                    margin-top: 50px;
-                }
-            }
+        &-selectBtn {
+          margin-top: 50px;
         }
+      }
     }
+  }
 }
+
 @media screen and (max-width: 1490px) {
-    .newLand {
-        &__content {
-            grid-template-columns: 420px 660px;
-            width: 1096px;
-            height: 630px;
+  .room__canvas {
+    height: 566px;
+  }
+  .newLand__content__description {
+    width: 500px;
+    font-size: 15px;
+  }
+  .newLand {
+    margin-top: 30px;
+    &__content {
+      grid-template-columns: 420px 660px;
+      width: 1096px;
+      height: 570px;
+      &__three-room {
+        &__title {
+          width: 300px;
+          font-size: 15px;
+          height: 40px;
         }
+        &-scene {
+          margin-top: -455px;
+        }
+      }
+      &__info {
+        height: 500px;
+      }
     }
+  }
 }
+// @media screen and (max-width: 1440px) {
+//   .newLand {
+//     &__content {
+//       height: 520px;
+//       &__three-room {
+//         &__title {
+//           width: 300px;
+//           height: 35px;
+//         }
+//         &-scene {
+//           margin-top: -555px;
+//         }
+//       }
+//       &__info {
+//         height: 450px;
+//       }
+//     }
+//   }
+// }

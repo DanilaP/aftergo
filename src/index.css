@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /*background: url(./Icons/background.png);*/
@@ -11,15 +9,15 @@ body {
   overflow: hidden;
 }
 ::-webkit-scrollbar {
-  width: 1px;               /* ширина scrollbar */
+  width: 1px; /* ширина scrollbar */
 }
 ::-webkit-scrollbar-track {
-  background: transparent      /* цвет дорожки */
+  background: transparent; /* цвет дорожки */
 }
 ::-webkit-scrollbar-thumb {
-  background-color: transparent;    /* цвет плашки */
-  border-radius: 20px;       /* закругления плашки */
-  border: transparent  /* padding вокруг плашки */
+  background-color: transparent; /* цвет плашки */
+  border-radius: 20px; /* закругления плашки */
+  border: transparent; /* padding вокруг плашки */
 }
 
 canvas {
@@ -28,6 +26,6 @@ canvas {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
