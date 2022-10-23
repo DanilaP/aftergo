@@ -15,7 +15,7 @@ export const UserInfoTombStone = ({ userName, status, img }) => {
                 <span className='userInfoTombStone__info__freePlaces'>{status}</span>
             </div>
             <div className='userInfoTombStone__info__mediaContent'>
-                <div>
+                {/*<div>
                     <div className='userInfoTombStone__info-socialMedia' >
                         <img src={Discord} width="60%" height="60%"/>
                     </div>
@@ -30,7 +30,7 @@ export const UserInfoTombStone = ({ userName, status, img }) => {
                     <div className='userInfoTombStone__info-socialMedia' >
                         <img src={Facebook} width="60%" height="60%"/>
                     </div>
-                </div>
+                </div>*/}
             </div>
         </div>
     )

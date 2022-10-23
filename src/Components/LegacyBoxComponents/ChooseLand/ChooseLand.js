@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import MiniMap from '../../SceneComponents/MiniMap';
 import { InfoBlock } from '../ChoosePlace/components/info-block';
 import { SelectRoomImg } from '../ChoosePlace/components/select-room-img';
 import './ChooseLand.scss';
@@ -26,6 +27,7 @@ export default function ChooseLand() {
     }, [])
     return (
         <>
+        <MiniMap />
         <GoBackButton />
         <div className="choose__land__modal__boxs">
             <InfoBlock text={typeOfAccount?.type} />
