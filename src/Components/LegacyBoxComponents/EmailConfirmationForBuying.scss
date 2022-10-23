@@ -83,32 +83,10 @@
         }
     }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1700px) {
     .email__confirmation__modal__box {
         & .forget__box {
-            margin-top: 100px;
-        }
-    }
-}
-@media screen and (max-width: 500px) {
-    .email__confirmation__modal__box {
-        & .forget__box {
-            margin-top: 100px;
-
-            & .big__text {
-                font-size: 19px;
-            }
-            & .small__text {
-                font-size: 11px;
-            }
-            & .input__box {
-                & input {
-                    width: 40px;
-                    height: 43px;
-                    margin: 5px;
-                    font-size: 19px;
-                }
-            }
+            transform: scale(0.75);
         }
     }
 }

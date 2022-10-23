@@ -5,8 +5,7 @@
     backdrop-filter: blur(25px); 
     font-family: 'Inter';
     font-style: normal;
-    display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    display: flex;
     justify-content: center;
     justify-items: center;
     & .legacy__box__form {
@@ -39,6 +38,10 @@
                 border: none;
                 outline: none;
                 cursor: pointer;
+                text-transform: uppercase;
+                font-weight: 600;
+                font-style: normal;
+                font-size: 'Inter';
             }
         }
     }

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 import Info from './components/info';
+import { Stepper } from './components/stepper';
 import VariableTariffs from './components/variable-tariffs';
 import './LegacyBoxSettingFULL.scss';
 
@@ -17,10 +18,8 @@ function LegacyBoxSettingFULL() {
   const dispatch = useDispatch();
   const [forFriend, setForFriend] = useState(false);
 
-  const onSettingsChange = (checkbox) => {
-    if (checkbox.target.name === 'friend') {
-      setForFriend(!forFriend);
-    }
+  const onSettingsChange = (checkboxes) => {
+    setForFriend(checkboxes[2].status);
   }
   const goContinue = () => {
     if (!forFriend) {
@@ -36,6 +35,7 @@ function LegacyBoxSettingFULL() {
   return (
     <div className='legacyBoxContentSettings'>
       <GoBackButton />
+      <Stepper allStep={3} currentStep={1} />
       <div className='legacy__box__form'>
         <div className='legacy__box__form-info'>
           <Info 

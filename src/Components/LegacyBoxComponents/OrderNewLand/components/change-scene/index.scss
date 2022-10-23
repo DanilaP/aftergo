@@ -1,38 +1,41 @@
 .changeScenes {
-    width: 138px;
-    height: 292px;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background: rgba(0, 0, 0, 0.4);
-    margin-left: 85%;
-    backdrop-filter: blur(20px);
-    display: grid;
-    grid-template-columns: 100%;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    padding: 12px;
-    &__eachScene {
-        margin-bottom: 12px;
-        width: 128px;
-        height: 85px;
-        background-color: aliceblue;
-        cursor: pointer;
-    }
+  width: 138px;
+  height: 292px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  margin-left: 85%;
+  backdrop-filter: blur(20px);
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  padding: 12px;
+  &__eachScene {
+    margin-bottom: 12px;
+    width: 128px;
+    height: 85px;
+    background-color: aliceblue;
+    cursor: pointer;
+  }
+}
+.activeScene {
+  border: 2px solid #1cf1ff;
 }
 
 @media screen and (min-width: 1655px) {
-    .changeScenes {
-        margin-left: 84%;
-    }
+  .changeScenes {
+    margin-left: 84%;
+  }
 }
 @media screen and (max-width: 1655px) {
-    .changeScenes {
-        margin-left: 80%;
-    }
+  .changeScenes {
+    margin-left: 80%;
+  }
 }
 @media screen and (max-width: 1490px) {
-    .changeScenes {
-        margin-left: 75%;
-    }
+  .changeScenes {
+    margin-left: 75%;
+  }
 }

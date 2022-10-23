@@ -1,4 +1,4 @@
-.moreInfo__legacyRoom {
+.moreInfoSettings__legacyRoom {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -16,17 +16,5 @@
   }
   .qa {
     color: #ffffff66;
-  }
-}
-
-@media screen and (max-width: 1655px) {
-  .moreInfo__legacyRoom {
-    font-size: 15px;
-  }
-}
-@media screen and (max-width: 1490px) {
-  .moreInfo__legacyRoom {
-    height: 60px;
-    font-size: 15px;
   }
 }

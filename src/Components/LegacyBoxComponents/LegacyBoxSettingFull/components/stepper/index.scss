@@ -1,0 +1,21 @@
+.stepper__wrapper {
+    width: 200px;
+    height: 30px;
+    color: black;
+    display: flex;
+    top: 40px;
+    position: absolute;
+    gap: 12px;
+    &-activeStep {
+        width: 86px;
+        height: 6px;
+        background: #1CF1FF;
+        border-radius: 2px;
+    }
+    &-defaultStep {
+        width: 86px;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+    }
+}
