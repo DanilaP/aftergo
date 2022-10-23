@@ -14,9 +14,9 @@ const Map = props => {
     const canvasRef = React.useRef(null);
     const [sceneState, setSceneState] = React.useState(false);
 
-    const canvas = canvasRef.current;
-    const engine = new BABYLON.Engine(canvas, true);
     React.useEffect(() => {
+        const canvas = canvasRef.current;
+        const engine = new BABYLON.Engine(canvas, true);
 
        const createScene = () => {
            const scene = new BABYLON.Scene(engine);
@@ -99,6 +99,14 @@ const Map = props => {
                 });
             });
 
+            scene.onKeyboardObservable.add((kbInfo) => {
+                switch (kbInfo.type) {
+                case BABYLON.KeyboardEventTypes.KEYDOWN:
+                    if (kbInfo.event.key === 'f') engine.enterPointerlock();
+                    break;
+                }
+            });
+
            return scene
        }
 
@@ -127,14 +135,9 @@ const Map = props => {
 
     }, []);
 
-    const fullScreen = () => {
-        engine.enterPointerlock();
-    }
-
     return (
         <>
             <canvas
-                onDoubleClick={fullScreen}
                 ref={canvasRef}
                 {...ops}
                 {...props}
