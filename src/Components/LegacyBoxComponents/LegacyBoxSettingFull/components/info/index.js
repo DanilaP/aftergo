@@ -1,4 +1,3 @@
-import { PRIVELEGES_PRICES } from '../../../OrderNewLand/components/constants';
 import { MoreInfo } from '../../../OrderNewLand/components/moreInfo';
 import { LEGACY_BOX_FORM_OPTIONS } from '../../constants';
 import './index.scss';

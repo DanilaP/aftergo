@@ -37,6 +37,7 @@ import CreateFolderBox from "./Components/UserLegacyBox/CreateFolderBox";
 import ChooseLand from "./Components/LegacyBoxComponents/ChooseLand/ChooseLand";
 import MyPersonalData from "./Components/LegacyBoxComponents/MyPersonalData/MyPersonalData";
 import AboutUs from "./Components/LegacyBoxComponents/AboutUs";
+import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
 import Park from './Components/SceneComponents/Park';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -95,6 +96,7 @@ root.render(
             path="/SecondSubtitles"
             element={<SecondSubtitleComponent />}
           />
+          <Route path="/FriendPersonalData" element={<FriendPersonalData />} />
           <Route path="/ContinueButton" element={<ContinueButton />} />
           <Route path="/FirstEnterMenu" element={<FirstEnterMenu />} />
           <Route path="/LegacyBox" element={<LegacyBox />} />
