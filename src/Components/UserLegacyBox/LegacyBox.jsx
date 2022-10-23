@@ -283,10 +283,10 @@ function LegacyBox() {
         history("/Profile");
     }
     const goToBuying = () => {
-        history("/OrderNewLand");
+        history("/ChoosePlace");
     }
     const goToCemetry = () => {
-        history("/");
+        history("/Map");
     }
     const goToAboutUs = () => {
         history("/AboutUs");
@@ -316,6 +316,7 @@ function LegacyBox() {
                 <p>{legacyBoxName}</p>
                 <img onClick={createNewLegacyBoxName} className='change__name__image' src = {pencil}/>
             </div>
+            <div className='boxex'>Box 1</div>
             <div className={inFolder ? "step__active" : "step__not__active"} onClick={goBackToFolder}>Step back</div>
             <div onClick={goToProfile} className="profile__button"><img width={"80px"} height = {"80px"} src = {profileImage}/></div>
             <div onClick={goToAboutUs} className="support__button"><img width={"80px"} height = {"80px"} src = {aboutUsImage}/></div>
@@ -381,8 +382,8 @@ function LegacyBox() {
                     <div className='open__info__button'>OPEN</div>
                 </div>
                 <div className="legacy__storage__size">
-                    <progress max={100} value = {20}></progress>
-                    <div>free 24 GB of 30 GB</div>
+                    <progress max={100} value = {0}></progress>
+                    <div>free 30 GB of 30 GB</div>
                 </div>
                 <div className="images__stone__map">
                     <img className='map__img' src = {map} />

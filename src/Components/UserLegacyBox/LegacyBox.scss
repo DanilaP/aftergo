@@ -29,7 +29,21 @@
         flex-direction: column;
         margin-top: 610px;
         margin-right: 52px;
+        font-family: 'Inter';
         
+        & .boxex {
+            position: absolute;
+            margin-top: -595px;
+            font-size: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            &:hover {
+                cursor: pointer;
+                background-color: #1CF1FF;
+                color: black;
+                font-size: 15px;
+                box-shadow: 0px 0px 33px rgba(28, 241, 255, 0.25);
+            }
+        }
         & div {
             display: flex;
             align-items: center;
@@ -403,6 +417,7 @@
                     cursor: pointer;
                     background-color: #1CF1FF;
                     color: black;
+                    box-shadow: 0px 0px 33px rgba(28, 241, 255, 0.25);
                 }
             }
         }
@@ -443,6 +458,7 @@
                     cursor: pointer;
                     background-color: #1CF1FF;
                     color: black;
+                    box-shadow: 0px 0px 33px rgba(28, 241, 255, 0.25);
                 }
             }
         }
