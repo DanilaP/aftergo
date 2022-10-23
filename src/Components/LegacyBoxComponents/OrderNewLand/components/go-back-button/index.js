@@ -8,7 +8,7 @@ export const GoBackButton = ({ classname }) => {
   const location = useLocation();
   const goBack = () => {
     if (location.pathname === "/OrderNewLand") {
-      return history("/");
+      return history("/Map");
     }
     if (lastRouteMenu.length !== 3) {
       history(lastRouteMenu);
