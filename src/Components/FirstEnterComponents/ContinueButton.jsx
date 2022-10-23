@@ -2,13 +2,13 @@ import './ContinueButton.scss';
 import { useNavigate } from 'react-router-dom';
 
 function ContinueButton() {
-  const history = useNavigate();
-  const goNext = () => {
-    history("/FirstEnterMenu");
-  }
+  // const history = useNavigate();
+  // const goNext = () => {
+  //   history("/FirstEnterMenu");
+  // }
   return (
     <div className="continueButton">
-        <button onClick={goNext} className='contButton'>CONTINUE AFTERGO</button>
+        <button className='contButton'>CONTINUE AFTERGO</button>
     </div>
   );
 }

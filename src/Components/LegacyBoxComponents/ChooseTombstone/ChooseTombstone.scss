@@ -22,7 +22,8 @@
     height: 100vh;
     background: rgba(0, 0, 0, 0.38);
     backdrop-filter: blur(25px);
-
+    display: grid;
+    align-items: center;
     & .header {
         padding-top: 20px;
         display: grid;
@@ -123,11 +124,11 @@
             }
         }
     }
-    & .cont__button {
+    & .cont__button__1 {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: 40px;
+        height: 250px;
 
         & button {
             width: 116px;
@@ -136,6 +137,7 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.25);
             color: white;
+            margin-top: -80px;
 
             &:hover {
                 border: 1px solid #1CF1FF;
@@ -146,7 +148,7 @@
     }
 }
 
-@media screen and (max-height: 960px) {
+/*@media screen and (max-height: 960px) {
     .choose__tombstone__modal__box {
        & .choose__tombstone__slider {
             width: 846px;
@@ -172,5 +174,26 @@
             }
         }
        }
+    }
+}*/
+@media screen and (max-width: 1700px) {
+    .choose__tombstone__slider {
+        transform: scale(0.8);
+    }
+    .cont__button__1 { 
+        margin-top: -100px;
+    }
+}
+@media screen and (max-width: 1600px) {
+    .choose__tombstone__slider {
+        margin-top: 50px;
+        transform: scale(0.7);
+    }
+    .cont__button__1 { 
+        transform: scale(0.8);
+        margin-top: -140px;
+    }
+    .media__div {
+        margin-top: -50px;
     }
 }

@@ -22,15 +22,19 @@ function ChooseTombstone() {
     const continueToNext = () => {
         dispatch({ type: "SET_SELECTED_TOMBSTONE", payload: imagesMassive[numberOfTomb - 1] });
         dispatch({ type: "LASTROUTEMENU", payload: '/ChooseTombStone' });
-        history("/CustomTombstoneDesign");
+        if (numberOfTomb === imagesMassive.length) {
+            history("/CustomTombstoneDesign");
+        } else {
+            history("/LegacyBoxSettingFULL");
+        }
     }
     const toPrev = () => {
         history(lastRoute);
     }
     useEffect(() => {
-        getAllTombstonesInfo().then(res => {
+        /*getAllTombstonesInfo().then(res => {
             setImagesMassive([...res.data, ...res.data]);
-        });
+        });*/
         dispatch({ type: "LASTROUTEMENU", payload: '/ChooseLand' });
     }, [])
     const chooseTomb = (vector) => {
@@ -56,6 +60,7 @@ function ChooseTombstone() {
         <div className="header">
             <GoBackButton />
         </div>
+        <div className="media__div">
         <div className="choose__tombstone__slider">
             <div className="slider__images">
                 <div className='header'>CHOOSE TOMBSTONE</div>
@@ -64,7 +69,7 @@ function ChooseTombstone() {
                         {`<`}
                     </button>
                     <div className="slider__image">
-                        <img src = {imagesMassive[numberOfTomb - 1]?.image} />
+                        <img src = {imagesMassive[numberOfTomb - 1]} />
                     </div>
                     <button className='second__btn' onClick={() => chooseTomb("next")}>
                         {`>`}
@@ -76,8 +81,9 @@ function ChooseTombstone() {
                 </div>
             </div>
         </div>
-        <div className="cont__button">
+        <div className="cont__button__1">
             <button onClick={continueToNext}>CONTINUE</button>
+        </div>
         </div>
     </div>
   );
