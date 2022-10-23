@@ -1,20 +1,19 @@
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import './index.scss';
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import "./index.scss";
 
-export const GoBackButton = () => {
+export const GoBackButton = ({ classname }) => {
+  const lastRouteMenu = useSelector((store) => store.lastRouteMenu);
+  const history = useNavigate();
 
-    const lastRouteMenu = useSelector(store => store.lastRouteMenu);
-    const history = useNavigate();
-
-    const goBack = () => {
-        if (lastRouteMenu.length !== 3) {
-            history(lastRouteMenu);
-        }
+  const goBack = () => {
+    if (lastRouteMenu.length !== 3) {
+      history(lastRouteMenu);
     }
-    return (
-        <div className="goBackButton" onClick={goBack}>
-            <div className='goBackButton__content'>{`<`}</div>
-        </div>
-    )
-}
+  };
+  return (
+    <div className={"goBackButton " + classname} onClick={goBack}>
+      <div className="goBackButton__content"></div>
+    </div>
+  );
+};

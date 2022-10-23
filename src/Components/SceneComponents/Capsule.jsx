@@ -1,7 +1,7 @@
 import React from "react";
-import * as BABYLON from '@babylonjs/core';
-import '@babylonjs/loaders';
-import '@babylonjs/materials';
+import * as BABYLON from "@babylonjs/core";
+import "@babylonjs/loaders";
+import "@babylonjs/materials";
 import { SkyMaterial } from "@babylonjs/materials";
 import { WaterMaterial } from "@babylonjs/materials";
 import ContinueButton from "../FirstEnterComponents/ContinueButton";
@@ -339,9 +339,9 @@ const Capsule = props => {
                     {sub2State ? <SecondSubtitleComponent/> : null}
                     {btnState ? <ContinueButton/> : null}
                 </div> : null
-            }
-        </>
-    );
-}
+        }
+    </>
+  );
+};
 
-export default Capsule
+export default Capsule;

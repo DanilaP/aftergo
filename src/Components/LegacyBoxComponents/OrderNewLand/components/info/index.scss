@@ -1,92 +1,121 @@
 @keyframes identifier {
-    from {
-        opacity: 0;
-    } to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 .info__legacyRoom {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 92%;
-    height: 517px;
-    padding: 20px;
-    background-color: #1C1C1C;
-    margin-top: 20px;
-    margin-bottom: 16px;
-    &-item {
-        &__value {
-           text-align: right;
-        }
-        &-default {
-            animation: identifier 1s;
-            display: grid;
-            grid-template-columns: 60% 40%;
-            align-items: center;
-            width: 97%;
-            height: 27px;
-            margin-top: 4px;
-            margin-bottom: 4px;
-            font-size: 12px;
-            line-height: 15px;
-            text-transform: uppercase;
-            color: #1C1C1C;
-            background: linear-gradient(90deg, #1CF1FF 43.33%, #FFFFFF 68.13%);
-            padding-left: 8px;
-            padding-right: 8px;
-        }
-        &-active {
-            animation: identifier 1s;
-            display: grid;
-            grid-template-columns: 60% 40%;
-            align-items: center;
-            width: 97%;
-            height: 27px;
-            margin-top: 4px;
-            margin-bottom: 4px;
-            font-size: 12px;
-            line-height: 15px;
-            text-transform: uppercase;
-            color: #1C1C1C;
-            background: linear-gradient(90deg, #1CF1FF 38.75%, #3CFF38 63.33%);
-            padding-left: 8px;
-            padding-right: 8px;
-        }
-        &-inactive {
-            animation: identifier 1s;
-            display: grid;
-            grid-template-columns: 60% 40%;
-            align-items: center;
-            width: 97%;
-            height: 27px;
-            margin-top: 4px;
-            margin-bottom: 4px;
-            font-size: 12px;
-            line-height: 15px;
-            text-transform: uppercase;
-            color: #1C1C1C;
-            background: linear-gradient(90deg, #1CF1FF 30.21%, #FF0000 80.1%);
-            padding-left: 8px;
-            padding-right: 8px;
-        }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 92%;
+  height: 517px;
+  padding: 20px;
+  background-color: #1c1c1c;
+  margin-top: 20px;
+  margin-bottom: 16px;
+  &-item {
+    &__value {
+      text-align: right;
     }
+    &-default {
+      box-sizing: border-box;
+      animation: identifier 1s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 27px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #1c1c1c;
+      background: linear-gradient(90deg, #1cf1ff 43.33%, #ffffff 68.13%);
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    &-active {
+      box-sizing: border-box;
+      animation: identifier 1s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 27px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      margin-right: 0;
+      margin-left: 0;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #1c1c1c;
+      background: linear-gradient(90deg, #1cf1ff 38.75%, #3cff38 63.33%);
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+    &-inactive {
+      box-sizing: border-box;
+      animation: identifier 1s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 27px;
+      margin-top: 4px;
+      margin-bottom: 4px;
+      font-size: 12px;
+      line-height: 15px;
+      text-transform: uppercase;
+      color: #1c1c1c;
+      background: linear-gradient(90deg, #1cf1ff 30.21%, #ff0000 80.1%);
+      padding-left: 8px;
+      padding-right: 8px;
+      .info__legacyRoom-item__value {
+        color: #fff;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 1655px) {
-    .info__legacyRoom {
-        width: 90.5%;
-        height: 317px;
-        &-item {
-            &-default {
-                font-size: 8px;
-            }
-            &-active {
-                font-size: 8px;
-            }
-            &-inactive {
-                font-size: 8px;
-            }
-        }
+  .info__legacyRoom {
+    width: 90.5%;
+    height: 317px;
+    &-item {
+      &-default {
+        font-size: 8px;
+      }
+      &-active {
+        font-size: 8px;
+      }
+      &-inactive {
+        font-size: 8px;
+      }
     }
+  }
+}
+@media screen and (max-width: 1490px) {
+  .info__legacyRoom {
+    width: 90.5%;
+    height: 317px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    &-item {
+      &-default {
+        font-size: 8px;
+      }
+      &-active {
+        font-size: 8px;
+      }
+      &-inactive {
+        font-size: 8px;
+      }
+    }
+  }
 }

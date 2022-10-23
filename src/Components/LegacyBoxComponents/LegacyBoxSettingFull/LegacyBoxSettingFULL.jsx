@@ -34,12 +34,13 @@ function LegacyBoxSettingFULL() {
     dispatch({ type: "LASTROUTEMENU", payload: '/ChooseTombStone' });
   }, [])
   return (
-    <div className='legacy__box__form'>
+    <div className='legacyBoxContentSettings'>
+      <GoBackButton />
+      <div className='legacy__box__form'>
         <div className='legacy__box__form-info'>
-          <GoBackButton />
           <Info 
             mainPhoto={selectedRoom?.image}
-            tombStonePhoto={selectedTombStone?.image}
+            tombStonePhoto={selectedTombStone}
             mapPhoto={selectedRoom?.image}
             selectedRoom={selectedTypeOfAccount}
             numberOfMap={selectedMapAreaNumber}
@@ -53,6 +54,7 @@ function LegacyBoxSettingFULL() {
         <div className='legacy__box__form-action'>
           <button onClick={goContinue}>Continue</button>
         </div>
+    </div>
     </div>
   );
 }
