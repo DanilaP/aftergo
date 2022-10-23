@@ -8,7 +8,7 @@ import legacy__room from '../../Icons/legacy__room__4.png';
 import map from '../../Icons/map.png';
 import tomb from '../../Icons/tombstoneExample.png';
 import supportImage from '../../Icons/Support.png';
-import shareImage from '../../Icons/share.png';
+import shareImage from '../../Icons/Share.png';
 import aboutUsImage from '../../Icons/AboutUs.png';
 import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';
@@ -24,11 +24,7 @@ import VideoPlayer from './VideoPlayer';
 import Loader from '../Loader/Loader';
 import Share from './Share';
 import txt from '../../Icons/txt.png';
-import word from '../../Icons/word.png';
-import pdf from '../../Icons/pdf.png';
-import excel from '../../Icons/excel.png';
 import pencil from '../../Icons/pencil__icon.png';
-import { useRef } from 'react';
 //
 function LegacyBox() {
     const history = useNavigate();
