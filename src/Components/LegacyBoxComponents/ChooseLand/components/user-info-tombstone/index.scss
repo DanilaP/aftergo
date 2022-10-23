@@ -1,6 +1,6 @@
 .userInfoTombStone {
     width: 467px;
-    height: 84px;
+    height: 80px;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     display: grid;
@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     display: grid;
-    grid-template-columns: 20% 80%;
+    grid-template-columns: 20% 60% 20%;
     padding: 8px;
     &__avatar {
         width: 100%;
@@ -33,6 +33,22 @@
             font-size: 20px;
             color: grey;
             margin-left: 32px;
+        }
+        &__mediaContent {
+            display: flex;
+            flex-direction: rows;
+        }
+        &-socialMedia {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            margin: 5px;
         }
     }
 }

@@ -1,6 +1,6 @@
 .legacyBox__info {
-    display: grid;
-    grid-template-columns: 40% 60%;
+    display: flex;
+    justify-items: space-between;
     height: 100%;
     font-family: 'Inter';
     font-style: normal;
@@ -10,7 +10,7 @@
     text-transform: uppercase;
     &-photos {
         display: grid;
-        grid-template-columns: 60% 40%;
+        grid-template-columns: 55% 45%;
         &-mainPhoto {
             img {
                 width: 100%;
@@ -30,6 +30,7 @@
     }
     &-main {
         padding-left: 16px;
+        width: 60%;
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 32% 66%;
@@ -73,8 +74,10 @@
                     margin-top: 6px;
                     font-size: 13px;
                     .checkbox__block {
-                        display: grid;
-                        grid-template-columns: 1fr 5fr;
+                        display: flex;
+                        //grid-template-columns: 2fr 6fr 4fr;
+                        gap: 10px;
+                        align-items: center;
                         color: white;
                         text-transform: none;
                         font-weight: 100;
@@ -100,4 +103,18 @@
             }
         }
     }
+}
+.checkbox {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid #FFFFFF;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alt {
+    cursor: pointer;
 }

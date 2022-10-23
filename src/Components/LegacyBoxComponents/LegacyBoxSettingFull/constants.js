@@ -1,7 +1,7 @@
 export const LEGACY_BOX_FORM_OPTIONS = [
-    { id: 1, text: 'Create NFT', value: 'nft' },
-    { id: 2, text: 'Private 50$', value: 'private' },
-    { id: 3, text: 'Gift to friend', value: 'friend' }
+    { id: 1, text: 'Create NFT', value: 'nft', status: false },
+    { id: 2, text: 'Private 50$', value: 'private', status: false },
+    { id: 3, text: 'Gift to friend', value: 'friend', status: false }
 ]
 export const LEGACY_BOX_TARIFFS = [
     { id: 1, name: 'Quarterly', period: 'every 3 months', price: '$16', selected: false },

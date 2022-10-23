@@ -2,6 +2,7 @@ import './ChoosePlace.scss';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import  MiniMap  from '../../SceneComponents/MiniMap';
 import { InfoBlock } from './components/info-block';
 import { ChooseMapAndArea } from './components/choose-map-and-area';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
@@ -33,6 +34,7 @@ function ChoosePlace() {
 
     return (
       <>
+      <MiniMap />
       <GoBackButton />
       <div className="choose__place__modal__box">
         <InfoBlock text={typeOfAccount?.type} />

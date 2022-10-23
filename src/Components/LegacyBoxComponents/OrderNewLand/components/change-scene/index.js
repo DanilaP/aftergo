@@ -3,9 +3,11 @@ import { useSelector } from "react-redux";
 import cn from "classnames";
 import "./index.scss";
 export const ChangeScene = ({ scenes, onChooseScene }) => {
+
   useEffect(() => {
     onChooseScene(scenes[0]);
   }, [scenes]);
+
   const currentScene = useSelector((state) => {
     return state.selectedRoom;
   });
@@ -18,7 +20,9 @@ export const ChangeScene = ({ scenes, onChooseScene }) => {
           className={cn("changeScenes__eachScene", {
             activeScene: el.id === currentScene?.id,
           })}
-          onClick={() => onChooseScene(scenes[index])}
+          onClick={() => {
+            onChooseScene(scenes[index]);
+          }}
         >
           <img
             src={scenes[index]?.image}

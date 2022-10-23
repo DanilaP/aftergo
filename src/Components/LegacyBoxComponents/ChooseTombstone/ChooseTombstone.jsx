@@ -41,17 +41,21 @@ function ChooseTombstone() {
         if (vector === "prev") {
             if (numberOfTomb === 1) {
                 setNumberOfTomb(imagesMassive.length);
+                return;
             }
             else {
-                setNumberOfTomb(imagesMassive.length-1);
+                setNumberOfTomb(numberOfTomb-1);
+                return;
             }
         }
         else if (vector === "next") {
             if (numberOfTomb === imagesMassive.length) {
                 setNumberOfTomb(1);
+                return;
             }
             else {
                 setNumberOfTomb(numberOfTomb+1);
+                return;
             }
         }
     }

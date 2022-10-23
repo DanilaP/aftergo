@@ -3,17 +3,23 @@ import { Input } from './components/Input';
 import { Message } from './components/Message';
 import { BlueCustomBtn } from '../OrderNewLand/components/blue-custom-btn';
 import { MyPersonalDefault } from './constants';
+import { Stepper } from '../LegacyBoxSettingFull/components/stepper';
 import './MyPersonalData.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoBackButton } from '../OrderNewLand/components/go-back-button';
+import { useNavigate } from 'react-router-dom';
 
 export default function MyPersonalData() {
 
     const [isValidForm, setIsValidForm] = useState(false);
     const dispatch = useDispatch();
+    const history = useNavigate();
     const [data, setData] = useState(MyPersonalDefault);
 
+    const goContinue = () => {
+        history('/EmailConfirmation');
+    }
     const formChange = (e) => {
         const newData = {...data, [e.name]: { name: e.name, value: e.value, error: e.value.length === 0 }};
         setData(newData);
@@ -29,6 +35,7 @@ export default function MyPersonalData() {
     }, [])
     return (
         <div className='myPersonalData'>
+            <Stepper allStep={3} currentStep={1} />
             <GoBackButton />
             <div className='myPersonalData__content'>
                 <div className='myPersonalData__content__header'>
@@ -50,7 +57,7 @@ export default function MyPersonalData() {
                     </div>
                 </div>
                 <div className='myPersonalData__action'>
-                    <BlueCustomBtn text="Continue" onClick={() => console.log()} disabled={!isValidForm} />
+                    <BlueCustomBtn text="Continue" onClick={() => goContinue()} disabled={!isValidForm} />
                 </div>
             </div>
         </div>
