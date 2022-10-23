@@ -52,7 +52,17 @@
             background: rgba(255, 255, 255, 0.17);
             text-align: center;
             margin-left: 10px;
-    
+            
+            &:hover {
+                cursor: pointer;
+                & .arrow_example_1 {
+                    cursor: pointer;
+                    width: 10px;
+                    height: 10px;
+                    border-top: 2px solid rgba(28, 241, 255, 0.4) !important;
+                    border-right: 2px solid rgba(28, 241, 255, 0.4) !important;
+                }
+            }
             & .arrow_example_1 {
                 width: 10px;
                 height: 10px;

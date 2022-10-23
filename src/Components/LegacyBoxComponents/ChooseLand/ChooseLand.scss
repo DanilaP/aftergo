@@ -24,3 +24,10 @@
         font-size: 14px;
     }
 }
+@media screen and (max-width: 1700px) {
+    .choose__land__modal__boxs {
+        transform: scale(0.7);
+        bottom: -42px;
+        right: -32px;
+    }
+}

@@ -24,7 +24,7 @@ function Support() {
         $api.post("https://aftergo-api-dev.azurewebsites.net/api/support", supportMessage)
         .then((response) => {
             console.log(response);
-            history("/ChooseLandMenu");
+            history(lastRoute);
         })
         .catch((error) => {
             console.log(error);

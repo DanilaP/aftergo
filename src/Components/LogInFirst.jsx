@@ -56,8 +56,8 @@ function LogInFirst() {
       <div>
         <div onClick={() => setQuestionActive(false)} className="third__modal__box">
             <div className="header">
-                <div className="arrow_box">
-                    <div onClick={toPrev} className="arrow_example_1"></div>
+                <div onClick={toPrev} className="arrow_box">
+                    <div className="arrow_example_1"></div>
                 </div>
                 <div onClick={(e) => e.stopPropagation()} className="questionBox">
                     <button onClick={openTextQuestion}>How to register</button>

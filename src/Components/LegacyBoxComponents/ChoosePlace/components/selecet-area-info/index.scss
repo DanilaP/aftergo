@@ -1,15 +1,26 @@
 .selectAreaInfo {
     width: 483px;
-    height: 100px;
+    height: 118px;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 2px;
     display: grid;
     text-align: center;
     align-items: center;
     justify-content: center;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
     &__info {
-        display: grid;
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        width: 463px;
+        height: 95px;
+        align-items: center;
+        justify-content: center;
+        justify-items: center;
+        border: 1px solid #1CF1FF;
+        border-radius: 2px;
         &__title {
             font-size: 24px;
         }

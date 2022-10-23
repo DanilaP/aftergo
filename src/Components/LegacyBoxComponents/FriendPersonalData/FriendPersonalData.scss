@@ -42,7 +42,12 @@
         &__groupInputs {
             display: grid;
             grid-template-rows: 1fr 1fr 1fr 1fr;
-            grid-row-gap: 25px;
+            grid-row-gap: 10px;
+        }
+        &__groupInputs-textarea {
+            display: grid;
+            grid-template-rows: 1fr 2.4fr 1fr;
+            grid-row-gap: 10px;
         }
         &__bigInput {
             height: 150px;
@@ -50,5 +55,13 @@
     }
     &__action {
         width: 50%;
+    }
+}
+
+@media screen  and (max-width: 1700px){
+    .friendPersonalData {
+        &__content {
+            transform: scale(0.8);
+        }
     }
 }
