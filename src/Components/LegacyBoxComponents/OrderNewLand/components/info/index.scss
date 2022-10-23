@@ -17,6 +17,31 @@
   margin-top: 20px;
   margin-bottom: 16px;
   &-item {
+    position: relative;
+    transition: 0.3s;
+    z-index: 1;
+    &:hover {
+      transform: scale(1.03);
+      cursor: pointer;
+      .info__legacyRoom-item__title,
+      .info__legacyRoom-item__value {
+        transform: scale(1.1);
+      }
+      .info__legacyRoom-item__suggestion {
+        display: flex;
+      }
+    }
+    &__suggestion {
+      display: none;
+      position: absolute;
+      left: 400px;
+      top: -100%;
+      z-index: 10;
+    }
+    &__title,
+    &__value {
+      transition: 0.2s;
+    }
     &__value {
       text-align: right;
     }
@@ -37,6 +62,9 @@
       background: linear-gradient(90deg, #1cf1ff 43.33%, #ffffff 68.13%);
       padding-left: 8px;
       padding-right: 8px;
+      .info__legacyRoom-item__suggestion {
+        // top: calc(-100px);
+      }
     }
     &-active {
       box-sizing: border-box;

@@ -16,7 +16,6 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Room from "../../SceneComponents/Room";
-import { Overlay } from "../../Overlay/Overlay";
 
 function OrderNewLand() {
   const [currTypeLagacyRoomId, setCurrTypeLagacyRoomId] = useState(0);
@@ -24,6 +23,7 @@ function OrderNewLand() {
   const [isCustomDesignModal, setIsCustomDesignModal] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState({});
   const [legacyRoomsInfo, setLegacyRoomsInfo] = useState([]);
+  const [isCustomRoom, setIsCustomRoom] = useState();
   const allPrivelegiusForActiveTariff = useSelector(
     (state) => state.allPrivelegiusForActiveTariff
   );
@@ -92,7 +92,9 @@ function OrderNewLand() {
         <div className="newLand__content__three-room">
           <div className="newLand__content__three-room-cont">
             <div className="newLand__content__three-room__title">
-              Custom legacy room design
+              {selectedRoom?.id === "d4c99579-98a9-4412-9c31-96923c5d6538"
+                ? "Custom legacy room design"
+                : "Legacy room design"}
             </div>
             <Room path={selectedRoom?.path} />
           </div>
