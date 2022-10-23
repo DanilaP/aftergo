@@ -1,7 +1,7 @@
 import './LogInFirst.scss';
 import store from '../store';
 import { useSelector } from 'react-redux';
-import logoImg from '../Icons/logoImg.png';
+import logoImg from '../Icons/logo.png';
 import discord from '../Icons/discordIcon.png';
 import google from '../Icons/iconGoogle.png';
 import facebook from '../Icons/facebookIcon.png';
@@ -83,11 +83,8 @@ function LogInFirst() {
             <div className='main__part__of__content'>
                 <div className="register__box">
                     <div className="content">
-                        <div className="logo__text">
-                            AFTERGO
-                        </div>
                         <div className="logo__img">
-                            <img src = {logoImg} width = {"20px"} height = {"35px"}/>
+                            <img src = {logoImg} width = {"60px"} height = {"80px"}/>
                         </div>
                     </div>
                     <div className="form__inputs">
