@@ -22,9 +22,9 @@ const Capsule = props => {
     const [sceneState, setSceneState] = React.useState(false);
     const [count, setCount] = React.useState(0);
 
-    const canvas = canvasRef.current;
-    const engine = new BABYLON.Engine(canvas, true);
     React.useEffect(() => {
+        const canvas = canvasRef.current;
+        const engine = new BABYLON.Engine(canvas, true);
 
        const createScene = () => {
            const scene = new BABYLON.Scene(engine);
@@ -280,6 +280,14 @@ const Capsule = props => {
                }
            });
 
+           scene.onKeyboardObservable.add((kbInfo) => {
+                switch (kbInfo.type) {
+                case BABYLON.KeyboardEventTypes.KEYDOWN:
+                    if (kbInfo.event.key === 'f') engine.enterPointerlock();
+                    break;
+                }
+            });
+
            return scene
        }
 
@@ -287,6 +295,8 @@ const Capsule = props => {
        const resize = () => {
           engine.resize();
        }
+
+       document.getElementsByTagName('canvas').onDoubleClick = () => engine.enterFullscreen();
 
        scene.executeWhenReady(() => {
         setSceneState(true);
@@ -308,9 +318,9 @@ const Capsule = props => {
 
     }, []);
 
-    const fullScreen = () => {
-        engine.enterPointerlock();
-    }
+    // const fullScreen = () => {
+    //     engine.enterPointerlock();
+    // }
 
     const clickHandle = () => {
         setCount(count + 1);
@@ -325,7 +335,7 @@ const Capsule = props => {
     return (
         <>
             <canvas
-                onDoubleClick={fullScreen}
+                // onDoubleClick={fullScreen}
                 ref={canvasRef}
                 {...ops}
                 {...props}
