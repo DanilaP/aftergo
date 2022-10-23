@@ -3,17 +3,20 @@ import * as BABYLON from '@babylonjs/core';
 import '@babylonjs/loaders';
 import '@babylonjs/materials';
 import { SkyMaterial } from "@babylonjs/materials";
+import FirstWindow from "../FirstWindow/firstWindow";
+import FirstEnterMenu from "../FirstEnterComponents/FirstEnterMenu";
 
 const ops = {};
 ops.width = window.innerWidth;
 ops.height = window.innerHeight;
 
-const Park = props => {
+const Map = props => {
     const canvasRef = React.useRef(null);
+    const [sceneState, setSceneState] = React.useState(false);
 
+    const canvas = canvasRef.current;
+    const engine = new BABYLON.Engine(canvas, true);
     React.useEffect(() => {
-       const canvas = canvasRef.current;
-       const engine = new BABYLON.Engine(canvas, true);
 
        const createScene = () => {
            const scene = new BABYLON.Scene(engine);
@@ -77,7 +80,7 @@ const Park = props => {
                 nodeMat_water.build(true);
             });
 
-           BABYLON.SceneLoader.ImportMesh("","./models/", "map_low.glb", undefined, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("","./models/map/", "map_low.glb", undefined, (meshes) => {
                 meshes[0].position.y = -10.3;
                 meshes.forEach(mesh => {
                     mesh.material = nodeMat_map;
@@ -85,7 +88,7 @@ const Park = props => {
                     mesh.checkCollisions = true;
                 });
             });
-            BABYLON.SceneLoader.ImportMesh("","./models/", "map_high.glb", undefined, (meshes) => {
+            BABYLON.SceneLoader.ImportMesh("","./models/map/", "map_high.glb", undefined, (meshes) => {
                 meshes[0].position.y = -10.3;
                 meshes.forEach(mesh => {
                     if (mesh.name === 'geo5_primitive0') mesh.material = nodeMat_grass;
@@ -104,6 +107,10 @@ const Park = props => {
           engine.resize();
        }
 
+       scene.executeWhenReady(() => {
+        setSceneState(true);
+       });
+
        engine.runRenderLoop(() => {
            scene.render();
        });
@@ -120,15 +127,26 @@ const Park = props => {
 
     }, []);
 
+    const fullScreen = () => {
+        engine.enterPointerlock();
+    }
+
     return (
         <>
             <canvas
+                onDoubleClick={fullScreen}
                 ref={canvasRef}
                 {...ops}
                 {...props}
             ></canvas>
+            {
+                <FirstEnterMenu/>
+            }
+            {
+                sceneState ? null : <FirstWindow/>
+            }
         </>
     );
 }
 
-export default Park
+export default Map

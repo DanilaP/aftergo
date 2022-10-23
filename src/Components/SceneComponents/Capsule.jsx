@@ -7,7 +7,7 @@ import { WaterMaterial } from "@babylonjs/materials";
 import ContinueButton from "../FirstEnterComponents/ContinueButton";
 import FirstSubtitleComponent from "../FirstEnterComponents/FirstSubtitleComponent";
 import SecondSubtitleComponent from "../FirstEnterComponents/SecondSubtitleComponent";
-import FirstEnterMenu from "../FirstEnterComponents/FirstEnterMenu";
+import FirstWindow from "../FirstWindow/firstWindow";
 
 const ops = {};
 ops.width = window.innerWidth;
@@ -19,12 +19,12 @@ const Capsule = props => {
     const [sub2State, setSub2State] = React.useState(false);
     const [btnState, setBtnState] = React.useState(false);
     const [modalState, setModalState] = React.useState(false);
-    const [menuState, setMenuState] = React.useState(false);
+    const [sceneState, setSceneState] = React.useState(false);
     const [count, setCount] = React.useState(0);
 
+    const canvas = canvasRef.current;
+    const engine = new BABYLON.Engine(canvas, true);
     React.useEffect(() => {
-       const canvas = canvasRef.current;
-       const engine = new BABYLON.Engine(canvas, true);
 
        const createScene = () => {
            const scene = new BABYLON.Scene(engine);
@@ -46,7 +46,7 @@ const Capsule = props => {
            skySphere.material.turbidity = 18;
            skySphere.material.useSunPosition = true;
         //    skySphere.material.sunPosition = new BABYLON.Vector3(0, 5, -50);
-           skySphere.material.sunPosition = new BABYLON.Vector3(0, 8, -50);
+           skySphere.material.sunPosition = new BABYLON.Vector3(0, 11, -50);
 
            const light = new BABYLON.SpotLight("spotLight", new BABYLON.Vector3(0, 0, 0), new BABYLON.Vector3(0, -1, 5), Math.PI / 2, 10, scene);
            light.position = new BABYLON.Vector3(0, 4, -25);
@@ -131,35 +131,36 @@ const Capsule = props => {
                distance < 10 ? setModalState(true) : setModalState(false);
            });
 
-           BABYLON.SceneLoader.ImportMesh("","./models/", "room.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("","./models/capsule/", "room.glb", scene, (meshes) => {
                scene.animationGroups.forEach(a => {
                    a.loopAnimation = false;
                    a.speedRatio = .3;
                });
                meshes[0].receiveShadows = true;
                meshes.forEach(mesh => {
+                    console.log(mesh);
                    mesh.receiveShadows = true;
                    shadowMap.renderList.push(mesh);
                    waterMaterial.addToRenderList(mesh);
-                   if (mesh.material) {
+                   if (mesh.material && mesh.name !== 'quickmaterial1.001_primitive1') {
                        mesh.material = nodeMat_room;
                    }
                });
            });
 
-           BABYLON.SceneLoader.ImportMesh("","./models/", "collider.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("","./models/capsule/", "collider.glb", scene, (meshes) => {
                meshes.map(mesh => {
                    mesh.checkCollisions = true;
                    mesh.isVisible = false;
                });
            });
 
-           BABYLON.SceneLoader.ImportMesh("","./models/", "LOGO.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("","./models/capsule/", "LOGO.glb", scene, (meshes) => {
             //    shadowGenerator.addShadowCaster(meshes[0]);
                shadowMap.renderList.push(meshes[0]);
                meshes[0].receiveShadows = true;
            });
-           BABYLON.SceneLoader.ImportMesh("","./models/", "info.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("","./models/capsule/", "info.glb", scene, (meshes) => {
             //    shadowGenerator.addShadowCaster(meshes[0]);
                shadowMap.renderList.push(meshes[0]);
                meshes[0].receiveShadows = true;
@@ -173,7 +174,7 @@ const Capsule = props => {
                nodeMat_ground.build(true);
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "ground.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "ground.glb", scene, (meshes) => {
                meshes[0].receiveShadows = true;
                meshes.forEach(mesh => {
                    mesh.receiveShadows = true;
@@ -183,14 +184,14 @@ const Capsule = props => {
                });
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "TV.glb", scene);
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "TV.glb", scene);
 
            const nodeMat_walls = new BABYLON.NodeMaterial("nodeMat_walls", scene);
            nodeMat_walls.loadAsync("./textures/nm12.json").then(() => {
                nodeMat_walls.build(true);
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "walls2.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "walls2.glb", scene, (meshes) => {
                meshes[0].receiveShadows = true;
                meshes.forEach(mesh => {
                    mesh.receiveShadows = true;
@@ -201,7 +202,7 @@ const Capsule = props => {
                });
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "Grass_type_1.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "Grass_type_1.glb", scene, (meshes) => {
                const parent = meshes[0];
                const blade = parent.getChildMeshes()[0];
                blade.setParent(null);
@@ -227,7 +228,7 @@ const Capsule = props => {
                }
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "Grass_type_2.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "Grass_type_2.glb", scene, (meshes) => {
                const parent = meshes[0];
                const blade = parent.getChildMeshes()[0];
                blade.setParent(null);
@@ -253,7 +254,7 @@ const Capsule = props => {
                }
            });
 
-           BABYLON.SceneLoader.ImportMesh("", "./models/", "Fern.glb", scene, (meshes) => {
+           BABYLON.SceneLoader.ImportMesh("", "./models/capsule/", "Fern.glb", scene, (meshes) => {
                const parent = meshes[0];
                const blade = parent.getChildMeshes()[0];
                blade.setParent(null);
@@ -287,6 +288,10 @@ const Capsule = props => {
           engine.resize();
        }
 
+       scene.executeWhenReady(() => {
+        setSceneState(true);
+       });
+
        engine.runRenderLoop(() => {
            scene.render();
        });
@@ -303,12 +308,16 @@ const Capsule = props => {
 
     }, []);
 
+    const fullScreen = () => {
+        engine.enterPointerlock();
+    }
+
     const clickHandle = () => {
         setCount(count + 1);
         switch(count) {
             case 0: return setSub1State(false) & setSub2State(true);
             case 1: return setSub2State(false) & setBtnState(true);
-            case 2: return setBtnState(false) & setMenuState(true);
+            case 2: return setBtnState(false);
             default: return null;
         }
     }
@@ -316,16 +325,19 @@ const Capsule = props => {
     return (
         <>
             <canvas
+                onDoubleClick={fullScreen}
                 ref={canvasRef}
                 {...ops}
                 {...props}
             ></canvas>
             {
+                sceneState ? null : <FirstWindow/>
+            }
+            {
                 modalState ? <div onClick={clickHandle}>
                     {sub1State ? <FirstSubtitleComponent/> : null}
                     {sub2State ? <SecondSubtitleComponent/> : null}
                     {btnState ? <ContinueButton/> : null}
-                    {menuState ? <FirstEnterMenu/> : null}
                 </div> : null
             }
         </>

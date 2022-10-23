@@ -10,7 +10,7 @@ function FirstEnterMenu() {
       case "legacy__map": return;
       case "log__in": history("/LogInFirst");
       case "about__us": return;
-      case "return__to__the__world": history("/Park");
+      case "return__to__the__world": history("/");
     }
   } 
   const goToGift = () => {
