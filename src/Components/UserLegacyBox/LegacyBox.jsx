@@ -8,7 +8,7 @@ import legacy__room from '../../Icons/legacy__room__4.png';
 import map from '../../Icons/map.png';
 import tomb from '../../Icons/tombstoneExample.png';
 import supportImage from '../../Icons/Support.png';
-import shareImage from '../../Icons/Share.png';
+import shareImage from '../../Icons/share.png';
 import aboutUsImage from '../../Icons/AboutUs.png';
 import profileImage from '../../Icons/Profile.png';
 import { useEffect } from 'react';

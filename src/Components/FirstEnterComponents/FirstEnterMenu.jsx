@@ -24,7 +24,7 @@ function FirstEnterMenu() {
   const goToAboutUs = () => {
     store.dispatch({type: "ABOUTUSBACKTOFIRST", payload: true});
     history("/AboutUs");
-}
+  }
   return (
     <div className="firstEnterMenu">
        <div className="head__content">
@@ -36,7 +36,7 @@ function FirstEnterMenu() {
             </div>
        </div>
        <div className="menu">
-            <div onClick={() => goToAnotherRoute("legacy__map")} id = "legacy__map__button">metaverse Legacy map</div>
+            <div onClick={goToGift} id = "legacy__map__button">metaverse Legacy map</div>
             <div onClick={goToGift} className="menu__item">gift to friend</div>
             <div onClick={() => goToAnotherRoute("log__in")} className="menu__item">Log in</div>
             <div onClick={goToAboutUs} className="menu__item">about us</div>
