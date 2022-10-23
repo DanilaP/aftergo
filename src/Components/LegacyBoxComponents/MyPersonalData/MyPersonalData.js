@@ -35,7 +35,7 @@ export default function MyPersonalData() {
     }, [])
     return (
         <div className='myPersonalData'>
-            <Stepper allStep={3} currentStep={1} />
+            <Stepper allStep={3} currentStep={2} />
             <GoBackButton />
             <div className='myPersonalData__content'>
                 <div className='myPersonalData__content__header'>

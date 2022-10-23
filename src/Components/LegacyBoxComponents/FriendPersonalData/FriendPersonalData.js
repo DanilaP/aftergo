@@ -31,7 +31,7 @@ export default function FriendPersonalData() {
     }, [])
     return (
         <div className='friendPersonalData'>
-            <Stepper allStep={3} currentStep={1} />
+            <Stepper allStep={3} currentStep={2} />
             <GoBackButton />
             <div className='friendPersonalData__content'>
                 <div className='friendPersonalData__content__header'>
