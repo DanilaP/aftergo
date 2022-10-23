@@ -20,7 +20,9 @@ export const ChangeScene = ({ scenes, onChooseScene }) => {
           className={cn("changeScenes__eachScene", {
             activeScene: el.id === currentScene?.id,
           })}
-          onClick={() => onChooseScene(scenes[index])}
+          onClick={() => {
+            onChooseScene(scenes[index]);
+          }}
         >
           <img
             src={scenes[index]?.image}
