@@ -1,42 +1,42 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import store from './store';
-import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import FirstWindow from './Components/FirstWindow/firstWindow';
-import LogInFirst from './Components/LogInFirst';
-import RegistrationForGift from './Components/RegistrationForGift';
-import ForgetPasswordFirst from './Components/ForgetPasswordFirst';
-import ForgetPasswordCode from './Components/ForgetPasswordCode';
-import CreatePassword from './Components/createPassword';
-import ChooseLandMenu from './Components/LegacyBoxComponents/ChooseLandMenu';
-import OrderNewLand from './Components/LegacyBoxComponents/OrderNewLand/OrderNewLand';
-import ChoosePlace from './Components/LegacyBoxComponents/ChoosePlace/ChoosePlace';
-import ChooseTombstone from './Components/LegacyBoxComponents/ChooseTombstone/ChooseTombstone';
-import ChooseLegacyRoom from './Components/LegacyBoxComponents/ChooseLegacyRoom';
-import CustomDesignLegacyRoom from './Components/LegacyBoxComponents/CustomDesignLegacyRoom';
-import Support from './Components/LegacyBoxComponents/Support';
-import LegacyBoxSettingFULL from './Components/LegacyBoxComponents/LegacyBoxSettingFull/LegacyBoxSettingFULL';
-import LegacyBoxFriendData from './Components/LegacyBoxComponents/LegacyBoxFriendData';
-import CustomTombstoneDesign from './Components/LegacyBoxComponents/CustomTombstoneDesign';
-import EmailConfirmation from './Components/LegacyBoxComponents/EmailConfirmationForBuying';
-import SecondWindow from './Components/secondWindow';
-import Profile from './Components/ProfileComponents/Profile';
-import ProfileNetworkConnection from './Components/ProfileComponents/ProfileNetworkConnection';
-import SecondWindowMenu from './Components/secondWindowMenu';
-import Cropper from './Components/ProfileComponents/Cropper';
-import FirstSubtitleComponent from './Components/FirstEnterComponents/FirstSubtitleComponent';
-import SecondSubtitleComponent from './Components/FirstEnterComponents/SecondSubtitleComponent';
-import ContinueButton from './Components/FirstEnterComponents/ContinueButton';
-import FirstEnterMenu from './Components/FirstEnterComponents/FirstEnterMenu';
-import LegacyBox from './Components/UserLegacyBox/LegacyBox';
-import DeleteFileModalBox from './Components/UserLegacyBox/DeleteFileModalBox';
-import CreateFolderBox from './Components/UserLegacyBox/CreateFolderBox';
-import ChooseLand from './Components/LegacyBoxComponents/ChooseLand/ChooseLand';
-import MyPersonalData from './Components/LegacyBoxComponents/MyPersonalData/MyPersonalData';
-import AboutUs from './Components/LegacyBoxComponents/AboutUs';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import store from "./store";
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import FirstWindow from "./Components/FirstWindow/firstWindow";
+import LogInFirst from "./Components/LogInFirst";
+import RegistrationForGift from "./Components/RegistrationForGift";
+import ForgetPasswordFirst from "./Components/ForgetPasswordFirst";
+import ForgetPasswordCode from "./Components/ForgetPasswordCode";
+import CreatePassword from "./Components/createPassword";
+import ChooseLandMenu from "./Components/LegacyBoxComponents/ChooseLandMenu";
+import OrderNewLand from "./Components/LegacyBoxComponents/OrderNewLand/OrderNewLand";
+import ChoosePlace from "./Components/LegacyBoxComponents/ChoosePlace/ChoosePlace";
+import ChooseTombstone from "./Components/LegacyBoxComponents/ChooseTombstone/ChooseTombstone";
+import ChooseLegacyRoom from "./Components/LegacyBoxComponents/ChooseLegacyRoom";
+import CustomDesignLegacyRoom from "./Components/LegacyBoxComponents/CustomDesignLegacyRoom";
+import Support from "./Components/LegacyBoxComponents/Support";
+import LegacyBoxSettingFULL from "./Components/LegacyBoxComponents/LegacyBoxSettingFull/LegacyBoxSettingFULL";
+import LegacyBoxFriendData from "./Components/LegacyBoxComponents/LegacyBoxFriendData";
+import CustomTombstoneDesign from "./Components/LegacyBoxComponents/CustomTombstoneDesign";
+import EmailConfirmation from "./Components/LegacyBoxComponents/EmailConfirmationForBuying";
+import SecondWindow from "./Components/secondWindow";
+import Profile from "./Components/ProfileComponents/Profile";
+import ProfileNetworkConnection from "./Components/ProfileComponents/ProfileNetworkConnection";
+import SecondWindowMenu from "./Components/secondWindowMenu";
+import Cropper from "./Components/ProfileComponents/Cropper";
+import FirstSubtitleComponent from "./Components/FirstEnterComponents/FirstSubtitleComponent";
+import SecondSubtitleComponent from "./Components/FirstEnterComponents/SecondSubtitleComponent";
+import ContinueButton from "./Components/FirstEnterComponents/ContinueButton";
+import FirstEnterMenu from "./Components/FirstEnterComponents/FirstEnterMenu";
+import LegacyBox from "./Components/UserLegacyBox/LegacyBox";
+import DeleteFileModalBox from "./Components/UserLegacyBox/DeleteFileModalBox";
+import CreateFolderBox from "./Components/UserLegacyBox/CreateFolderBox";
+import ChooseLand from "./Components/LegacyBoxComponents/ChooseLand/ChooseLand";
+import MyPersonalData from "./Components/LegacyBoxComponents/MyPersonalData/MyPersonalData";
+import AboutUs from "./Components/LegacyBoxComponents/AboutUs";
 import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
 import Park from './Components/SceneComponents/Park';
 
@@ -131,6 +131,7 @@ root.render(
             path="/SecondSubtitles"
             element={<SecondSubtitleComponent />}
           />
+          <Route path="/FriendPersonalData" element={<FriendPersonalData />} />
           <Route path="/ContinueButton" element={<ContinueButton />} />
           <Route path="/FirstEnterMenu" element={<FirstEnterMenu />} />
           <Route path="/LegacyBox" element={<LegacyBox />} />

@@ -49,3 +49,11 @@
         width: 50%;
     }
 }
+
+@media screen  and (max-width: 1700px){
+    .myPersonalData {
+        &__content {
+            transform: scale(0.8);
+        }
+    }
+}

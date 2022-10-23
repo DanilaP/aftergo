@@ -7,6 +7,7 @@ import './FriendPersonalData.scss';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoBackButton } from '../OrderNewLand/components/go-back-button';
+import { TextArea } from './components/textarea';
 
 export default function FriendPersonalData() {
 
@@ -40,13 +41,13 @@ export default function FriendPersonalData() {
                 <div className='friendPersonalData__content__form'>
                     <div className='friendPersonalData__content__groupInputs'>
                         <Input placeholder="Name" name="Name" onChange={formChange} />
-                        <Input placeholder="Lastname" name="Lastname" onChange={formChange} />
+                        <Input placeholder="ConfirmEmail" name="ConfirmEmail" onChange={formChange} />
                         <Input placeholder="Email" name="Email" onChange={formChange} />
                         <Message text="This account will be automatically registered after purchase. An email will be sent with relevant username and password." />
                     </div>
-                    <div className='friendPersonalData__content__groupInputs'>
-                        <Input placeholder="Description" name="Description" onChange={formChange} />
-                        <Input placeholder="ConfirmEmail" name="ConfirmEmail" onChange={formChange} />
+                    <div className='friendPersonalData__content__groupInputs-textarea'>
+                        <Input placeholder="Lastname" name="Lastname" onChange={formChange} />
+                        <TextArea placeholder="Description" name="Description" onChange={formChange} />
                         <CheckSettings />
                     </div>
                 </div>

@@ -39,13 +39,13 @@ export default function MyPersonalData() {
                 </div>
                 <div className='myPersonalData__content__form'>
                     <div className='myPersonalData__content__groupInputs'>
-                        <Input placeholder="Name" name="Name" onChange={formChange} />
-                        <Input placeholder="Lastname" name="Lastname" onChange={formChange} />
+                        <Input placeholder="First name" name="Name" type="text" onChange={formChange} />
+                        <Input placeholder="Date" name="Date" type="date" onChange={formChange} />
                         <Message text="Your account will be automatically registered after purchase. An email will be sent with your username and password" />
                     </div>
                     <div className='myPersonalData__content__groupInputs'>
-                        <Input placeholder="Date" name="Date" onChange={formChange} />
-                        <Input placeholder="Description" name="Description" onChange={formChange} />
+                        <Input placeholder="Last name" name="Lastname" type="text" onChange={formChange} />
+                        <Input placeholder="Email" name="Email" type="text" onChange={formChange} />
                         <CheckSettings />
                     </div>
                 </div>
