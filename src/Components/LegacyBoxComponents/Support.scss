@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.38);
-    backdrop-filter: blur(60px);
+    backdrop-filter: blur(30px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,7 +112,8 @@
                 height: 70px;
                 margin: 8px;
                 color: #1CF1FF;
-                background-color: rgba(255, 255, 255, 0.04);
+                background: rgba(255, 255, 255, 0.04);
+                //background-color: rgba(255, 255, 255, 0.04);
                 border: 1px solid #1CF1FF;
                 border-radius: 2px;
                 font-family: "Inter";
@@ -126,6 +127,12 @@
         }
     }
 }
+@media screen and (max-width: 1700px) {
+    .support__box {
+        transform: scale(0.8);
+    }
+}
+/*
 @media screen and (max-width: 1440px) {
     .support__modal__box {
         & .support__box {
@@ -207,3 +214,4 @@
         }
     }
 }
+*/

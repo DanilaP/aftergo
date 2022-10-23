@@ -40,12 +40,47 @@ import AboutUs from "./Components/LegacyBoxComponents/AboutUs";
 import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
 import Park from './Components/SceneComponents/Park';
 
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<App/>}/>
+          <Route path="/FirstWindow" element={<FirstWindow/> }/>
+          <Route path="/SecondWindow" element={<SecondWindow/>}/>
+          <Route path="/LogInFirst" element={<LogInFirst/>}/>
+          <Route path="/RegistrationForGift" element={<RegistrationForGift/>}/>
+          <Route path="/ForgetPasswordFirst" element={<ForgetPasswordFirst/>}/>
+          <Route path="/ForgetPasswordCode" element={<ForgetPasswordCode/>}/>
+          <Route path="/CreatePassword" element={<CreatePassword/>}/>
+          <Route path="/LegacyBoxSettingFULL" element={<LegacyBoxSettingFULL/>}/>
+          <Route path="/ChooseLandMenu" element={<ChooseLandMenu/>}/>
+          <Route path="/OrderNewLand" element={<OrderNewLand/>}/>
+          <Route path="/ChoosePlace" element={<ChoosePlace/>}/>
+          <Route path="/ChooseTombstone" element={<ChooseTombstone/>}/>
+          <Route path="/ChooseLegacyRoom" element={<ChooseLegacyRoom/>}/>
+          <Route path="/CustomDesignLegacyRoom" element={<CustomDesignLegacyRoom/>}/>
+          <Route path="/Support" element={<Support/>}/>
+          <Route path="/LegacyBoxFriendData" element={<LegacyBoxFriendData/>}/>
+          <Route path="/CustomTombstoneDesign" element={<CustomTombstoneDesign/>}/>
+          <Route path="/EmailConfirmation" element={<EmailConfirmation/>}/>
+          <Route path="/Profile" element={<Profile/>}/>
+          <Route path="/ProfileNetworkConnection" element={<ProfileNetworkConnection/>}/>
+          <Route path="/SecondWindowMenu" element={<SecondWindowMenu/>}/>
+          <Route path="/Cropper" element={<Cropper/>}/>
+          <Route path="/FirstSubtitles" element={<FirstSubtitleComponent/> }/>
+          <Route path="/SecondSubtitles" element={<SecondSubtitleComponent/> }/>
+          <Route path="/ContinueButton" element={<ContinueButton/> }/>
+          <Route path="/FirstEnterMenu" element={<FirstEnterMenu/> }/>
+          <Route path="/LegacyBox" element={<LegacyBox/> }/>
+          <Route path='/DeleteFileModalBox' element={<DeleteFileModalBox/> }/>
+          <Route path='/CreateFolderBox' element={<CreateFolderBox /> }/>
+          <Route path='/ChooseLand' element={<ChooseLand /> }/>
+          <Route path='/MyPersonalData' element={<MyPersonalData /> }/>
+          <Route path='/AboutUs' element={<AboutUs /> }/>
+          <Route path='/FriendPersonalData' element={<FriendPersonalData /> }/>
           <Route path="/" element={<App />} />
           <Route path="/Park" element={<Park/> }/>
           <Route path="/FirstWindow" element={<FirstWindow />} />
