@@ -10,8 +10,8 @@ import SecondSubtitleComponent from "./Components/FirstEnterComponents/SecondSub
 import ContinueButton from "./Components/FirstEnterComponents/ContinueButton";
 import Capsule from "./Components/SceneComponents/Capsule";
 import Room from './Components/SceneComponents/Room';
-import PickPlace from './Components/SceneComponents/PickPlace';
-import Park from './Components/SceneComponents/Park';
+import MiniMap from './Components/SceneComponents/MiniMap';
+import Map from './Components/SceneComponents/Map';
 
 function App() {
   // const history = useNavigate();

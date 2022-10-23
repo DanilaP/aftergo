@@ -38,7 +38,7 @@ import ChooseLand from "./Components/LegacyBoxComponents/ChooseLand/ChooseLand";
 import MyPersonalData from "./Components/LegacyBoxComponents/MyPersonalData/MyPersonalData";
 import AboutUs from "./Components/LegacyBoxComponents/AboutUs";
 import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
-import Park from './Components/SceneComponents/Park';
+import Map from './Components/SceneComponents/Map';
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -49,6 +49,7 @@ root.render(
         <Routes>
           <Route path="/" element={<App/>}/>
           <Route path="/FirstWindow" element={<FirstWindow/> }/>
+          <Route path="/Map" element={<Map/> }/>
           <Route path="/SecondWindow" element={<SecondWindow/>}/>
           <Route path="/LogInFirst" element={<LogInFirst/>}/>
           <Route path="/RegistrationForGift" element={<RegistrationForGift/>}/>
@@ -82,7 +83,7 @@ root.render(
           <Route path='/AboutUs' element={<AboutUs /> }/>
           <Route path='/FriendPersonalData' element={<FriendPersonalData /> }/>
           <Route path="/" element={<App />} />
-          <Route path="/Park" element={<Park/> }/>
+          <Route path="/Map" element={<Map/> }/>
           <Route path="/FirstWindow" element={<FirstWindow />} />
           <Route path="/SecondWindow" element={<SecondWindow />} />
           <Route path="/LogInFirst" element={<LogInFirst />} />
