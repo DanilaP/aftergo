@@ -1,0 +1,103 @@
+.about__us__modal__box {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.38);
+    backdrop-filter: blur(30px);
+
+    & .main__box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 1263px;
+        height: 980px;
+        background: rgba(0, 0, 0, 0.46);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        margin-top: 80px;
+        font-family: 'Inter';
+        color: white;
+    }
+    & .close__button {
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        transform: scaleY(0.8);
+        margin-left: 1200px;
+        margin-top: -600px;
+
+        &:hover {
+            cursor: pointer;
+            color: aqua;
+        }
+    }
+    & .header {
+        font-size: 24px;
+        margin-bottom: 48px;
+        margin-top: 64px;
+    }
+    & .buttons {
+        margin-bottom: 130px;
+
+        & button {
+            width: 452px;
+            height: 48px;
+            color: white;
+            font-size: 14px;
+            font-family: 'Inter';
+            background: rgba(0, 0, 0, 0.16);
+            border: 2px solid white;
+            margin-right: 16px;
+
+            &:hover {
+                cursor: pointer;
+                color: black;
+                background: #1CF1FF;
+                box-shadow: 0px 0px 33px rgba(28, 241, 255, 0.25);
+                border: 0;
+            }
+        }
+    }
+    & .info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 212px;
+        position: absolute;
+        margin-left: -14px;
+        height: 660px;
+        overflow-y: scroll;
+
+        & .info__block {
+            width: 878px;
+            height: 165px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            padding: 24px;
+            margin-bottom: 8px;
+
+            & .head {
+                margin-bottom: 16px;
+                text-transform: uppercase;
+            }
+            & .main {
+                font-size: 14px;
+                font-weight: 400;
+                font-family: 'Inter';
+                font-style: normal;
+                line-height: 17px;
+                color: rgba(255, 255, 255, 0.88);
+            }
+        }
+    }
+}
+@media screen and (max-width: 1700px) {
+    .about__us__modal__box {
+        & .main__box {
+            transform: scale(0.7);
+        }
+    }
+}

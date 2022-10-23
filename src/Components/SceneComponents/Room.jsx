@@ -68,6 +68,7 @@ const Room = props => {
                 ref={canvasRef}
                 {...ops}
                 {...props}
+                className="room__canvas"
             ></canvas>
             {
                 sceneState ? null : <FirstWindow/>

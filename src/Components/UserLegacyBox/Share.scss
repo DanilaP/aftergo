@@ -1,0 +1,128 @@
+.share {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(20px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-family: 'Inter';
+    color: white;
+
+    & .share__box {
+        width: 611px;
+        height: 684px;
+        background: rgba(52, 52, 52, 0.5);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding-left: 75px;
+        padding-right: 75px;
+
+        & .big__text {
+            margin-top: 64px;
+            font-size: 24px;
+            text-align: center;
+        }
+        & input {
+            width: 422px;
+            height: 64px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 2px;
+            color: white;
+            border: 0px;
+            font-size: 20px;
+            outline: none;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            padding-left: 30px;
+
+            &::placeholder {
+                color: white;
+            }
+        }
+        & .input__box__share {
+            display: flex;
+
+            & button {
+                width: 155px;
+                height: 64px;
+                border: 0px;
+                background-color: rgba(28, 241, 255, 0.9);
+                margin-left: 2px;
+                margin-top: 49px;
+                font-family: "Inter";
+                
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        & .small__text__share {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            
+            & .number__of__friends {
+                margin-right: 0;
+            }
+            & div {
+                margin-right: 40px;
+            }
+        }
+    }
+    & .close__btn__share {
+        font-size: 35px;
+        color: white;
+        transform: scaleY(0.7);
+        margin-left: 650px;
+
+        &:hover {
+            color: rgba(28, 241, 255, 0.9);
+            cursor: pointer;
+        }
+    }
+    & .friends__box {
+        display: flex;
+        flex-direction: column;
+
+        & .friend {
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            padding-left: 60px;
+            background: rgba(217, 217, 217, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 2px;
+            width: 547px;
+            height: 54px;
+            margin-top: 30px;
+
+            & .avatar {
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                background-color: white;
+                margin-right: 40px;
+            }
+            & .remove {
+                display: flex;
+                width: 100px;
+                margin-left: auto;
+                margin-right: 30px;
+                & .point {
+                    margin-left: -30px;
+                    width: 150px;
+                }
+                &:hover {
+                    cursor: pointer;
+                    color: rgba(28, 241, 255, 0.9);
+
+                    & .point {
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

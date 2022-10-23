@@ -13,13 +13,13 @@ export const StringSlider = ({array, onChange}) => {
         }
     }
     useEffect(() => {
-        onChange(array[currStep]);
+        onChange(array[currStep], currStep);
     }, [currStep]);
 
     return (
         <div className='string__slider'>
             <div className='string__slider-btn' onClick={() => goToStep(currStep - 1)}>{'<'}</div>
-            <div className='string__slider-text'>{array[currStep]?.name}</div>
+            <div className='string__slider-text'>{array[currStep]?.type}</div>
             <div className='string__slider-btn' onClick={() => goToStep(currStep + 1)}>{'>'}</div>
         </div>
     )

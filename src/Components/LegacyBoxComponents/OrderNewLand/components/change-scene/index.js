@@ -8,9 +8,9 @@ export const ChangeScene = ({scenes, onChooseScene}) => {
     return (
         <div className='changeScenes'>
             {
-                scenes.map((el, index) => (
+                [...scenes, ...scenes].map((el, index) => (
                     <div className='changeScenes__eachScene' onClick={() => onChooseScene(scenes[index])}>
-                        <img src={scenes[index].img} width="100%" height="100%" />
+                        <img src={scenes[index]?.image} width="100%" height="100%" />
                     </div>
                 ))
             }

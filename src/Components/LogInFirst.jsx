@@ -43,7 +43,7 @@ function LogInFirst() {
         }
     }
     const toPrev = () => {
-        history(lastRoute);
+        history("/FirstEnterMenu");
     }
     const openForgetPasswordModal = () => {
         store.dispatch({type: "LASTROUTE", payload: "/LogInFirst"});
