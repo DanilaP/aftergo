@@ -1,15 +1,16 @@
 import './EmailConfirmationForBuying.scss';
 import store from '../../store';
 import { useSelector } from 'react-redux';
-import { Stepper } from './LegacyBoxSettingFull/components/stepper';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function EmailConfirmation() {
     const modalActive = useSelector(store => store.forgetPasswordCodeActive);
     const [inputActive, setInputActive] = useState(false);
+    const history = useNavigate();
 
     const continueToNext = () => {
-        
+        history('/ChooseTypeOfCurrency');
     }
     const setFocus = (el) => {
         setInputActive(true);
@@ -26,7 +27,6 @@ function EmailConfirmation() {
     }
   return (
         <div className="email__confirmation__modal__box">
-            <Stepper allStep={3} currentStep={3} />
             <div className="forget__box">
                 <div className="big__text">
                     EMAIL CONFIRMATION

@@ -9,12 +9,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { GoBackButton } from '../OrderNewLand/components/go-back-button';
 import { TextArea } from './components/textarea';
+import { useNavigate } from 'react-router-dom';
 
 export default function FriendPersonalData() {
 
     const [isValidForm, setIsValidForm] = useState(false);
     const dispatch = useDispatch();
     const [data, setData] = useState(MyPersonalDefault);
+    const history = useNavigate();
 
     const formChange = (e) => {
         const newData = {...data, [e.name]: { name: e.name, value: e.value, error: e.value.length === 0 }};
@@ -25,6 +27,9 @@ export default function FriendPersonalData() {
                 setIsValidForm(false);
             }
         })
+    }
+    const goToNext = () => {
+        history('/ChooseTypeOfCurrency');
     }
     useEffect(() => {
         dispatch({ type: "LASTROUTEMENU", payload: '/LegacyBoxSettingFULL' });
@@ -54,7 +59,7 @@ export default function FriendPersonalData() {
                     </div>
                 </div>
                 <div className='friendPersonalData__action'>
-                    <BlueCustomBtn text="Continue" onClick={() => console.log()} disabled={!isValidForm} />
+                    <BlueCustomBtn text="Continue" onClick={() => goToNext()} disabled={!isValidForm} />
                 </div>
             </div>
         </div>

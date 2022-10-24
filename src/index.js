@@ -39,6 +39,7 @@ import MyPersonalData from "./Components/LegacyBoxComponents/MyPersonalData/MyPe
 import AboutUs from "./Components/LegacyBoxComponents/AboutUs";
 import FriendPersonalData from './Components/LegacyBoxComponents/FriendPersonalData/FriendPersonalData';
 import Map from './Components/SceneComponents/Map';
+import ChooseTypeOfCurrency from "./Components/LegacyBoxComponents/ChooseTypeOfCurrency/ChooseTypeOfCurrency";
 
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -87,6 +88,7 @@ root.render(
           <Route path="/FirstWindow" element={<FirstWindow />} />
           <Route path="/SecondWindow" element={<SecondWindow />} />
           <Route path="/LogInFirst" element={<LogInFirst />} />
+          <Route path="/ChooseTypeOfCurrency" element={<ChooseTypeOfCurrency />} />
           <Route
             path="/RegistrationForGift"
             element={<RegistrationForGift />}
